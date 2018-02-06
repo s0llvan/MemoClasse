@@ -1,0 +1,34 @@
+stages:
+  - build
+  - test
+  - deploy
+
+test:
+  stage: test
+  only:
+    - master
+  script:
+    - npm install
+    - npm run test
+
+build:
+  stage: build
+  only:
+    - master
+  script:
+    - npm install
+    - ionic build
+
+deploy_android:on-schedule:
+  stage: deploy
+  only:
+    - schedules
+  script:
+    - npm install
+    - ionic cordova build android
+    - ls -l .
+    - date=$(date +%Y-%m-%d-%H-%M-%S)
+    - mv ./platforms/android/app/build/outputs/apk/debug/app-debug.apk ./platforms/android/app/build/outputs/apk/debug/app-debug-$date.apk
+    - ls ./platforms/android/app/build/outputs/apk/debug/
+    - lftp -e "put ./platforms/android/app/build/outputs/apk/debug/app-debug-'$date'.apk" -u $USERNAME,$PASSWORD $HOST -p $PORT
+    - echo $CI_BUILD_ID
