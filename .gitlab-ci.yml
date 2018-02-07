@@ -27,10 +27,11 @@ build:
     - npm install
     - ionic build
 
-deploy_android:on-schedule:
+deploy_android:
   stage: deploy
   only:
     - schedules
+    - tags
   script:
     - npm install
     - ionic cordova build android
@@ -40,3 +41,5 @@ deploy_android:on-schedule:
     - ls ./platforms/android/app/build/outputs/apk/debug/
     - lftp -e "put ./platforms/android/app/build/outputs/apk/debug/app-debug-'$date'.apk" -u $USERNAME,$PASSWORD $HOST -p $PORT
     - echo $CI_BUILD_ID
+  tags:
+    - release
