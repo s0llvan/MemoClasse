@@ -1,7 +1,7 @@
 stages:
-  - analyze
   - build
   - test
+  - analyze
   - deploy
 
 analyze:
