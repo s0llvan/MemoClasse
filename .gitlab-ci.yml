@@ -1,7 +1,15 @@
 stages:
+  - analyze
   - build
   - test
   - deploy
+
+analyze:
+  stage: analyze
+  only:
+    - master
+  script:
+    - /opt/sonar/bin/sonar-scanner -Dsonar.projectKey=memoclasse -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=lpdawin -Dsonar.login=1b8721d37581772df63ffc55d494c91c51ceea13
 
 test:
   stage: test
