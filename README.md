@@ -1,10 +1,10 @@
-# MemoClasse
+# MémoClasse
 
 [logo]:http://oi64.tinypic.com/eqthrq.jpg "Logo MemoClasse"
 
 [![pipeline status](https://gitlab-ce.iut.u-bordeaux.fr/photoEcole/MemoClasse/badges/master/pipeline.svg)](https://gitlab-ce.iut.u-bordeaux.fr/photoEcole/MemoClasse/commits/master)
 
-MemoClasse is an application which makes life easier for teachers. Children taking pictures of their work and MemoClasse send them to their parents !
+MémoClasse is an application which makes life easier for teachers. Children taking pictures of their work and MemoClasse send them to their parents !
 
 ## Application
 

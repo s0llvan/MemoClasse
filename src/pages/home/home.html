@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Camera
+      Photo
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -9,9 +9,9 @@
 <ion-content class="home">
   <ion-card>
      <ion-card-content>
-       Latest Picture:
-       <img alt="test" [src]="base64Image" *ngIf="base64Image" />
+       Dernière photo:
+       <img alt="La dernière photo" [src]="base64Image" *ngIf="base64Image" />
      </ion-card-content>
    </ion-card>
-    <button ion-button (click)="takePicture()">Take a Picture</button>
+    <button ion-button (click)="takePicture()">Prendre une photo</button>
 </ion-content>

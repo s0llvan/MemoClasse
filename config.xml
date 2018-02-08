@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MyApp</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <name>MémoClasse</name>
+    <description>MémoClasse is an application which makes life easier for teachers. Children taking pictures of their work and MemoClasse send them to their parents !</description>
+    <author email="" href="#">Pierre WROBLEWSKI / Evan SEVIN / Sullivan ROIRAND / Rémy TORRES / Antoine DETHIER</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -82,6 +82,6 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-camera-preview" spec="^0.9.0" />
-    <engine name="android" spec="~7.0.0" />
     <plugin name="cordova-plugin-camera" spec="^4.0.2" />
+    <engine name="android" spec="7.0.0" />
 </widget>
