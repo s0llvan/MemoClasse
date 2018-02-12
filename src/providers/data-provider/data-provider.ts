@@ -23,6 +23,10 @@ export class DataProvider {
         ];
     }
 
+    addStudent(student) {
+        this.students.push(student);
+    }
+
     updateStudent(student) {
         var foundStudents = this.students.filter((_student) => {
             return (_student.id == student.id);

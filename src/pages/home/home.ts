@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { EditStudentPage } from '../edit-student/edit-student'
+import { AddStudentPage } from '../add-student/add-student'
 import { DataProvider } from '../../providers/data-provider/data-provider';
 
 @Component({
@@ -30,5 +31,9 @@ export class HomePage {
 
     editStudent(student) {
         this.navCtrl.push(EditStudentPage, { student: student });
+    }
+
+    addStudent() {
+        this.navCtrl.push(AddStudentPage);
     }
 }

@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { Camera } from '@ionic-native/camera';
 import { EditStudentPage } from '../pages/edit-student/edit-student'
+import { AddStudentPage } from '../pages/add-student/add-student'
 
 import { DataProvider } from '../providers/data-provider/data-provider';
 
@@ -16,7 +17,8 @@ import { DataProvider } from '../providers/data-provider/data-provider';
     declarations: [
         MyApp,
         HomePage,
-        EditStudentPage
+        EditStudentPage,
+        AddStudentPage
     ],
     imports: [
         BrowserModule,
@@ -26,7 +28,8 @@ import { DataProvider } from '../providers/data-provider/data-provider';
     entryComponents: [
         MyApp,
         HomePage,
-        EditStudentPage
+        EditStudentPage,
+        AddStudentPage
     ],
     providers: [
         StatusBar,
