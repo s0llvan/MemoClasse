@@ -3,33 +3,23 @@ import { Camera } from '@ionic-native/camera';
 
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+    selector: 'page-home',
+    templateUrl: 'home.html'
 })
 export class HomePage {
-  public base64Image: string;
+    public students = [
+        { firstname: "John", lastname: "Doe"},
+        { firstname: "Jean", lastname: "Van Damme"},
+        { firstname: "Chris", lastname: "Markley"},
+        { firstname: "Jessica", lastname: "Roe"},
+        { firstname: "Michael", lastname: "Tang"},
+        { firstname: "Stacy", lastname: "Willard"},
+        { firstname: "Leonardo", lastname: "Mason"},
+        { firstname: "Lee", lastname: "Winters"},
+        { firstname: "Mary", lastname: "Wilson"},
+    ];
 
-  constructor(private camera: Camera) {
+    constructor(private camera: Camera) {
 
-  }
-
-  takePicture(){
-
-    this.camera.getPicture({
-      sourceType: this.camera.PictureSourceType.CAMERA,
-        destinationType: this.camera.DestinationType.DATA_URL,
-        encodingType: this.camera.EncodingType.JPEG,
-        mediaType: this.camera.MediaType.PICTURE
-  //      targetWidth: 1000,
-  //      targetHeight: 1000
-    }).then((imageData) => {
-      // imageData is a base64 encoded string
-        this.base64Image = "data:image/jpeg;base64," + imageData;
-    }, (err) => {
-        console.log(err);
-    });
-
-
-}
-
+    }
 }
