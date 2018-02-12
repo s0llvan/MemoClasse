@@ -1,0 +1,24 @@
+page-edit-student {
+
+    .student_edit {
+        font-size: 22px;
+    }
+
+    .student_edit .title {
+        color: $green;
+    }
+
+    .student_edit .content {
+        padding-top: 35px;
+    }
+
+    .student_edit .add_mail {
+        font-size: 35px;
+        text-align: center;
+    }
+
+    .student_edit .item-md .item-button {
+        padding: 20px;
+        font-size: 14px;
+    }
+}

@@ -10,8 +10,18 @@
     <ion-searchbar (ionInput)="searchStudent($event)"></ion-searchbar>
     <ion-grid>
         <ion-row>
+            <ion-col col-3>
+                <ion-card class="student student_new">
+                    <ion-icon name="add" class="student_new_icon" color="green"></ion-icon>
+                    <ion-card-content>
+                        <ion-card-title text-center>
+                            Nouveau
+                        </ion-card-title>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
             <ion-col col-3 *ngFor="let student of students;">
-                <ion-card class="student">
+                <ion-card class="student" (click)="editStudent(student)">
                     <img src="assets/imgs/default_student_icon.png" class="student_icon" alt="Student default logo"/>
                     <ion-card-content>
                         <ion-card-title text-center>

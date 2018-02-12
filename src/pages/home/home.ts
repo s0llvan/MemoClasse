@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Camera } from '@ionic-native/camera';
-
+import { NavController } from 'ionic-angular';
+import { EditStudentPage } from '../edit-student/edit-student'
+import { DataProvider } from '../../providers/data-provider/data-provider';
 
 @Component({
     selector: 'page-home',
@@ -10,26 +11,12 @@ export class HomePage {
 
     public students = [];
 
-    constructor(private camera: Camera) {
-        this.initializeStudents();
-    }
-
-    initializeStudents() {
-        this.students = [
-            { firstname: "John", lastname: "Doe"},
-            { firstname: "Jean", lastname: "Van Damme"},
-            { firstname: "Chris", lastname: "Markley"},
-            { firstname: "Jessica", lastname: "Roe"},
-            { firstname: "Michael", lastname: "Tang"},
-            { firstname: "Stacy", lastname: "Willard"},
-            { firstname: "Leonardo", lastname: "Mason"},
-            { firstname: "Lee", lastname: "Winters"},
-            { firstname: "Mary", lastname: "Wilson"},
-        ];
+    constructor(public navCtrl: NavController, private dataProvider: DataProvider) {
+        this.students = this.dataProvider.students;
     }
 
     searchStudent(ev: any) {
-        this.initializeStudents();
+        this.students = this.dataProvider.students;
 
         let val = ev.target.value;
 
@@ -39,5 +26,9 @@ export class HomePage {
                 return (student.firstname.toLowerCase().indexOf(val.toLowerCase()) > -1 || student.lastname.toLowerCase().indexOf(val.toLowerCase()) > -1);
             })
         }
+    }
+
+    editStudent(student) {
+        this.navCtrl.push(EditStudentPage, { student: student });
     }
 }
