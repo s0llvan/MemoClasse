@@ -18,44 +18,33 @@ import { DataProvider } from '../providers/data-provider/data-provider';
 export class MyApp {
     rootPage:any = HomePage;
 
-<<<<<<< HEAD
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    platform.ready().then(() => {
+    constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+      platform.ready().then(() => {
 
-      createConnection({
-        driver: {
-          type: "websql",
-          database: "test"
-        },
-        entities: [
-          Eleve,
-          Photo
-        ],
-        logging: {
-          logFailedQueryError: true,
-          logQueries: true,
-          logSchemaCreation: true,
-          logOnlyFailedQueries: true
-        },
-        autoSchemaSync: true,
-      });
+        createConnection({
+          driver: {
+            type: "websql",
+            database: "test"
+          },
+          entities: [
+            Eleve,
+            Photo
+          ],
+          logging: {
+            logFailedQueryError: true,
+            logQueries: true,
+            logSchemaCreation: true,
+            logOnlyFailedQueries: true
+          },
+          autoSchemaSync: true,
+        });
 
 
-        // here you can start to work with your entities
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
+          // here you can start to work with your entities
+        // Okay, so the platform is ready and our plugins are available.
+        // Here you can do any higher level native things you might need.
+        statusBar.styleDefault();
+        splashScreen.hide();
     });
   }
-=======
-    constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-        platform.ready().then(() => {
-            // Okay, so the platform is ready and our plugins are available.
-            // Here you can do any higher level native things you might need.
-            statusBar.styleDefault();
-            splashScreen.hide();
-        });
-    }
->>>>>>> 3efd8fd3d69ef934d915d459698ebbf71a879a99
 }
