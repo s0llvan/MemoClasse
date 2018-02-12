@@ -7,12 +7,12 @@
 </ion-header>
 
 <ion-content class="home">
-    <ion-searchbar></ion-searchbar>
+    <ion-searchbar (ionInput)="searchStudent($event)"></ion-searchbar>
     <ion-grid>
         <ion-row>
             <ion-col col-3 *ngFor="let student of students;">
                 <ion-card class="student">
-                    <img src="assets/imgs/default_student_icon.png" class="student_icon"/>
+                    <img src="assets/imgs/default_student_icon.png" class="student_icon" alt="Student default logo"/>
                     <ion-card-content>
                         <ion-card-title text-center>
                             {{ student.firstname + " " + student.lastname }}
