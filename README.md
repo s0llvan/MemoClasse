@@ -8,12 +8,11 @@ MémoClasse is an application which makes life easier for teachers. Children tak
 
 ## Application
 
-### Distributions
-
+### Distributions
 - Google Play Store
 
 ### Features
-- [ ] Student management
+- [x] Student management
 - [ ] Class management
 - [ ] Group management
 - [ ] Activity management
@@ -30,7 +29,6 @@ MémoClasse is an application which makes life easier for teachers. Children tak
 - NodeJS / NPM
 
 ### Getting Started
-
 1.Clone the repository
 
 `git clone https://gitlab-ce.iut.u-bordeaux.fr/photoEcole/MemoClasse.git`
@@ -43,10 +41,13 @@ MémoClasse is an application which makes life easier for teachers. Children tak
 
 `ionic serve`
 
+or run on your android device
+
+`ionic cordova run android`
+
 ### Continuous delivery
 
 #### Commits steps
-
 - Build (compile)
 - Test (unit testing)
 - Analyze (with SonarQube)
@@ -58,5 +59,4 @@ MémoClasse is an application which makes life easier for teachers. Children tak
 *APK build planned everyday at 7am and 1pm.*
 
 #### Services
-
 SonarQube: [https://sonarcloud.io/dashboard?id=memoclasse](https://sonarcloud.io/dashboard?id=memoclasse)
