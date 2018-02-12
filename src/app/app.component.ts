@@ -8,12 +8,17 @@ import {Photo} from "../database/tables/Photo";
 import {Eleve} from "../database/tables/Eleve";
 import { createConnection } from 'ionic-orm/dist'
 import { HomePage } from '../pages/home/home';
+
+import { DataProvider } from '../providers/data-provider/data-provider';
+
 @Component({
-  templateUrl: 'app.html'
+    templateUrl: 'app.html',
+    providers: [DataProvider]
 })
 export class MyApp {
-  rootPage:any = HomePage;
+    rootPage:any = HomePage;
 
+<<<<<<< HEAD
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
 
@@ -43,4 +48,14 @@ export class MyApp {
       splashScreen.hide();
     });
   }
+=======
+    constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+        platform.ready().then(() => {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            statusBar.styleDefault();
+            splashScreen.hide();
+        });
+    }
+>>>>>>> 3efd8fd3d69ef934d915d459698ebbf71a879a99
 }

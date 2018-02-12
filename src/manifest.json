@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "MémoClasse",
+  "short_name": "MémoClasse",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{

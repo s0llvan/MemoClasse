@@ -1,7 +1,7 @@
 stages:
-  - analyze
   - build
   - test
+  - analyze
   - deploy
 
 analyze:
@@ -34,12 +34,10 @@ deploy_android:
     - /^release-.*$/
   script:
     - npm install
-    - ionic cordova build android
-    - ls -l .
+    - ionic cordova build --release android
     - date=$(date +%Y-%m-%d-%H-%M-%S)
-    - mv ./platforms/android/app/build/outputs/apk/debug/app-debug.apk ./platforms/android/app/build/outputs/apk/debug/app-debug-$date.apk
-    - ls ./platforms/android/app/build/outputs/apk/debug/
-    - lftp -e "put ./platforms/android/app/build/outputs/apk/debug/app-debug-'$date'.apk" -u $USERNAME,$PASSWORD $HOST -p $PORT
+    - mv ./platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk ./platforms/android/app/build/outputs/apk/release/app-release-unsigned-$CI_COMMIT_TAG.apk
+    - lftp -e "put ./platforms/android/app/build/outputs/apk/release/app-release-unsigned-'$CI_COMMIT_TAG'.apk" -u $USERNAME,$PASSWORD $HOST -p $PORT
     - echo $CI_BUILD_ID
 
 deploy_android_schedules:
@@ -49,7 +47,6 @@ deploy_android_schedules:
   script:
     - npm install
     - ionic cordova build android
-    - ls -l .
     - date=$(date +%Y-%m-%d-%H-%M-%S)
     - mv ./platforms/android/app/build/outputs/apk/debug/app-debug.apk ./platforms/android/app/build/outputs/apk/debug/app-debug-$date.apk
     - ls ./platforms/android/app/build/outputs/apk/debug/

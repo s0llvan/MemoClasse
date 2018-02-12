@@ -1,35 +1,39 @@
 import { Component } from '@angular/core';
-import { Camera } from '@ionic-native/camera';
-
+import { NavController } from 'ionic-angular';
+import { EditStudentPage } from '../edit-student/edit-student'
+import { AddStudentPage } from '../add-student/add-student'
+import { DataProvider } from '../../providers/data-provider/data-provider';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+    selector: 'page-home',
+    templateUrl: 'home.html'
 })
 export class HomePage {
-  public base64Image: string;
 
-  constructor(private camera: Camera) {
+    public students = [];
 
-  }
+    constructor(public navCtrl: NavController, private dataProvider: DataProvider) {
+        this.students = this.dataProvider.students;
+    }
 
-  takePicture(){
+    searchStudent(ev: any) {
+        this.students = this.dataProvider.students;
 
-    this.camera.getPicture({
-      sourceType: this.camera.PictureSourceType.CAMERA,
-        destinationType: this.camera.DestinationType.DATA_URL,
-        encodingType: this.camera.EncodingType.JPEG,
-        mediaType: this.camera.MediaType.PICTURE
-  //      targetWidth: 1000,
-  //      targetHeight: 1000
-    }).then((imageData) => {
-      // imageData is a base64 encoded string
-        this.base64Image = "data:image/jpeg;base64," + imageData;
-    }, (err) => {
-        console.log(err);
-    });
+        let val = ev.target.value;
 
+        // if the value is an empty string don't filter the items
+        if (val && val.trim() != '') {
+            this.students = this.students.filter((student) => {
+                return (student.firstname.toLowerCase().indexOf(val.toLowerCase()) > -1 || student.lastname.toLowerCase().indexOf(val.toLowerCase()) > -1);
+            })
+        }
+    }
 
-}
+    editStudent(student) {
+        this.navCtrl.push(EditStudentPage, { student: student });
+    }
 
+    addStudent() {
+        this.navCtrl.push(AddStudentPage);
+    }
 }

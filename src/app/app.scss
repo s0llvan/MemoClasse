@@ -14,3 +14,25 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.student_edit, .student_add {
+    font-size: 22px;
+}
+
+.student_edit .title, .student_add .title {
+    color: $green;
+}
+
+.student_edit .content, .student_add .content {
+    padding-top: 35px;
+}
+
+.student_edit .add_mail, .student_add .add_mail {
+    font-size: 35px;
+    text-align: center;
+}
+
+.student_edit .item-md .item-button, .student_add .item-md {
+    padding: 20px;
+    font-size: 14px;
+}
