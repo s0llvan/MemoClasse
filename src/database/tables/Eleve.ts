@@ -14,10 +14,10 @@ export class Eleve {
   email2: string;
 
   @Column("text")
-  nom: string;
+  lastname: string;
 
   @Column("text")
-  prenom: string;
+  firstname: string;
 
   @OneToMany(type => Photo, photo => photo.eleve) // note: we will create author property in the Photo class below
    photos: Photo[];
