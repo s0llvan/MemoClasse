@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DataProvider } from '../../providers/data-provider/data-provider';
+import {createConnection} from "ionic-orm";
+import {Eleve} from "../../database/tables/Eleve";
 
 /**
 * Generated class for the AddStudentPage page.
@@ -16,7 +18,7 @@ import { DataProvider } from '../../providers/data-provider/data-provider';
 })
 export class AddStudentPage {
 
-    public student = { mails: [] };
+    public student = { firstname:"",lastname:"",mails: [] };
     public mail: any;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataProvider) {
@@ -26,6 +28,23 @@ export class AddStudentPage {
     addStudent() {
         this.dataProvider.addStudent(this.student);
         this.navCtrl.pop();
+        createConnection(/*...*/).then(async connection => {
+
+          let eleve = new Eleve();
+          eleve.email1 = this.student.mails[1];
+          eleve.email2 = this.student.mails[2];
+          eleve.firstname = this.student.firstname;
+          eleve.lastname = this.student.lastname;
+
+          let photoRepository = connection.getRepository(Eleve);
+
+          await photoRepository.persist(eleve);
+          console.log("Photo has been saved");
+
+          let savedPhotos = await photoRepository.find();
+          console.log("All photos from the db: ", savedPhotos);
+
+      });
     }
 
     addStudentMail(mail) {
