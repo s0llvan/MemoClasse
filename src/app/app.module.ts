@@ -19,6 +19,7 @@ import { DataProvider } from '../providers/data-provider/data-provider';
 
 import { File } from '@ionic-native/file';
 import { FileOpener } from '@ionic-native/file-opener';
+import { EmailComposer } from '@ionic-native/email-composer';
 
 @NgModule({
     declarations: [
@@ -53,7 +54,8 @@ import { FileOpener } from '@ionic-native/file-opener';
         DataProvider,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
         File,
-        FileOpener
+        FileOpener,
+        EmailComposer
     ]
 })
 export class AppModule {}

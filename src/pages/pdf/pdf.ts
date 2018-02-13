@@ -7,6 +7,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 import { File } from '@ionic-native/file';
 import { FileOpener } from '@ionic-native/file-opener';
 import { ToastController } from 'ionic-angular';
+import { EmailComposer } from '@ionic-native/email-composer';
 
 
 @IonicPage()
@@ -17,26 +18,23 @@ import { ToastController } from 'ionic-angular';
 export class PdfPage {
   letterObj = {
     to: '',
-    from: '',
     text: ''
   }
-
+  test =null;
   pdfObj = null;
-  constructor(public navCtrl: NavController, public plt: Platform, private file: File, private fileOpener: FileOpener,private toastCtrl: ToastController) { }
+  constructor(public navCtrl: NavController, public plt: Platform, private file: File, private fileOpener: FileOpener,private toastCtrl: ToastController,private emailComposer: EmailComposer) { }
 
   createPdf() {
     var docDefinition = {
       content: [
-        { text: 'REMINDER', style: 'header' },
+        { text: 'PDF GENERE', style: 'header' },
         { text: new Date().toTimeString(), alignment: 'right' },
 
-        { text: 'From', style: 'subheader' },
-        { text: this.letterObj.from },
 
         { text: 'To', style: 'subheader' },
         this.letterObj.to,
 
-        { text: this.letterObj.text, style: 'story', margin: [0, 20, 0, 20] },
+        { text: 'Texte' + this.letterObj.text, style: 'story', margin: [0, 20, 0, 20] },
 
         {
           ul: [
@@ -67,7 +65,7 @@ export class PdfPage {
     this.presentToast();
   }
 
-  downloadPdf() {
+  openPdf() {
     if (this.plt.is('cordova')) {
       this.pdfObj.getBuffer((buffer) => {
         var blob = new Blob([buffer], { type: 'application/pdf' });
@@ -75,6 +73,10 @@ export class PdfPage {
         // Save the PDF to the data Directory of our App
         this.file.writeFile(this.file.dataDirectory, 'myletter.pdf', blob, { replace: true }).then(fileEntry => {
           // Open the PDf with the correct OS tools
+
+          this.test = fileEntry;
+
+
           this.fileOpener.open(this.file.dataDirectory + 'myletter.pdf', 'application/pdf');
         })
       });
@@ -92,6 +94,33 @@ export class PdfPage {
     cssClass: "toast"
   });
   toast.present();
-
+  this.lolToast();
 }
+
+lolToast() {
+let toast = this.toastCtrl.create({
+  message: this.file.dataDirectory,
+  duration: 10000,
+  position: 'top',
+  cssClass: "toast"
+});
+toast.present();
+}
+
+sendMail() {
+  let email = {
+    to: this.letterObj.to,
+
+    attachments: [
+    this.test
+    ],
+    subject: 'Cordova Icons',
+    body: 'How are you? Nice greetings from Leipzig',
+    isHtml: true
+  };
+
+  // Send a text message using default options
+  this.emailComposer.open(email);
+}
+
 }
