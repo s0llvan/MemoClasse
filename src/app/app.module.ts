@@ -12,6 +12,7 @@ import { Camera } from '@ionic-native/camera';
 import { EditStudentPage } from '../pages/edit-student/edit-student'
 import { AddStudentPage } from '../pages/add-student/add-student'
 import { PdfPage } from '../pages/pdf/pdf'
+import { PopoverPage } from '../pages/popover/popover'
 
 import { DataProvider } from '../providers/data-provider/data-provider';
 
@@ -24,7 +25,8 @@ import { FileOpener } from '@ionic-native/file-opener';
         HomePage,
         EditStudentPage,
         AddStudentPage,
-        PdfPage
+        PdfPage,
+        PopoverPage
     ],
     imports: [
         BrowserModule,
@@ -36,7 +38,8 @@ import { FileOpener } from '@ionic-native/file-opener';
         HomePage,
         EditStudentPage,
         AddStudentPage,
-        PdfPage
+        PdfPage,
+        PopoverPage
     ],
     providers: [
         StatusBar,

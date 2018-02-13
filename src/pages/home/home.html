@@ -1,5 +1,8 @@
 <ion-header>
     <ion-navbar>
+        <button ion-button icon-only (click)="presentPopover($event)" color="green" clear float-start>
+            <ion-icon name="menu" color="light"></ion-icon>
+        </button>
         <ion-title>
             MémoClasse
         </ion-title>
@@ -7,7 +10,7 @@
 </ion-header>
 
 <ion-content class="home">
-    <ion-searchbar (ionInput)="searchStudent($event)"></ion-searchbar>
+    <ion-searchbar placeholder="Rechercher un élève" (ionInput)="searchStudent($event)"></ion-searchbar>
     <ion-grid>
         <ion-row>
             <ion-col col-3>
@@ -30,19 +33,8 @@
                     </ion-card-content>
                 </ion-card>
             </ion-col>
-
-            <ion-col col-3>
-                <ion-card class="student student_new" (click)="gotoPDF()">
-                  <ion-card-content>
-                      <ion-card-title text-center>
-                          PDF
-                      </ion-card-title>
-                  </ion-card-content>
-                </ion-card>
-            </ion-col>
         </ion-row>
     </ion-grid>
-
 
 
 </ion-content>
