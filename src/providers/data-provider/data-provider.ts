@@ -11,20 +11,20 @@ export class DataProvider {
     }
 
     initializeStudents() {
-      this.storage.get('Eleve').then((val) => {
-        if(val == null){
-          this.students = [];
-        }
-        else{
-            this.students = JSON.parse(val);
-        }
-
-      });
+        return this.storage.get('students').then((val) => {
+            if(val == null){
+                this.students = [];
+            }
+            else{
+                this.students = JSON.parse(val);
+            }
+            return this.students;
+        });
     }
 
     addStudent(student) {
         this.students.push(student);
-        this.storage.set('Eleve', JSON.stringify(this.students));
+        this.storage.set('students', JSON.stringify(this.students));
     }
 
     updateStudent(student) {
@@ -40,11 +40,11 @@ export class DataProvider {
         if(foundStudent != null) {
             foundStudent = student;
         }
-        this.storage.set('Eleve', JSON.stringify(this.students));
+        this.storage.set('students', JSON.stringify(this.students));
     }
 
     deleteStudent(student) {
         this.students.splice(this.students.indexOf(student), 1);
-        this.storage.set('Eleve', JSON.stringify(this.students));
+        this.storage.set('students', JSON.stringify(this.students));
     }
 }
