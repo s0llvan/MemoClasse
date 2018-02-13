@@ -3,10 +3,6 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-
-import {Photo} from "../database/tables/Photo";
-import {Eleve} from "../database/tables/Eleve";
-import { createConnection } from 'ionic-orm/dist'
 import { HomePage } from '../pages/home/home';
 
 import { DataProvider } from '../providers/data-provider/data-provider';
@@ -14,30 +10,11 @@ import { DataProvider } from '../providers/data-provider/data-provider';
 @Component({
     templateUrl: 'app.html',
     providers: [DataProvider]
-})
-export class MyApp {
+})export class MyApp {
     rootPage:any = HomePage;
 
     constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
       platform.ready().then(() => {
-
-        createConnection({
-          driver: {
-            type: "websql",
-            database: "test"
-          },
-          entities: [
-            Eleve,
-            Photo
-          ],
-          logging: {
-            logFailedQueryError: true,
-            logQueries: true,
-            logSchemaCreation: true,
-            logOnlyFailedQueries: true
-          },
-          autoSchemaSync: true,
-        });
 
 
           // here you can start to work with your entities

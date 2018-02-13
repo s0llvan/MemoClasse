@@ -1,30 +1,30 @@
 import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage';
 
 @Injectable()
 export class DataProvider {
 
     public students: any = [];
 
-    constructor() {
+    constructor(private storage: Storage) {
         this.initializeStudents();
     }
 
     initializeStudents() {
-        this.students = [
-            { id:1, firstname: "John", lastname: "Doe", mails: ["mail@domain.com","mail2@domain.com"]},
-            { id:2, firstname: "Jean", lastname: "Van Damme", mails: ["mail@domain.com","mail2@domain.com"]},
-            { id:3, firstname: "Chris", lastname: "Markley", mails: ["mail@domain.com","mail2@domain.com"]},
-            { id:4, firstname: "Jessica", lastname: "Roe", mails: ["mail@domain.com","mail2@domain.com"]},
-            { id:5, firstname: "Michael", lastname: "Tang", mails: ["mail@domain.com","mail2@domain.com"]},
-            { id:6, firstname: "Stacy", lastname: "Willard", mails: ["mail@domain.com","mail2@domain.com"]},
-            { id:7, firstname: "Leonardo", lastname: "Mason", mails: ["mail@domain.com","mail2@domain.com"]},
-            { id:8, firstname: "Lee", lastname: "Winters", mails: ["mail@domain.com","mail2@domain.com"]},
-            { id:9, firstname: "Mary", lastname: "Wilson", mails: ["mail@domain.com","mail2@domain.com"]},
-        ];
+      this.storage.get('Eleve').then((val) => {
+        if(val == null){
+          this.students = [];
+        }
+        else{
+            this.students = JSON.parse(val);
+        }
+
+      });
     }
 
     addStudent(student) {
         this.students.push(student);
+        this.storage.set('Eleve', JSON.stringify(this.students));
     }
 
     updateStudent(student) {
@@ -40,9 +40,11 @@ export class DataProvider {
         if(foundStudent != null) {
             foundStudent = student;
         }
+        this.storage.set('Eleve', JSON.stringify(this.students));
     }
 
     deleteStudent(student) {
         this.students.splice(this.students.indexOf(student), 1);
+        this.storage.set('Eleve', JSON.stringify(this.students));
     }
 }
