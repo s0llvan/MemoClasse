@@ -39,6 +39,8 @@ export class PopoverPage {
 
     gotoPDF() {
         this.navCtrl.push(PdfPage);
+        this.close();
     }
+
 
 }
