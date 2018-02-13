@@ -18,6 +18,10 @@ export class HomePage {
         this.students = this.dataProvider.students;
     }
 
+    ionViewDidLoad() {
+        return this.dataProvider.initializeStudents().then(data => this.students = data);
+    }
+
     searchStudent(ev: any) {
         this.students = this.dataProvider.students;
         let val = ev.target.value;
