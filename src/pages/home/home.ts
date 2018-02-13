@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { EditStudentPage } from '../edit-student/edit-student'
 import { AddStudentPage } from '../add-student/add-student'
 import { DataProvider } from '../../providers/data-provider/data-provider';
-import { PdfPage } from '../pdf/pdf';
+import { PopoverController } from 'ionic-angular';
+import { PopoverPage } from "../popover/popover";
 
 @Component({
     selector: 'page-home',
@@ -13,7 +14,7 @@ export class HomePage {
 
     public students = [];
 
-    constructor(public navCtrl: NavController, private dataProvider: DataProvider) {
+    constructor(public navCtrl: NavController, private dataProvider: DataProvider,public popoverCtrl: PopoverController) {
         this.students = this.dataProvider.students;
     }
 
@@ -37,7 +38,12 @@ export class HomePage {
         this.navCtrl.push(AddStudentPage);
     }
 
-    gotoPDF() {
-      this.navCtrl.push(PdfPage);
+
+
+    presentPopover(myEvent) {
+        let popover = this.popoverCtrl.create(PopoverPage);
+        popover.present({
+            ev: myEvent
+        });
     }
 }
