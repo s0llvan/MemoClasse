@@ -18,7 +18,6 @@ export class HomePage {
 
     searchStudent(ev: any) {
         this.students = this.dataProvider.students;
-
         let val = ev.target.value;
 
         // if the value is an empty string don't filter the items
