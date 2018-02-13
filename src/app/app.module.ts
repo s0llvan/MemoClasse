@@ -14,12 +14,13 @@ import { EditStudentPage } from '../pages/edit-student/edit-student'
 import { AddStudentPage } from '../pages/add-student/add-student'
 import { PdfPage } from '../pages/pdf/pdf'
 import { PopoverPage } from '../pages/popover/popover'
+import { CameraPage } from '../pages/camera/camera'
+import { CameraPreview } from '@ionic-native/camera-preview';
 
 import { DataProvider } from '../providers/data-provider/data-provider';
 
 import { File } from '@ionic-native/file';
 import { FileOpener } from '@ionic-native/file-opener';
-import { EmailComposer } from '@ionic-native/email-composer';
 
 @NgModule({
     declarations: [
@@ -28,7 +29,8 @@ import { EmailComposer } from '@ionic-native/email-composer';
         EditStudentPage,
         AddStudentPage,
         PdfPage,
-        PopoverPage
+        PopoverPage,
+        CameraPage
     ],
     imports: [
       IonicStorageModule.forRoot({
@@ -45,7 +47,8 @@ import { EmailComposer } from '@ionic-native/email-composer';
         EditStudentPage,
         AddStudentPage,
         PdfPage,
-        PopoverPage
+        PopoverPage,
+        CameraPage
     ],
     providers: [
         StatusBar,
@@ -55,7 +58,7 @@ import { EmailComposer } from '@ionic-native/email-composer';
         {provide: ErrorHandler, useClass: IonicErrorHandler},
         File,
         FileOpener,
-        EmailComposer
+        CameraPreview
     ]
 })
 export class AppModule {}
