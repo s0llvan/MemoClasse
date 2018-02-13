@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { EditStudentPage } from '../edit-student/edit-student'
 import { AddStudentPage } from '../add-student/add-student'
 import { DataProvider } from '../../providers/data-provider/data-provider';
+import { PdfPage } from '../pdf/pdf';
 
 @Component({
     selector: 'page-home',
@@ -34,5 +35,9 @@ export class HomePage {
 
     addStudent() {
         this.navCtrl.push(AddStudentPage);
+    }
+
+    gotoPDF() {
+      this.navCtrl.push(PdfPage);
     }
 }
