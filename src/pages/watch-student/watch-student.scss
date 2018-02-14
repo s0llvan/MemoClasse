@@ -1,22 +1,42 @@
-page-watch-student {
-  .student {
-      padding-top: 15px;
-  }
+page-home {
 
-  .student .card-title-md {
-      font-size: 14px;
-  }
+    .student {
+        padding-top: 15px;
+    }
 
-  .student .card-content-md {
-      padding: 8px 0px;
-  }
+    .student .card-title-md {
+        font-size: 14px;
+    }
 
-  .student_icon {
-      margin: 0 auto;
-      width: 50%;
-  }
+    .student .card-content-md {
+        padding: 8px 0px;
+    }
 
-  ion-card.student {
-      height: 140px;
-  }
+    .student_icon {
+        margin: 0 auto;
+        width: 50%;
+    }
+
+    ion-card.student {
+        height: 140px;
+    }
+
+    ion-card.student .name {
+        margin-top: 5px;
+    }
+
+    @media (min-width: 768px) {
+        ion-card.student {
+            height: 170px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        ion-card.student {
+            height: 180px;
+        }
+        ion-card.student .name {
+            margin-top: 10px;
+        }
+    }
 }
