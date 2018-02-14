@@ -18,9 +18,6 @@ import { PopoverPage } from '../pages/popover/popover'
 import { CameraPage } from '../pages/camera/camera'
 import { CameraPreview } from '@ionic-native/camera-preview';
 import { WatchStudentPage } from '../pages/watch-student/watch-student'
-
-import { EmailComposer } from '@ionic-native/email-composer'
-
 import { DataProvider } from '../providers/data-provider/data-provider';
 
 import { File } from '@ionic-native/file';
