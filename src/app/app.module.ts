@@ -12,10 +12,15 @@ import { HomePage } from '../pages/home/home';
 import { Camera } from '@ionic-native/camera';
 import { EditStudentPage } from '../pages/edit-student/edit-student'
 import { AddStudentPage } from '../pages/add-student/add-student'
+
 import { PdfPage } from '../pages/pdf/pdf'
 import { PopoverPage } from '../pages/popover/popover'
 import { CameraPage } from '../pages/camera/camera'
 import { CameraPreview } from '@ionic-native/camera-preview';
+import { WatchStudentPage } from '../pages/watch-student/watch-student'
+
+import { EmailComposer } from '@ionic-native/email-composer'
+
 
 import { DataProvider } from '../providers/data-provider/data-provider';
 
@@ -30,7 +35,8 @@ import { FileOpener } from '@ionic-native/file-opener';
         AddStudentPage,
         PdfPage,
         PopoverPage,
-        CameraPage
+        CameraPage,
+        WatchStudentPage
     ],
     imports: [
       IonicStorageModule.forRoot({
@@ -48,7 +54,8 @@ import { FileOpener } from '@ionic-native/file-opener';
         AddStudentPage,
         PdfPage,
         PopoverPage,
-        CameraPage
+        CameraPage,
+        WatchStudentPage
     ],
     providers: [
         StatusBar,
@@ -58,7 +65,8 @@ import { FileOpener } from '@ionic-native/file-opener';
         {provide: ErrorHandler, useClass: IonicErrorHandler},
         File,
         FileOpener,
-        CameraPreview
+        CameraPreview,
+        EmailComposer
     ]
 })
 export class AppModule {}
