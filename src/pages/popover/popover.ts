@@ -1,6 +1,7 @@
 import {NavController, ViewController} from "ionic-angular";
 import {Component} from "@angular/core";
 import {PdfPage} from '../pdf/pdf';
+import {WatchStudentPage} from '../watch-student/watch-student';
 
 @Component({
     selector: 'popover',
@@ -18,7 +19,7 @@ import {PdfPage} from '../pdf/pdf';
                 <ion-icon name="add-circle" class="menu-icon"></ion-icon>
                 Groupes
             </button>
-            <button ion-item (click)="close()">
+            <button ion-item (click)="gotoWatchStudent()">
                 <ion-icon name="add-circle" class="menu-icon"></ion-icon>
                 Déconnexion
             </button>
@@ -37,6 +38,9 @@ export class PopoverPage {
         this.viewCtrl.dismiss();
     }
 
+    gotoWatchStudent(){
+      this.navCtrl.push(WatchStudentPage);
+    }
     gotoPDF() {
         this.navCtrl.push(PdfPage);
     }

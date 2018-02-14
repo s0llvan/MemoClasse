@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { EditStudentPage } from '../edit-student/edit-student'
 import { AddStudentPage } from '../add-student/add-student'
+import {PdfPage} from '../pdf/pdf'
 import { DataProvider } from '../../providers/data-provider/data-provider';
 import { PopoverController } from 'ionic-angular';
 import { PopoverPage } from "../popover/popover";
