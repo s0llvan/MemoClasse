@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { Platform } from 'ionic-angular';
 
 @Injectable()
 export class DataProvider {
 
     public students: any = [];
 
-    constructor(private storage: Storage) {
-        this.initializeStudents();
+    constructor(private storage: Storage, public platform: Platform) {
+        if (this.platform.is('mobile')) {
+            this.initializeStudents();
+        }
     }
 
     initializeStudents() {
@@ -46,7 +49,9 @@ export class DataProvider {
     }
 
     saveStudents() {
-        this.storage.set('students', JSON.stringify(this.students));
+        if (this.platform.is('mobile')) {
+            this.storage.set('students', JSON.stringify(this.students));
+        }
     }
 
     getLastStudentId() {
