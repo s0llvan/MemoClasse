@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DataProvider } from '../../providers/data-provider/data-provider';
+import { AlertController } from 'ionic-angular';
 
 /**
 * Generated class for the EditStudentPage page.
@@ -19,7 +20,7 @@ export class EditStudentPage {
     public student = { mails: [] };
     public mail: any;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataProvider) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataProvider, public alertCtrl: AlertController) {
         this.student = navParams.get("student");
     }
 
@@ -39,8 +40,24 @@ export class EditStudentPage {
     }
 
     deleteStudent() {
-        this.dataProvider.deleteStudent(this.student);
-        this.navCtrl.pop();
+        let confirm = this.alertCtrl.create({
+            title: 'Voulez-vous vraiment supprimer cette élève ?',
+            message: "Toutes les informations et photos de l'élève seront supprimés.",
+            buttons: [
+                {
+                    text: 'Non',
+                    handler: () => {}
+                },
+                {
+                    text: 'Oui',
+                    handler: () => {
+                        this.dataProvider.deleteStudent(this.student);
+                        this.navCtrl.pop();
+                    }
+                }
+            ]
+        });
+        confirm.present();
     }
 
     deleteStudentMail(mail) {
