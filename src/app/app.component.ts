@@ -6,6 +6,7 @@ import { HomePage } from '../pages/home/home';
 
 import { DataProvider } from '../providers/data-provider/data-provider';
 
+
 @Component({
     templateUrl: 'app.html',
     providers: [DataProvider]
