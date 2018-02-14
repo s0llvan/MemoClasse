@@ -15,7 +15,7 @@ import { DataProvider } from '../../providers/data-provider/data-provider';
     templateUrl: 'add-student.html',
 })
 export class AddStudentPage {
-
+    
     public student = { firstname:"",lastname:"",mails: [] };
     public mail: any;
 
