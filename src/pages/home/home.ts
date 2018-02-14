@@ -43,8 +43,6 @@ export class HomePage {
         this.navCtrl.push(AddStudentPage);
     }
 
-
-
     presentPopover(myEvent) {
         let popover = this.popoverCtrl.create(PopoverPage);
         popover.present({

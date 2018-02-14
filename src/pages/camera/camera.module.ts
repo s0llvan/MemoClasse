@@ -3,11 +3,11 @@ import { IonicPageModule } from 'ionic-angular';
 import { CameraPage } from './camera';
 
 @NgModule({
-  declarations: [
-    CameraPage,
-  ],
-  imports: [
-    IonicPageModule.forChild(CameraPage),
-  ],
+    declarations: [
+        CameraPage,
+    ],
+    imports: [
+        IonicPageModule.forChild(CameraPage),
+    ],
 })
 export class CameraPageModule {}

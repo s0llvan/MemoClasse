@@ -16,7 +16,7 @@ import { DataProvider } from '../../providers/data-provider/data-provider';
 })
 export class AddStudentPage {
 
-    public student = { firstname:"",lastname:"",mails: [] };
+    public student = { id: 0, firstname:"",lastname:"",mails: [] };
     public mail: any;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataProvider) {
