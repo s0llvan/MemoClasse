@@ -19,7 +19,7 @@ import {WatchStudentPage} from '../watch-student/watch-student';
                 <ion-icon name="add-circle" class="menu-icon"></ion-icon>
                 Groupes
             </button>
-            <button ion-item (click)="gotoWatchStudent()">
+            <button ion-item (click)="gotoWatchStudent(students)">
                 <ion-icon name="add-circle" class="menu-icon"></ion-icon>
                 Déconnexion
             </button>
