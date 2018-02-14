@@ -1,25 +1,22 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-    Genérer PDF
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>
+            Genérer PDF
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+    <ion-item>
+        <ion-label stacked>To</ion-label>
+        <ion-input [(ngModel)]="letterObj.to"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Text</ion-label>
+        <ion-textarea [(ngModel)]="letterObj.text" rows="10"></ion-textarea>
+    </ion-item>
 
-
-  <ion-item>
-    <ion-label stacked>To</ion-label>
-    <ion-input [(ngModel)]="letterObj.to"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label stacked>Text</ion-label>
-    <ion-textarea [(ngModel)]="letterObj.text" rows="10"></ion-textarea>
-  </ion-item>
-
-  <button ion-button full (click)="createPdf()">Creer le PDF</button>
-  <button ion-button full (click)="openPdf()" color="secondary" [disabled]="!pdfObj">Ouvrir le PDF</button>
-  <button ion-button full (click)="sendMail()" color="secondary" [disabled]="!pdfObj">Envoyer le PDF</button>
-
+    <button ion-button full (click)="createPdf()">Creer le PDF</button>
+    <button ion-button full (click)="openPdf()" color="secondary" [disabled]="!pdfObj">Ouvrir le PDF</button>
+    <button ion-button full (click)="sendMail()" color="secondary" [disabled]="!pdfObj">Envoyer le PDF</button>
 </ion-content>
