@@ -6,7 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 
 import { DataProvider } from '../providers/data-provider/data-provider';
-import { EmailComposer } from '@ionic-native/email-composer';
+
 
 @Component({
     templateUrl: 'app.html',
