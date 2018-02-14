@@ -12,8 +12,8 @@ import { Base64 } from '@ionic-native/base64';
 
 @IonicPage()
 @Component({
-  selector: 'page-pdf',
-  templateUrl: 'pdf.html',
+    selector: 'page-pdf',
+    templateUrl: 'pdf.html',
 })
 export class PdfPage {
   letterObj = {
@@ -87,11 +87,9 @@ encode() {
           alignment: 'center',
           width: '50%',
         }
-      }
+        this.pdfObj = pdfMake.createPdf(docDefinition);
+        this.presentToast();
     }
-    this.pdfObj = pdfMake.createPdf(docDefinition);
-    this.presentToast();
-  }
 
   openPdf() {
     if (this.plt.is('cordova')) {
@@ -104,8 +102,8 @@ encode() {
         })
       });
     } else {
-      // On a browser simply use download!
-      this.pdfObj.download();
+        // On a browser simply use download!
+        this.pdfObj.download();
     }
   }
 

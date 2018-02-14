@@ -1,0 +1,22 @@
+page-watch-student {
+  .student {
+      padding-top: 15px;
+  }
+
+  .student .card-title-md {
+      font-size: 14px;
+  }
+
+  .student .card-content-md {
+      padding: 8px 0px;
+  }
+
+  .student_icon {
+      margin: 0 auto;
+      width: 50%;
+  }
+
+  ion-card.student {
+      height: 140px;
+  }
+}

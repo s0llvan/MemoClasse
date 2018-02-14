@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { EditStudentPage } from '../edit-student/edit-student'
 import { AddStudentPage } from '../add-student/add-student'
+import {PdfPage} from '../pdf/pdf'
 import { DataProvider } from '../../providers/data-provider/data-provider';
 import { PopoverController } from 'ionic-angular';
 import { PopoverPage } from "../popover/popover";
@@ -16,6 +17,10 @@ export class HomePage {
 
     constructor(public navCtrl: NavController, private dataProvider: DataProvider,public popoverCtrl: PopoverController) {
         this.students = this.dataProvider.students;
+    }
+
+    ionViewDidLoad() {
+        return this.dataProvider.initializeStudents().then(data => this.students = data);
     }
 
     searchStudent(ev: any) {
@@ -37,8 +42,6 @@ export class HomePage {
     addStudent() {
         this.navCtrl.push(AddStudentPage);
     }
-
-
 
     presentPopover(myEvent) {
         let popover = this.popoverCtrl.create(PopoverPage);

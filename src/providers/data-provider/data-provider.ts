@@ -11,20 +11,21 @@ export class DataProvider {
     }
 
     initializeStudents() {
-      this.storage.get('Eleve').then((val) => {
-        if(val == null){
-          this.students = [];
-        }
-        else{
-            this.students = JSON.parse(val);
-        }
-
-      });
+        return this.storage.get('students').then((val) => {
+            if(val == null){
+                this.students = [];
+            }
+            else{
+                this.students = JSON.parse(val);
+            }
+            return this.students;
+        });
     }
 
     addStudent(student) {
+        student.id = this.getLastStudentId() + 1;
         this.students.push(student);
-        this.storage.set('Eleve', JSON.stringify(this.students));
+        this.saveStudents();
     }
 
     updateStudent(student) {
@@ -32,19 +33,23 @@ export class DataProvider {
             return (_student.id == student.id);
         });
 
-        var foundStudent = null;
         if(foundStudents.length > 0) {
-            foundStudent = foundStudents[0];
+            foundStudents[0] = student;
         }
 
-        if(foundStudent != null) {
-            foundStudent = student;
-        }
-        this.storage.set('Eleve', JSON.stringify(this.students));
+        this.saveStudents();
     }
 
     deleteStudent(student) {
         this.students.splice(this.students.indexOf(student), 1);
-        this.storage.set('Eleve', JSON.stringify(this.students));
+        this.saveStudents();
+    }
+
+    saveStudents() {
+        this.storage.set('students', JSON.stringify(this.students));
+    }
+
+    getLastStudentId() {
+        return (this.students.length > 0) ? this.students[this.students.length-1].id : 1;
     }
 }
