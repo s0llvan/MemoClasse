@@ -21,7 +21,6 @@ import { WatchStudentPage } from '../pages/watch-student/watch-student'
 
 import { EmailComposer } from '@ionic-native/email-composer'
 
-
 import { DataProvider } from '../providers/data-provider/data-provider';
 
 import { File } from '@ionic-native/file';
