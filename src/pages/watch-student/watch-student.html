@@ -15,15 +15,14 @@
     </ion-navbar>
 </ion-header>
 
-
 <ion-content class="home">
     <ion-grid>
         <ion-row>
-            <ion-col col-3 *ngFor="let student of students;">
+            <ion-col col-6 col-lg-2 col-sm-3 *ngFor="let student of students;">
                 <ion-card class="student" (click)="camera()">
                     <img src="assets/imgs/default_student_icon.png" class="student_icon" alt="Student default logo"/>
                     <ion-card-content>
-                        <ion-card-title text-center>
+                        <ion-card-title text-center class="name">
                             {{ student.firstname + " " + student.lastname }}
                         </ion-card-title>
                     </ion-card-content>
@@ -31,6 +30,4 @@
             </ion-col>
         </ion-row>
     </ion-grid>
-
-
 </ion-content>
