@@ -18,13 +18,12 @@ import { PopoverPage } from '../pages/popover/popover'
 import { CameraPage } from '../pages/camera/camera'
 import { CameraPreview } from '@ionic-native/camera-preview';
 import { WatchStudentPage } from '../pages/watch-student/watch-student'
-
-import { EmailComposer } from '@ionic-native/email-composer'
-
 import { DataProvider } from '../providers/data-provider/data-provider';
 
 import { File } from '@ionic-native/file';
 import { FileOpener } from '@ionic-native/file-opener';
+import { EmailComposer } from '@ionic-native/email-composer';
+import { Base64 } from '@ionic-native/base64';
 
 @NgModule({
     declarations: [
@@ -65,7 +64,8 @@ import { FileOpener } from '@ionic-native/file-opener';
         File,
         FileOpener,
         CameraPreview,
-        EmailComposer
+        EmailComposer,
+        Base64
     ]
 })
 export class AppModule {}
