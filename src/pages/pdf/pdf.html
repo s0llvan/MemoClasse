@@ -1,19 +1,56 @@
 <ion-header>
-    <ion-navbar>
-        <ion-title>
-            Genérer PDF
-        </ion-title>
-    </ion-navbar>
+  <ion-navbar>
+    <ion-title>
+      Genérer PDF
+    </ion-title>
+  </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-    <ion-item>
-        <ion-label stacked>Activité</ion-label>
-        <ion-input [(ngModel)]="letterObj.activite"></ion-input>
-    </ion-item>
+  <ion-label stacked class="lab">1 ère étape : </ion-label>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-5>
+        <ion-label stacked>Ajouter une activité</ion-label>
+      </ion-col>
+      <ion-col col-7>
+        <ion-input [(ngModel)]="letterObj.activite" placeholder="Activite"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-5>
+        <ion-label stacked>Ajouter un sous-titre</ion-label>
+      </ion-col>
+      <ion-col col-7>
+        <ion-input [(ngModel)]="letterObj.addSub" placeholder="Sous-titre"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-5>
+        <ion-label stacked>Ajouter un texte</ion-label>
+      </ion-col>
+      <ion-col col-7>
+        <ion-input [(ngModel)]="letterObj.addText" placeholder="Texte"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-2>
+      </ion-col>
+      <ion-col col-8>
+        <button ion-button block (click)="addChamps()">Ajouter des images</button>
+      </ion-col>
+      <ion-col col-2>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-
-    <button ion-button full (click)="createPdf()">Creer le PDF</button>
-    <button ion-button full (click)="openPdf()" color="secondary" [disabled]="!pdfObj">Ouvrir le PDF</button>
-    <button ion-button full (click)="sendMail()" color="secondary" [disabled]="!pdfObj">Envoyer le PDF</button>
+  <br /><hr>
+<ion-label stacked class="lab">2 ème étape : </ion-label>
+  <br />
+  <button ion-button full (click)="createPdf()" icon-start>  <ion-icon name="paper"></ion-icon>Creer le rapport</button>
+  <br /><hr>
+  <ion-label stacked class="lab">3 ème étape : </ion-label>
+  <br />
+  <button ion-button full (click)="openPdf()" color="secondary" [disabled]="!pdfObj" icon-start> <ion-icon name="open"></ion-icon>Ouvrir le rapport</button>
+  <button ion-button full (click)="sendMail()" color="secondary" [disabled]="!pdfObj" icon-start><ion-icon name="mail"></ion-icon>Envoyer le rapport</button>
 </ion-content>
