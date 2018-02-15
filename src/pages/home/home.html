@@ -3,7 +3,7 @@
         <button ion-button icon-only (click)="presentPopover($event)" color="green" clear float-start>
             <ion-icon name="menu" color="light"></ion-icon>
         </button>
-        <ion-title>
+        <ion-title style="line-height:45px;">
             MémoClasse
         </ion-title>
     </ion-navbar>
@@ -24,7 +24,7 @@
                 </ion-card>
             </ion-col>
             <ion-col col-6 col-lg-2 col-sm-3 *ngFor="let student of students;">
-                <ion-card class="student" (click)="editStudent(student)">
+                <ion-card class="student" (click)="showStudentInfo(student)">
                     <img src="assets/imgs/default_student_icon.png" class="student_icon" alt="Student default logo"/>
                     <ion-card-content>
                         <ion-card-title text-center class="name">

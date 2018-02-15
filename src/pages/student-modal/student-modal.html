@@ -1,0 +1,35 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Informations
+        </ion-title>
+        <ion-buttons start>
+            <button ion-button>
+                <span ion-text color="primary" showWhen="ios">Cancel</span>
+                <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <ion-item>
+            <ion-avatar item-start>
+                <img src="assets/imgs/default_student_icon.png" alt="Student default logo"/>
+            </ion-avatar>
+            <h2>{{ student.firstname + " " + student.lastname }}</h2>
+            <p>Elève</p>
+        </ion-item>
+        <ion-item *ngFor="let mail of student.mails;">
+            {{ mail }}
+            <ion-note item-end>
+                NOTE
+            </ion-note>
+        </ion-item>
+        <ion-item style="position:absolute;bottom:0;">
+            <button ion-button (click)="activityReports()" style="padding:15px;font-size:15px;" color="green">Comptes rendus</button>
+            <button ion-button (click)="editStudent()" style="padding:15px;font-size:15px;">Editer</button>
+        </ion-item>
+    </ion-list>
+</ion-content>
+`

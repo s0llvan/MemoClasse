@@ -24,6 +24,8 @@ import { File } from '@ionic-native/file';
 import { FileOpener } from '@ionic-native/file-opener';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { Base64 } from '@ionic-native/base64';
+import { AuthentificationProvider } from '../providers/authentification/authentification';
+import { StudentModalPage } from '../pages/student-modal/student-modal';
 
 @NgModule({
     declarations: [
@@ -34,15 +36,16 @@ import { Base64 } from '@ionic-native/base64';
         PdfPage,
         PopoverPage,
         CameraPage,
-        WatchStudentPage
+        WatchStudentPage,
+        StudentModalPage
     ],
     imports: [
-      IonicStorageModule.forRoot({
-         name: '__mydb',
+        IonicStorageModule.forRoot({
+            name: '__mydb',
             driverOrder: ['indexeddb', 'sqlite', 'websql']
-      }),
-      BrowserModule,
-      IonicModule.forRoot(MyApp)
+        }),
+        BrowserModule,
+        IonicModule.forRoot(MyApp)
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -53,7 +56,8 @@ import { Base64 } from '@ionic-native/base64';
         PdfPage,
         PopoverPage,
         CameraPage,
-        WatchStudentPage
+        WatchStudentPage,
+        StudentModalPage
     ],
     providers: [
         StatusBar,
@@ -65,7 +69,8 @@ import { Base64 } from '@ionic-native/base64';
         FileOpener,
         CameraPreview,
         EmailComposer,
-        Base64
+        Base64,
+        AuthentificationProvider
     ]
 })
 export class AppModule {}
