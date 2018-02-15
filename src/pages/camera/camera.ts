@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CameraPreview, CameraPreviewOptions } from '@ionic-native/camera-preview';
+import { CameraPreview, CameraPreviewOptions , CameraPreviewPictureOptions } from '@ionic-native/camera-preview';
 
 /**
 * Generated class for the CameraPage page.
@@ -15,18 +15,21 @@ import { CameraPreview, CameraPreviewOptions } from '@ionic-native/camera-previe
     templateUrl: 'camera.html',
 })
 export class CameraPage {
+  public picture: string;
+  public pictureOpts: CameraPreviewPictureOptions;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private cameraPreview: CameraPreview) {
-
+      // picture options
         this.startCamera();
+
     }
 
     startCamera() {
         const cameraPreviewOpts: CameraPreviewOptions = {
             x: 0,
-            y: 0,
-            width: window.screen.width-1,
-            height: window.screen.height-1,
+            y: window.screen.height/3,
+            width: window.screen.width,
+            height: window.screen.height/3,
             camera: 'rear',
             tapPhoto: true,
             previewDrag: false,
@@ -45,7 +48,28 @@ export class CameraPage {
             });
         }
 
+        takePicture() {
+          this.pictureOpts = {
+            width: 1280,
+            height: 1280,
+            quality: 85
+          }
+          // take a picture
+          this.cameraPreview.takePicture(this.pictureOpts).then((imageData) => {
+            this.picture = 'data:image/jpeg;base64,' + imageData;
+          }, (err) => {
+            console.log(err);
+            this.picture = 'assets/img/test.jpg';
+          });
+          this.cameraPreview.stopCamera();
+        }
+
         showCamera(){
             this.cameraPreview.show();
         }
+
+        refresh(){
+          window['location'].reload();
+      }
+
     }
