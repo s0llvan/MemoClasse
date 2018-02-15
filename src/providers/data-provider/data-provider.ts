@@ -26,6 +26,7 @@ export class DataProvider {
     }
 
     addStudent(student) {
+        student.pictures = [];
         student.id = this.getLastStudentId() + 1;
         this.students.push(student);
         this.saveStudents();

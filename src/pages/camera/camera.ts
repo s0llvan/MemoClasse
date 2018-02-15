@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CameraPreview, CameraPreviewOptions , CameraPreviewPictureOptions } from '@ionic-native/camera-preview';
+import { DataProvider } from '../../providers/data-provider/data-provider';
+
 
 /**
 * Generated class for the CameraPage page.
@@ -17,19 +19,19 @@ import { CameraPreview, CameraPreviewOptions , CameraPreviewPictureOptions } fro
 export class CameraPage {
   public picture: string;
   public pictureOpts: CameraPreviewPictureOptions;
+  public student = {pictures: []};
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, private cameraPreview: CameraPreview) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, private cameraPreview: CameraPreview, private dataProvider: DataProvider) {
       // picture options
         this.startCamera();
-
     }
 
     startCamera() {
         const cameraPreviewOpts: CameraPreviewOptions = {
             x: 0,
-            y: window.screen.height/3,
+            y: (window.screen.height/100)*10,
             width: window.screen.width,
-            height: window.screen.height/3,
+            height: (window.screen.height/100)*70,
             camera: 'rear',
             tapPhoto: true,
             previewDrag: false,
@@ -46,6 +48,7 @@ export class CameraPage {
                 // alert('Failed');
                 console.log(err);
             });
+        this.cameraPreview.show();
         }
 
         takePicture() {
@@ -61,15 +64,24 @@ export class CameraPage {
             console.log(err);
             this.picture = 'assets/img/test.jpg';
           });
-          this.cameraPreview.stopCamera();
+          this.cameraPreview.hide();
         }
 
         showCamera(){
             this.cameraPreview.show();
         }
 
+        pushPicture(){
+            this.student.pictures.push(this.picture);
+            this.dataProvider.updateStudent(this.student);
+        }
+
         refresh(){
           window['location'].reload();
+      }
+
+      goBack(){
+        this.navCtrl.pop();
       }
 
     }
