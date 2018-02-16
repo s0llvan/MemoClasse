@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DataProvider } from '../../providers/data-provider/data-provider';
 import { AlertController } from 'ionic-angular';
+import { HomePage } from '../home/home'
 
 /**
 * Generated class for the EditStudentPage page.
@@ -41,8 +42,8 @@ export class EditStudentPage {
 
     deleteStudent() {
         let confirm = this.alertCtrl.create({
-            title: 'Voulez-vous vraiment supprimer cette élève ?',
-            message: "Toutes les informations et photos de l'élève seront supprimés.",
+            title: 'Voulez-vous vraiment supprimer cet élève ?',
+            message: "Toutes les informations et photos de l'élève seront supprimées.",
             buttons: [
                 {
                     text: 'Non',
@@ -52,7 +53,8 @@ export class EditStudentPage {
                     text: 'Oui',
                     handler: () => {
                         this.dataProvider.deleteStudent(this.student);
-                        this.navCtrl.pop();
+                        this.navCtrl.push(HomePage);
+
                     }
                 }
             ]

@@ -2,9 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CameraPreview, CameraPreviewOptions , CameraPreviewPictureOptions } from '@ionic-native/camera-preview';
 import { DataProvider } from '../../providers/data-provider/data-provider';
-import { ToastController } from 'ionic-angular';
-
-
 
 /**
 * Generated class for the CameraPage page.
@@ -15,90 +12,71 @@ import { ToastController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-camera',
-  templateUrl: 'camera.html',
+    selector: 'page-camera',
+    templateUrl: 'camera.html',
 })
 export class CameraPage {
-  public picture: string;
-  public pictureOpts: CameraPreviewPictureOptions;
-  public student = {pictures: []};
+    public picture: string;
+    public picturePreview: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private cameraPreview: CameraPreview, private dataProvider: DataProvider, private toastCtrl: ToastController) {
-    // picture options
-    this.student = navParams.get("student");
-    this.startCamera();
-  }
+    public pictureOpts: CameraPreviewPictureOptions;
+    public student: any;
 
-  startCamera() {
-    const cameraPreviewOpts: CameraPreviewOptions = {
-      x: 0,
-      y: (window.screen.height/100)*10,
-      width: window.screen.width,
-      height: (window.screen.height/100)*70,
-      camera: 'rear',
-      tapPhoto: true,
-      previewDrag: false,
-      toBack: false,
-      alpha: 1
-    };
-
-    this.cameraPreview.startCamera(cameraPreviewOpts).then(
-      (res) => {
-        // alert('message');
-        console.log(res);
-      },
-      (err) => {
-        // alert('Failed');
-        console.log(err);
-      });
-      this.cameraPreview.show();
+    constructor(public navCtrl: NavController, public navParams: NavParams, private cameraPreview: CameraPreview, private dataProvider: DataProvider) {
+        this.student = navParams.get("student");
+        this.startCamera();
     }
 
+    startCamera() {
+        const cameraPreviewOpts: CameraPreviewOptions = {
+            x: 0,
+            y: (window.screen.height/100)*10,
+            width: window.screen.width,
+            height: (window.screen.height/100)*70,
+            camera: 'rear',
+            tapPhoto: true,
+            previewDrag: false,
+            toBack: false,
+            alpha: 1
+        };
+
+        this.cameraPreview.startCamera(cameraPreviewOpts);
+        this.cameraPreview.show();
+    };
+
     takePicture() {
-      this.pictureOpts = {
-        width: 1280,
-        height: 1280,
-        quality: 85
-      }
-      // take a picture
-      this.cameraPreview.takePicture(this.pictureOpts).then((imageData) => {
-      this.picture = 'data:image/jpeg;base64,' + imageData;
-    }, (err) => {
-      console.log(err);
-      this.picture = 'assets/img/test.jpg';
-    });
-    this.cameraPreview.hide();
-  }
+        this.pictureOpts = {
+            width: 1280,
+            height: 1280,
+            quality: 85
+        }
+        // take a picture
+        this.cameraPreview.takePicture(this.pictureOpts).then((imageData) =>
+        {
+            this.picture = imageData;
+            this.picturePreview = "data:image/png;base64," + imageData;
+        }, (err) => {
+            this.picture = 'assets/img/test.jpg';
+        });
 
-  showCamera(){
-    this.cameraPreview.show();
-  }
+        this.cameraPreview.hide();
+    }
 
-  pushPicture(picture){
-    this.presentToast();
-    this.student.pictures.push(this.picture);
-    this.dataProvider.updateStudent(this.student);
+    showCamera() {
+        this.cameraPreview.show();
+    }
 
+    pushPicture() {
+        this.student.pictures.push(this.picture);
+        this.dataProvider.updateStudent(this.student);
 
-  }
+        this.picture = null;
+        this.picturePreview = null;
+        this.showCamera();
+    }
 
-  presentToast() {
-  let toast = this.toastCtrl.create({
-    message: 'Le pdf a bien été généré',
-    duration: 3000,
-    position: 'top',
-    cssClass: "toast"
-  });
-  toast.present();
-}
-
-  refresh(){
-    window['location'].reload();
-  }
-
-  goBack(){
-    this.navCtrl.pop();
-    this.cameraPreview.hide();
-  }
-
+    goBack(){
+        this.navCtrl.pop();
+        this.cameraPreview.hide();
+    }
 }

@@ -18,7 +18,7 @@
                 <img src="assets/imgs/default_student_icon.png" alt="Student default logo"/>
             </ion-avatar>
             <h2>{{ student.firstname + " " + student.lastname }}</h2>
-            <p>Elève</p>
+            <p>Elève: {{ student.pictures.length }}</p>
         </ion-item>
         <ion-item *ngFor="let mail of student.mails;">
             {{ mail }}

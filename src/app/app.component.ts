@@ -16,6 +16,7 @@ import { DataProvider } from '../providers/data-provider/data-provider';
     constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, modalCtrl: ModalController) {
         platform.ready().then(() => {
             statusBar.styleDefault();
+            splashScreen.hide();
         });
     }
 }

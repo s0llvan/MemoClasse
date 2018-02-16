@@ -30,7 +30,7 @@ export class WatchStudentPage {
   }
 
   camera(student) {
-      this.navCtrl.push(CameraPage, {student:student});
+      this.navCtrl.push(CameraPage, { student: student });
   }
 
   presentPopover(myEvent) {
