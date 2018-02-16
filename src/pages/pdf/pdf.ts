@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, Platform, NavParams } from 'ionic-angular';
+import { IonicPage, NavController,Platform,NavParams } from 'ionic-angular';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
@@ -68,7 +68,6 @@ export class PdfPage {
     }
 
     createPdf() {
-
         this.pdfObj = pdfMake.createPdf(this.docDefinition);
         this.presentToast();
     }
