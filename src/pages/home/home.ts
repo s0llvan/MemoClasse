@@ -21,7 +21,7 @@ export class HomePage {
         this.students = this.dataProvider.students;
     }
 
-    ionViewDidLoad() {
+    ionViewWillEnter() {
         if (this.platform.is('mobile')) {
             this.dataProvider.initializeStudents().then(data => this.students = data);
         }

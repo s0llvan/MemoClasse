@@ -16,7 +16,7 @@ import { PdfPage } from '../pdf/pdf'
 })
 export class StudentModalPage {
 
-    public student;
+    student;
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
         this.student = this.navParams.get('student');
