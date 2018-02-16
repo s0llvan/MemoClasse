@@ -94,7 +94,7 @@
     <plugin name="cordova-plugin-email-composer" spec="^0.8.15" />
     <plugin name="cordova-plugin-camera-preview" spec="^0.9.0" />
     <plugin name="com-badrit-base64" spec="^0.2.0" />
+    <plugin name="cordova-plugin-x-toast" spec="^2.6.0" />
     <engine name="android" spec="7.0.0" />
     <engine name="browser" spec="5.0.3" />
-    <plugin name="cordova-plugin-x-toast" spec="^2.6.0" />
 </widget>

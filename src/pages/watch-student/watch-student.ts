@@ -29,8 +29,8 @@ export class WatchStudentPage {
       return this.dataProvider.initializeStudents().then(data => this.students = data);
   }
 
-  camera() {
-      this.navCtrl.push(CameraPage);
+  camera(student) {
+      this.navCtrl.push(CameraPage, {student:student});
   }
 
   presentPopover(myEvent) {

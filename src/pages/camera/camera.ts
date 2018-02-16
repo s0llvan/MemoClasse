@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CameraPreview, CameraPreviewOptions , CameraPreviewPictureOptions } from '@ionic-native/camera-preview';
 import { DataProvider } from '../../providers/data-provider/data-provider';
+import { ToastController } from 'ionic-angular';
+
 
 
 /**
@@ -21,7 +23,7 @@ export class CameraPage {
   public pictureOpts: CameraPreviewPictureOptions;
   public student = {pictures: []};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private cameraPreview: CameraPreview, private dataProvider: DataProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private cameraPreview: CameraPreview, private dataProvider: DataProvider, private toastCtrl: ToastController) {
     // picture options
     this.student = navParams.get("student");
     this.startCamera();
@@ -72,10 +74,23 @@ export class CameraPage {
     this.cameraPreview.show();
   }
 
-  pushPicture(){
+  pushPicture(picture){
+    this.presentToast();
     this.student.pictures.push(this.picture);
     this.dataProvider.updateStudent(this.student);
+
+
   }
+
+  presentToast() {
+  let toast = this.toastCtrl.create({
+    message: 'Le pdf a bien été généré',
+    duration: 3000,
+    position: 'top',
+    cssClass: "toast"
+  });
+  toast.present();
+}
 
   refresh(){
     window['location'].reload();

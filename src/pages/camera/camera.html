@@ -10,9 +10,8 @@ Ionic pages and navigation.
      <button id="take_picture" ion-button (click)="takePicture()"  *ngIf="picture == null">Take a Picture</button>
      <img [src]="picture" *ngIf="picture" />
      <button id="back" ion-button (click)="goBack()" *ngIf="picture == null">Back</button>
-     <button ion-button (click)="pushPicture()" *ngIf="picture != null" color="green">Valider</button>
+     <button ion-button (click)="pushPicture(picture)" *ngIf="picture != null" color="green">Valider</button>
      <button ion-button (click)="goBack()" *ngIf="picture != null" color="danger">Retour</button>
-     
    </ion-card-content>
  </ion-card>
 </ion-content>
