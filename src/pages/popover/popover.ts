@@ -2,6 +2,7 @@ import { NavController, ViewController } from "ionic-angular";
 import { Component } from "@angular/core";
 import { WatchStudentPage } from '../watch-student/watch-student';
 import { AuthentificationProvider } from '../../providers/authentification/authentification';
+import { PdfPage } from "../pdf/pdf";
 
 @Component({
     selector: 'popover',
@@ -16,8 +17,7 @@ export class PopoverPage {
         this.viewCtrl.dismiss();
     }
 
-    gotoWatchStudent(){
-        this.close();
-        this.navCtrl.push(WatchStudentPage);
+    admin(){
+        this.authentificationProvider.is_admin = !this.authentificationProvider.is_admin;
     }
 }

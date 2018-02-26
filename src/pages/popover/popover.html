@@ -1,10 +1,7 @@
 <ion-list>
-    <button ion-item (click)="close()" *ngIf="authentificationProvider.is_admin">
-        <ion-icon name="add-circle" class="menu-icon"></ion-icon>
-        Élèves
-    </button>
-    <button ion-item (click)="gotoWatchStudent()">
-        <ion-icon name="add-circle" class="menu-icon"></ion-icon>
-        Déconnexion
+    <button ion-item (click)="admin()">
+        <ion-icon name="log-in" class="menu-icon" *ngIf="authentificationProvider.is_admin"></ion-icon>
+        <ion-icon name="log-out" class="menu-icon" *ngIf="!authentificationProvider.is_admin"></ion-icon>
+        Administration
     </button>
 </ion-list>

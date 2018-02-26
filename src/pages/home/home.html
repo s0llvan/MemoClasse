@@ -13,7 +13,7 @@
     <ion-searchbar placeholder="Rechercher un élève" (ionInput)="searchStudent($event)"></ion-searchbar>
     <ion-grid>
         <ion-row>
-            <ion-col col-6 col-lg-2 col-sm-3>
+            <ion-col col-6 col-lg-2 col-sm-3 *ngIf="authentificationProvider.is_admin">
                 <ion-card class="student student_new" (click)="addStudent()">
                     <ion-icon name="add" class="student_new_icon" color="green"></ion-icon>
                     <ion-card-content>
@@ -24,7 +24,7 @@
                 </ion-card>
             </ion-col>
             <ion-col col-6 col-lg-2 col-sm-3 *ngFor="let student of students;">
-                <ion-card class="student" (click)="showStudentInfo(student)">
+                <ion-card class="student" (click)="selectStudent(student)">
                     <img src="assets/imgs/default_student_icon.png" class="student_icon" alt="Student default logo"/>
                     <ion-card-content>
                         <ion-card-title text-center class="name">
