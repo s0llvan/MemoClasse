@@ -20,8 +20,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
     ]
 })
 export class CameraPage {
-    public picture = [];
-    public nbPicture = 5;
+    public picture = new Array(5);
     public picturePreview = [];
     public isHide : boolean;
     public position = 0;
@@ -79,15 +78,18 @@ export class CameraPage {
     }
 
     pushPicture() {
-        this.picture.forEach(function(e){
-            if(e != null){
-                this.student.pictures.push(e);
-            }
-            this.dataProvider.updateStudent(this.student);
-        })
 
-        // this.picture = null;
-        // this.picturePreview = null;
+        for(let p of this.picture) {
+            if(p != null)
+            {
+                this.student.pictures.push(p);
+            }
+        }
+
+        this.dataProvider.updateStudent(this.student);
+
+        this.picture = new Array(5);
+        this.picturePreview = null;
     }
 
     hideCamera(){

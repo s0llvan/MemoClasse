@@ -14,15 +14,9 @@
         <ion-card-content id="container">
             <button id="back" ion-button (click)="hideCamera()" *ngIf="isHide == false">Back</button>
 
-            <div id="picture" (click)="startCamera(1)"><img alt="photographie" [src]="picturePreview[1]" *ngIf="picturePreview[1]" /></div>
-            
-            <div id="picture" (click)="startCamera(2)"><img alt="photographie" [src]="picturePreview[2]" *ngIf="picturePreview[2]" /></div>
-
-            <div id="picture" (click)="startCamera(3)"><img alt="photographie" [src]="picturePreview[3]" *ngIf="picturePreview[3]" /></div>
-
-            <div id="picture" (click)="startCamera(4)"><img alt="photographie" [src]="picturePreview[4]" *ngIf="picturePreview[4]" /></div>
-
-            <div id="picture" (click)="startCamera(5)"><img alt="photographie" [src]="picturePreview[5]" *ngIf="picturePreview[5]" /></div>
+            <div id="picture" (click)="startCamera(i)" *ngFor="let p of picture; let i = index">
+                <img [src]="picturePreview[i]" *ngIf="picturePreview[i]" />
+            </div>
 
             <button ion-button (click)="pushPicture()" *ngIf="isHide == true" color="green">Valider</button>
             <button ion-button (click)="goBack()" *ngIf="isHide == true" color="danger">Retour</button>
