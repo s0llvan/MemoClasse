@@ -41,5 +41,7 @@ export class PopoverPage {
         {
             this.authentificationProvider.is_admin = false;
         }
+
+        this.viewCtrl.dismiss();
     }
 }

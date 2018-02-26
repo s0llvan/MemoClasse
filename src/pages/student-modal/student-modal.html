@@ -20,10 +20,10 @@
             <h2>{{ student.firstname + " " + student.lastname }}</h2>
             <p>{{ student.pictures.length }} photos</p>
         </ion-item>
-        <ion-item *ngFor="let mail of student.mails;">
+        <ion-item *ngFor="let mail of student.mails;let i = index">
             {{ mail }}
             <ion-note item-end>
-                NOTE
+                Adresse email n°{{ i + 1 }}
             </ion-note>
         </ion-item>
         <ion-item style="position:absolute;bottom:0;">

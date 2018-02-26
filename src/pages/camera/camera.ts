@@ -31,7 +31,6 @@ export class CameraPage {
     constructor(public navCtrl: NavController, public navParams: NavParams, private cameraPreview: CameraPreview, private dataProvider: DataProvider, private screenOrientation: ScreenOrientation) {
         this.student = navParams.get("student");
         this.isHide = true;
-        this.nbPicture = 0;
         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     }
 
