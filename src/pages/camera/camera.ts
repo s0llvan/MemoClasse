@@ -79,9 +79,9 @@ export class CameraPage {
 
     pushPicture() {
         for(let p of this.picture) {
-            if(this.picture[i] != null)
+            if(p != null)
             {
-                this.student.pictures.push(this.picture[i]);
+                this.student.pictures.push(p);
             }
         }
 
