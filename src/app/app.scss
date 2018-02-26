@@ -32,9 +32,11 @@
     text-align: center;
 }
 
-.student_edit .item-md .item-button, .student_add .item-md {
+.student_edit .item-md .item-button, .student_add .item-md .item-button {
     padding: 20px;
     font-size: 14px;
 }
 
-
+ion-app.md [padding] .scroll-content {
+    padding: 10px;
+}

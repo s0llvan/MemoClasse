@@ -12,14 +12,20 @@ import { HomePage } from '../pages/home/home';
 import { Camera } from '@ionic-native/camera';
 import { EditStudentPage } from '../pages/edit-student/edit-student'
 import { AddStudentPage } from '../pages/add-student/add-student'
+
 import { PdfPage } from '../pages/pdf/pdf'
 import { PopoverPage } from '../pages/popover/popover'
-
+import { CameraPage } from '../pages/camera/camera'
+import { CameraPreview } from '@ionic-native/camera-preview';
+import { WatchStudentPage } from '../pages/watch-student/watch-student'
 import { DataProvider } from '../providers/data-provider/data-provider';
 
 import { File } from '@ionic-native/file';
 import { FileOpener } from '@ionic-native/file-opener';
 import { EmailComposer } from '@ionic-native/email-composer';
+import { Base64 } from '@ionic-native/base64';
+import { AuthentificationProvider } from '../providers/authentification/authentification';
+import { StudentModalPage } from '../pages/student-modal/student-modal';
 
 @NgModule({
     declarations: [
@@ -28,15 +34,18 @@ import { EmailComposer } from '@ionic-native/email-composer';
         EditStudentPage,
         AddStudentPage,
         PdfPage,
-        PopoverPage
+        PopoverPage,
+        CameraPage,
+        WatchStudentPage,
+        StudentModalPage
     ],
     imports: [
-      IonicStorageModule.forRoot({
-         name: '__mydb',
+        IonicStorageModule.forRoot({
+            name: '__mydb',
             driverOrder: ['indexeddb', 'sqlite', 'websql']
-      }),
-      BrowserModule,
-      IonicModule.forRoot(MyApp)
+        }),
+        BrowserModule,
+        IonicModule.forRoot(MyApp)
     ],
     bootstrap: [IonicApp],
     entryComponents: [
@@ -45,7 +54,10 @@ import { EmailComposer } from '@ionic-native/email-composer';
         EditStudentPage,
         AddStudentPage,
         PdfPage,
-        PopoverPage
+        PopoverPage,
+        CameraPage,
+        WatchStudentPage,
+        StudentModalPage
     ],
     providers: [
         StatusBar,
@@ -55,7 +67,10 @@ import { EmailComposer } from '@ionic-native/email-composer';
         {provide: ErrorHandler, useClass: IonicErrorHandler},
         File,
         FileOpener,
-        EmailComposer
+        CameraPreview,
+        EmailComposer,
+        Base64,
+        AuthentificationProvider
     ]
 })
 export class AppModule {}
