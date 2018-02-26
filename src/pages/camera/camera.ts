@@ -79,15 +79,15 @@ export class CameraPage {
     }
 
     pushPicture() {
-        for(var i = 1; i <= this.nbPicture; i++){
-            if(this.picture[i] != null){
-                this.student.pictures.push(this.picture[i]);
+        this.picture.forEach(function(e){
+            if(e != null){
+                this.student.pictures.push(e);
             }
-        }
-        this.dataProvider.updateStudent(this.student);
+            this.dataProvider.updateStudent(this.student);
+        })
 
-        this.picture = null;
-        this.picturePreview = null;
+        // this.picture = null;
+        // this.picturePreview = null;
     }
 
     hideCamera(){
