@@ -1,6 +1,5 @@
 import { NavController, ViewController } from "ionic-angular";
 import { Component } from "@angular/core";
-import { WatchStudentPage } from '../watch-student/watch-student';
 import { AuthentificationProvider } from '../../providers/authentification/authentification';
 import { PdfPage } from "../pdf/pdf";
 
