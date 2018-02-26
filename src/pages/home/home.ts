@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AddStudentPage } from '../add-student/add-student'
 import { DataProvider } from '../../providers/data-provider/data-provider';
+import { AuthentificationProvider } from '../../providers/authentification/authentification';
 import { PopoverController } from 'ionic-angular';
 import { PopoverPage } from "../popover/popover";
 import { Platform } from 'ionic-angular';
@@ -9,6 +10,7 @@ import { AlertController } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
 import { StudentModalPage } from '../student-modal/student-modal';
 import { Events } from 'ionic-angular';
+import { CameraPage } from '../camera/camera'
 
 @Component({
     selector: 'page-home',
@@ -18,7 +20,7 @@ export class HomePage {
 
     public students = [];
 
-    constructor(public events: Events, public navCtrl: NavController, private dataProvider: DataProvider, public popoverCtrl: PopoverController, public platform: Platform, public modalCtrl: ModalController) {
+    constructor(public authentificationProvider: AuthentificationProvider, public events: Events, public navCtrl: NavController, private dataProvider: DataProvider, public popoverCtrl: PopoverController, public platform: Platform, public modalCtrl: ModalController) {
         events.subscribe('students:updated', (students) => {
             this.students = students;
         });
@@ -41,9 +43,13 @@ export class HomePage {
         this.navCtrl.push(AddStudentPage);
     }
 
-    showStudentInfo(student) {
-        let modal = this.modalCtrl.create(StudentModalPage, { student: student });
-        modal.present();
+    selectStudent(student) {
+        if(this.authentificationProvider.is_admin) {
+            let modal = this.modalCtrl.create(StudentModalPage, { student: student });
+            modal.present();
+        } else {
+            this.navCtrl.push(CameraPage, { student: student });
+        }
     }
 
     presentPopover(myEvent) {
