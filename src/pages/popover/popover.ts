@@ -17,6 +17,7 @@ export class PopoverPage {
     }
 
     gotoWatchStudent(){
+        this.close();
         this.navCtrl.push(WatchStudentPage);
     }
 }
