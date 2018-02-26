@@ -17,7 +17,6 @@ import { PdfPage } from '../pages/pdf/pdf'
 import { PopoverPage } from '../pages/popover/popover'
 import { CameraPage } from '../pages/camera/camera'
 import { CameraPreview } from '@ionic-native/camera-preview';
-import { WatchStudentPage } from '../pages/watch-student/watch-student'
 import { DataProvider } from '../providers/data-provider/data-provider';
 
 import { File } from '@ionic-native/file';
@@ -36,7 +35,6 @@ import { StudentModalPage } from '../pages/student-modal/student-modal';
         PdfPage,
         PopoverPage,
         CameraPage,
-        WatchStudentPage,
         StudentModalPage
     ],
     imports: [
@@ -56,7 +54,6 @@ import { StudentModalPage } from '../pages/student-modal/student-modal';
         PdfPage,
         PopoverPage,
         CameraPage,
-        WatchStudentPage,
         StudentModalPage
     ],
     providers: [
