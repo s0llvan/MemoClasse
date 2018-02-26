@@ -87,7 +87,7 @@ export class CameraPage {
 
         this.dataProvider.updateStudent(this.student);
 
-        this.picture = null;
+        this.picture = new Array(5);
         this.picturePreview = null;
     }
 
