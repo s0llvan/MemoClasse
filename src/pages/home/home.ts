@@ -8,6 +8,7 @@ import { Platform } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
 import { StudentModalPage } from '../student-modal/student-modal';
+import { Events } from 'ionic-angular';
 
 @Component({
     selector: 'page-home',
@@ -17,14 +18,10 @@ export class HomePage {
 
     public students = [];
 
-    constructor(public navCtrl: NavController, private dataProvider: DataProvider, public popoverCtrl: PopoverController, public platform: Platform, public modalCtrl: ModalController) {
-        this.students = this.dataProvider.students;
-    }
-
-    ionViewWillEnter() {
-        if (this.platform.is('mobile')) {
-            this.dataProvider.initializeStudents().then(data => this.students = data);
-        }
+    constructor(public events: Events, public navCtrl: NavController, private dataProvider: DataProvider, public popoverCtrl: PopoverController, public platform: Platform, public modalCtrl: ModalController) {
+        events.subscribe('students:updated', (students) => {
+            this.students = students;
+        });
     }
 
     searchStudent(ev: any) {

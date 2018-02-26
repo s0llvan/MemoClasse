@@ -1,27 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { Platform } from 'ionic-angular';
+import { Events } from 'ionic-angular';
 
 @Injectable()
 export class DataProvider {
 
     public students: any = [];
 
-    constructor(private storage: Storage, public platform: Platform) {
+    constructor(public events: Events, private storage: Storage, public platform: Platform) {
         if (this.platform.is('mobile')) {
             this.initializeStudents();
         }
     }
 
     initializeStudents() {
-        return this.storage.get('students').then((val) => {
+        this.storage.get('students').then((val) => {
             if(val == null){
                 this.students = [];
             }
-            else{
+            else {
                 this.students = JSON.parse(val);
             }
-            return this.students;
+            this.events.publish('students:updated', this.students);
         });
     }
 
@@ -50,6 +51,8 @@ export class DataProvider {
     }
 
     saveStudents() {
+        this.events.publish('students:updated', this.students);
+
         if (this.platform.is('mobile')) {
             this.storage.set('students', JSON.stringify(this.students));
         }
