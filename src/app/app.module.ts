@@ -25,7 +25,7 @@ import { EmailComposer } from '@ionic-native/email-composer';
 import { Base64 } from '@ionic-native/base64';
 import { AuthentificationProvider } from '../providers/authentification/authentification';
 import { StudentModalPage } from '../pages/student-modal/student-modal';
-
+import { SelectImagesPage } from '../pages/select-images/select-images';
 @NgModule({
     declarations: [
         MyApp,
@@ -35,7 +35,8 @@ import { StudentModalPage } from '../pages/student-modal/student-modal';
         PdfPage,
         PopoverPage,
         CameraPage,
-        StudentModalPage
+        StudentModalPage,
+        SelectImagesPage
     ],
     imports: [
         IonicStorageModule.forRoot({
@@ -54,7 +55,8 @@ import { StudentModalPage } from '../pages/student-modal/student-modal';
         PdfPage,
         PopoverPage,
         CameraPage,
-        StudentModalPage
+        StudentModalPage,
+        SelectImagesPage
     ],
     providers: [
         StatusBar,

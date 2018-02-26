@@ -9,6 +9,7 @@ import { FileOpener } from '@ionic-native/file-opener';
 import { ToastController } from 'ionic-angular';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { Base64 } from '@ionic-native/base64';
+import { SelectImagesPage } from '../select-images/select-images';
 
 @IonicPage()
 @Component({
@@ -73,17 +74,24 @@ export class PdfPage {
     }
 
     addImage(){
-        this.docDefinition.content.push({image: 'data:image/png;base64,' + this.student.pictures[0], style:'image'});
+      for(var i = 0; i< this.student.pictures.length;i++)
+      {
+          this.docDefinition.content.push({image: 'data:image/png;base64,' + this.student.pictures[i], style:'image'});
+      }
+    }
+
+    goToSelectImages(){
+      this.navCtrl.push(SelectImagesPage, { student: this.student });
     }
 
     addChamps()
     {
+      //this.goToSelectImages();
         this.addActivite();
         this.addSubHeader();
         this.addText();
         this.addImage();
-        this.addImage();
-        this.addImage();
+
     }
 
     addActivite(){
