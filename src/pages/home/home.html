@@ -3,6 +3,10 @@
         <button ion-button icon-only (click)="presentPopover($event)" color="green" clear float-start>
             <ion-icon name="menu" color="light"></ion-icon>
         </button>
+        
+        <img src="assets/imgs/professor.png" class="mode_icon" float-end *ngIf="authentificationProvider.is_admin"/>
+        <img src="assets/imgs/student.png" class="mode_icon" float-end *ngIf="!authentificationProvider.is_admin"/>
+
         <ion-title style="line-height:45px;">
             MémoClasse
         </ion-title>

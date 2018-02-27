@@ -1,7 +1,13 @@
 <ion-list>
     <button ion-item (click)="admin()">
-        <ion-icon name="log-in" class="menu-icon" *ngIf="authentificationProvider.is_admin"></ion-icon>
-        <ion-icon name="log-out" class="menu-icon" *ngIf="!authentificationProvider.is_admin"></ion-icon>
-        Administration
+        <div *ngIf="!authentificationProvider.is_admin">
+            <ion-icon name="log-in" class="menu-icon"></ion-icon>
+            Administration
+        </div>
+
+        <div *ngIf="authentificationProvider.is_admin">
+            <ion-icon name="log-out" class="menu-icon"></ion-icon>
+            Déconnexion
+        </div>
     </button>
 </ion-list>
