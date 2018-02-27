@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { PdfPage } from '../pdf/pdf'
+import { DataProvider } from '../../providers/data-provider/data-provider';
 /**
  * Generated class for the SelectImagesPage page.
  *
@@ -17,8 +18,10 @@ export class SelectImagesPage {
 
 student;
   public picturePreview = [];
+  public selectedImages = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+public isVisible = [];
+  constructor(public navCtrl: NavController, public navParams: NavParams,private dataProvider: DataProvider) {
     this.student = navParams.get("student");
 
 for(var i = 0; i< this.student.pictures.length;i++)
@@ -26,11 +29,35 @@ for(var i = 0; i< this.student.pictures.length;i++)
     this.picturePreview[i] = "data:image/png;base64," + this.student.pictures[i];
 }
 
-
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectImagesPage');
+  }
+
+  imageSelected(i){
+    if(this.isVisible[i] == true)
+    {
+          this.isVisible[i] = false;
+          var index = this.selectedImages.indexOf(i);
+          if (index !== -1) this.selectedImages.splice(index, 1);
+    }
+    else
+    {
+          this.isVisible[i] = true;
+          this.selectedImages.push(i);
+    }
+
+  }
+
+  valider(){
+
+  this.dataProvider.addImages(this.selectedImages);
+this.navCtrl.pop();
+  }
+
+  goBack(){
+this.navCtrl.pop();
   }
 
 }

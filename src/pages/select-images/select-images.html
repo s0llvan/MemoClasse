@@ -24,12 +24,16 @@
       <ion-col col-6 col-lg-2 col-sm-3 *ngFor="let p of picturePreview; let i = index">
           <ion-card class="student">
               <ion-card-content>
-                  <img [src]="picturePreview[i]" />
+                  <img [src]="picturePreview[i]" alt ="images" (click)="imageSelected(i)"/>
+                    <img *ngIf="isVisible[i]" src="assets/imgs/check.png" class="check" alt="check"/>
               </ion-card-content>
           </ion-card>
       </ion-col>
     </ion-row>
 </ion-grid>
+
+<div id="button"><button ion-button full (click)="valider()" color="green">Valider</button></div>
+<div id="button"><button ion-button full (click)="goBack()" color="danger">Retour</button></div>
 
 
 </ion-content>

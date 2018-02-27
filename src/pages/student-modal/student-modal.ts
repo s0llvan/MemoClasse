@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EditStudentPage } from '../edit-student/edit-student'
 import { PdfPage } from '../pdf/pdf'
+import { DataProvider } from '../../providers/data-provider/data-provider';
 
 /**
 * Generated class for the StudentModalPage page.
