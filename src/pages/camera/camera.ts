@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CameraPreview, CameraPreviewOptions , CameraPreviewPictureOptions } from '@ionic-native/camera-preview';
 import { DataProvider } from '../../providers/data-provider/data-provider';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { ToastController } from 'ionic-angular';
 
 /**
 * Generated class for the CameraPage page.
@@ -20,18 +21,18 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
     ]
 })
 export class CameraPage {
-    public picture = new Array(5);
+    public pictures = new Array(5);
     public picturePreview = [];
     public isHide : boolean;
     public position = 0;
+    public date = new Date();
 
     public pictureOpts: CameraPreviewPictureOptions;
     public student: any;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, private cameraPreview: CameraPreview, private dataProvider: DataProvider, private screenOrientation: ScreenOrientation) {
+    constructor(public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, private cameraPreview: CameraPreview, private dataProvider: DataProvider, private screenOrientation: ScreenOrientation) {
         this.student = navParams.get("student");
         this.isHide = true;
-        this.nbPicture = 0;
         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
     }
 
@@ -62,10 +63,11 @@ export class CameraPage {
         }
         this.cameraPreview.takePicture(this.pictureOpts).then((imageData) =>
         {
-            this.picture[this.position] = imageData;
+
             this.picturePreview[this.position] = "data:image/png;base64," + imageData;
+            this.pictures[this.position] = [this.picturePreview[this.position],imageData, this.date];
         }, (err) => {
-            this.picture[this.position] = 'assets/img/test.jpg';
+            this.pictures[this.position] = 'assets/img/test.jpg';
         });
 
         this.cameraPreview.hide();
@@ -79,7 +81,7 @@ export class CameraPage {
 
     pushPicture() {
 
-        for(let p of this.picture) {
+        for(let p of this.pictures) {
             if(p != null)
             {
                 this.student.pictures.push(p);
@@ -87,9 +89,16 @@ export class CameraPage {
         }
 
         this.dataProvider.updateStudent(this.student);
+        let toast = this.toastCtrl.create({
+          message: 'Photographies enregistrées',
+          duration: 3000
+        });
 
-        this.picture = new Array(5);
+        toast.present();
+
+        this.pictures = null;
         this.picturePreview = null;
+        // this.goBack();
     }
 
     hideCamera(){

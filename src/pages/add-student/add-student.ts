@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DataProvider } from '../../providers/data-provider/data-provider';
 import { ToastController } from 'ionic-angular';
 
+
+
 /**
 * Generated class for the AddStudentPage page.
 *
@@ -17,10 +19,10 @@ import { ToastController } from 'ionic-angular';
 })
 export class AddStudentPage {
 
-    public student = { id: 0, firstname:"",lastname:"",mails: [], pictures: [] };
+    public student = { id: 0, firstname:"",lastname:"",mails: [], pictures: []};
     public mail: any;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataProvider, private toastController: ToastController) {
+    constructor(public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataProvider, private toastController: ToastController) {
 
     }
 
