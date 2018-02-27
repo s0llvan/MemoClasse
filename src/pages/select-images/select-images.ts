@@ -52,7 +52,7 @@ for(var i = 0; i< this.student.pictures.length;i++)
 
   valider(){
 
-  this.dataProvider.addImages(this.selectedImages);
+this.dataProvider.addImages(this.selectedImages);
 this.navCtrl.pop();
   }
 
