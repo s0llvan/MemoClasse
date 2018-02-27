@@ -74,6 +74,7 @@ export class PdfPage {
     }
 
     addImage(){
+
       for(var i = 0; i< this.student.pictures.length;i++)
       {
           this.docDefinition.content.push({image: 'data:image/png;base64,' + this.student.pictures[i], style:'image'});
@@ -86,11 +87,11 @@ export class PdfPage {
 
     addChamps()
     {
-      //this.goToSelectImages();
-        this.addActivite();
-        this.addSubHeader();
-        this.addText();
-        this.addImage();
+    this.goToSelectImages();
+    //    this.addActivite();
+    //    this.addSubHeader();
+    //    this.addText();
+    //    this.addImage();
 
     }
 

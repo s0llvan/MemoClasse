@@ -15,8 +15,21 @@
 
 <ion-content padding>
 
-{{this.student.firstname}}
-{{this.student.lastname}}
+<p id="enfant">Enfant : {{this.student.firstname}} {{this.student.lastname}}</p>
+
+
+
+<ion-grid>
+    <ion-row>
+      <ion-col col-6 col-lg-2 col-sm-3 *ngFor="let p of picturePreview; let i = index">
+          <ion-card class="student">
+              <ion-card-content>
+                  <img [src]="picturePreview[i]" />
+              </ion-card-content>
+          </ion-card>
+      </ion-col>
+    </ion-row>
+</ion-grid>
 
 
 </ion-content>
