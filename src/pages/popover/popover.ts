@@ -18,7 +18,7 @@ export class PopoverPage {
     }
 
     admin():any{
-        if(!this.authentificationProvider.is_admin)
+        if(!this.authentificationProvider.isAdmin())
         {
             let pinCode =  this.pincodeCtrl.create({
                 title: 'Code PIN',
@@ -31,15 +31,13 @@ export class PopoverPage {
 
             pinCode.onDidDismiss( (code,status) => {
                 if(status === 'done'){
-                    if(code == this.authentificationProvider.admin_pin) {
-                        this.authentificationProvider.is_admin = true;
-                    }
+                    this.authentificationProvider.authAdmin(code);
                 }
             })
         }
         else
         {
-            this.authentificationProvider.is_admin = false;
+            this.authentificationProvider.deauthAdmin();
         }
 
         this.viewCtrl.dismiss();
