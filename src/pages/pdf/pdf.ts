@@ -129,6 +129,7 @@ export class PdfPage {
     }
 
     openPdf() {
+      this.pdfObj.download();
         if (this.plt.is('cordova')) {
             this.pdfObj.getBuffer((buffer) => {
                 var blob = new Blob([buffer], { type: 'application/pdf' });
