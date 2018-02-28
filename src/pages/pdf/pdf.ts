@@ -41,12 +41,8 @@ export class PdfPage {
 
     docDefinition = {
         content: [
-            { text: "Rapport de l'élève " + this.student.firstname + " " + this.student.lastname, style: 'header' },
-            { text: new Date().toTimeString(), alignment: 'right' },
-            { text: 'Classe : Xx', style: 'subheader' },
-            { text: 'Enseignant : Xxxx ', style: 'subheader' },
-            { text: 'Activité : ' + this.letterObj.activite, style: 'subheader' },
-            { image: "data:image/png;base64," + this.base64string, style:'image' },
+
+
         ],
         styles: {
             header: {
@@ -56,10 +52,6 @@ export class PdfPage {
             subheader: {
                 fontSize: 14,
                 bold: true,
-            },
-            image: {
-                width:200,
-                margin: [100, 15, 0, 0]
             },
             text: {
                 fontSize: 11
@@ -77,6 +69,7 @@ export class PdfPage {
     createPdf() {
       this.selection = this.dataProvider.images;
 
+      this.addInfos();
       this.addActivite();
       this.addSubHeader();
       this.addText();
@@ -87,6 +80,15 @@ export class PdfPage {
         this.presentToast();
     }
 
+    addInfos(){
+      this.docDefinition.content.push(
+      { text: "Rapport de l'élève " + this.student.firstname + " " + this.student.lastname, style: 'header' },
+      { text: new Date().toTimeString(), alignment: 'right' },
+      { text: 'Classe : Xx', style: 'subheader' },
+      { text: 'Enseignant : Xxxx ', style: 'subheader' },
+      { text: 'Activité : ' + this.letterObj.activite, style: 'subheader' },);
+    }
+
     addImage(){
       for(var i = 0; i< this.student.pictures.length;i++)
       {
@@ -94,7 +96,7 @@ export class PdfPage {
         {
           if(this.selection[j] == i)
           {
-              this.docDefinition.content.push({image: 'data:image/png;base64,' + this.student.pictures[i][1], style:'image'});
+              this.docDefinition.content.push({image: 'data:image/png;base64,' + this.student.pictures[i][1], width: 500},);
           }
         }
 
