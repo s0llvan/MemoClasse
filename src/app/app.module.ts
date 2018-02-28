@@ -25,6 +25,7 @@ import { StudentModalPage } from '../pages/student-modal/student-modal';
 import { SelectImagesPage } from '../pages/select-images/select-images';
 import { PincodeInputModule } from  'ionic2-pincode-input';
 import { Toast } from '@ionic-native/toast';
+import { AndroidFullScreen } from '@ionic-native/android-full-screen';
 
 @NgModule({
     declarations: [
@@ -72,7 +73,8 @@ import { Toast } from '@ionic-native/toast';
         EmailComposer,
         Base64,
         AuthentificationProvider,
-        Toast
+        Toast,
+        AndroidFullScreen
     ]
 })
 export class AppModule {}
