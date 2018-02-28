@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Toast } from '@ionic-native/toast';
+import { ToastController } from 'ionic-angular';
 
 /*
 Generated class for the AuthentificationProvider provider.
@@ -13,22 +13,42 @@ export class AuthentificationProvider {
     is_admin = false;
     admin_pin = 1234;
 
-    constructor(private toast: Toast) {
+    constructor(private toastCtrl: ToastController) {
         this.admin_pin = (new Date()).getFullYear();
     }
 
     authAdmin(pin) {
         if(this.admin_pin == pin) {
             this.is_admin = true;
-            this.toast.show('Mode administration', '4000', 'bottom');
+
+            let toast = this.toastCtrl.create({
+                message: 'Mode administration',
+                duration: 4000,
+                position: 'bottom',
+                cssClass: "toast"
+            });
+            toast.present();
         } else {
-            this.toast.show('Code PIN incorrect !', '5000', 'bottom');
+            let toast = this.toastCtrl.create({
+                message: 'Code PIN incorrect !',
+                duration: 4000,
+                position: 'bottom',
+                cssClass: "toast"
+            });
+            toast.present();
         }
     }
 
     deauthAdmin() {
         this.is_admin = false;
-        this.toast.show('Mode élève', '4000', 'bottom');
+
+        let toast = this.toastCtrl.create({
+            message: 'Mode élève',
+            duration: 4000,
+            position: 'bottom',
+            cssClass: "toast"
+        });
+        toast.present();
     }
 
     isAdmin() {
