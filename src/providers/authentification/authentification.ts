@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ToastController } from 'ionic-angular';
 
 /*
 Generated class for the AuthentificationProvider provider.
@@ -9,15 +10,45 @@ and Angular DI.
 @Injectable()
 export class AuthentificationProvider {
 
-    public is_admin = false;
-    public admin_pin = 1234;
+    is_admin = false;
+    admin_pin = 1234;
 
-    constructor() {
-
+    constructor(private toastCtrl: ToastController) {
+        this.admin_pin = (new Date()).getFullYear();
     }
 
-    pinIsValid(pin) {
-        return this.admin_pin == pin;
+    authAdmin(pin) {
+        if(this.admin_pin == pin) {
+            this.is_admin = true;
+
+            let toast = this.toastCtrl.create({
+                message: 'Mode administration',
+                duration: 4000,
+                position: 'bottom',
+                cssClass: "toast"
+            });
+            toast.present();
+        } else {
+            let toast = this.toastCtrl.create({
+                message: 'Code PIN incorrect !',
+                duration: 4000,
+                position: 'bottom',
+                cssClass: "toast"
+            });
+            toast.present();
+        }
+    }
+
+    deauthAdmin() {
+        this.is_admin = false;
+
+        let toast = this.toastCtrl.create({
+            message: 'Mode élève',
+            duration: 4000,
+            position: 'bottom',
+            cssClass: "toast"
+        });
+        toast.present();
     }
 
     isAdmin() {

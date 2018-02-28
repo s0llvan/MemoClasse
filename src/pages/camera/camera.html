@@ -1,14 +1,13 @@
-<!-- <ion-header *ngIf="isHide == true">
-    <ion-navbar>
-        <button ion-button icon-only (click)="presentPopover($event)" color="green" clear float-start>
-            <ion-icon name="menu" color="light"></ion-icon>
-        </button>
-        <ion-title style="line-height:45px;">
-            MémoClasse
-        </ion-title>
-    </ion-navbar>
-</ion-header>
- -->
+<ion-navbar>
+	<button ion-button icon-only (click)="presentPopover($event)" color="green" clear float-start>
+		<ion-icon name="menu" color="light"></ion-icon>
+	</button>
+		<ion-title style="line-height:45px;">
+			MémoClasse
+		</ion-title>
+	</ion-navbar>
+</ion-header> -->
+
 <ion-content padding>
     <ion-card>
         <ion-card-content id="container">
@@ -19,7 +18,11 @@
 
             <button ion-button (click)="pushPicture()" *ngIf="isHide == true" color="green">Valider</button>
             <button ion-button (click)="goBack()" *ngIf="isHide == true" color="danger">Retour</button>
-            <button id="take_picture" ion-button (click)="takePicture()"  *ngIf="isHide == false"><img class="icon_photo" src="assets/imgs/photo.svg" alt="Photo"/></button>
+            <button id="take_picture" ion-button (click)="takePicture()" *ngIf="isHide == false"><img class="icon_photo" src="assets/imgs/photo.svg" alt="Photo"/></button>
         </ion-card-content>
     </ion-card>
 </ion-content>
+
+<div class="overlay" padding *ngIf="isHide == false">
+    <button ion-button full>PHOTO</button>
+</div>

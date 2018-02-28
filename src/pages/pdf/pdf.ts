@@ -29,7 +29,8 @@ export class PdfPage {
     student = {
         firstname: "",
         lastname: "",
-        pictures: []
+        pictures: [],
+        mails: []
     };
 
     selection = null;
@@ -154,14 +155,15 @@ presentToast() {
 }
 
 sendMail() {
-    let email = {
-        to: "test@mail.fr",
 
-        attachments: [
-            'file://assets/imgs/nx.png'
-        ],
-        subject: 'Cordova Icons',
-        body: 'How are you? Nice greetings from Leipzig',
+
+    let email = {
+        to: this.student.mails[0],
+
+          attachments: [],
+
+        subject: "Rapport de l'élève "+this.student.firstname+" "+this.student.lastname,
+        body: 'Madame, Monsieur, veuillez trouver ci-joint un rapport contenant les travaux de votre enfant lors de la dernière période scolaire.   Cordialement, le professeur',
         isHtml: true
     };
 
