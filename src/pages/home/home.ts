@@ -11,6 +11,7 @@ import { ModalController } from 'ionic-angular';
 import { StudentModalPage } from '../student-modal/student-modal';
 import { Events } from 'ionic-angular';
 import { CameraPage } from '../camera/camera'
+import { AndroidFullScreen } from '@ionic-native/android-full-screen';
 
 @Component({
     selector: 'page-home',
@@ -20,7 +21,11 @@ export class HomePage {
 
     public students = [];
 
-    constructor(public authentificationProvider: AuthentificationProvider, public events: Events, public navCtrl: NavController, private dataProvider: DataProvider, public popoverCtrl: PopoverController, public platform: Platform, public modalCtrl: ModalController) {
+    constructor(private androidFullScreen: AndroidFullScreen, public authentificationProvider: AuthentificationProvider, public events: Events, public navCtrl: NavController, private dataProvider: DataProvider, public popoverCtrl: PopoverController, public platform: Platform, public modalCtrl: ModalController) {
+        this.androidFullScreen.isImmersiveModeSupported()
+        .then(() => this.androidFullScreen.immersiveMode())
+        .catch((error: any) => console.log(error));
+
         events.subscribe('students:updated', (students) => {
             this.students = students;
         });
