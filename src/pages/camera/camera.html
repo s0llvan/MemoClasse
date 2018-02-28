@@ -1,4 +1,4 @@
-<ion-navbar>
+<!-- <ion-navbar>
 	<button ion-button icon-only (click)="presentPopover($event)" color="green" clear float-start>
 		<ion-icon name="menu" color="light"></ion-icon>
 	</button>
@@ -6,12 +6,12 @@
 			MémoClasse
 		</ion-title>
 	</ion-navbar>
-</ion-header> -->
+</ion-header>  -->
 
 <ion-content padding>
     <ion-card>
         <ion-card-content id="container">
-            <button id="back" ion-button (click)="hideCamera()" *ngIf="isHide == false"><img class="icon_photo" src="assets/imgs/back.svg" alt="Back"/></button>
+            /<button id="back" ion-button (click)="hideCamera()" *ngIf="isHide == false"><img class="icon_photo" src="assets/imgs/back.svg" alt="Back"/></button>
             <div id="picture" (click)="startCamera(i)" *ngFor="let p of pictures; let i = index">
                 <img [src]="pictures[i][0]" *ngIf="pictures[i]" />
             </div>
