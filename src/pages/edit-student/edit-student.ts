@@ -19,15 +19,12 @@ import { HomePage } from '../home/home'
 export class EditStudentPage {
 
     public student = { mails: [] };
-    public mail: any;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataProvider, public alertCtrl: AlertController) {
         this.student = navParams.get("student");
     }
 
     addStudentMail() {
-        this.student.mails.push(this.mail);
-        this.mail = "";
         this.saveStudent();
     }
 
@@ -60,10 +57,5 @@ export class EditStudentPage {
             ]
         });
         confirm.present();
-    }
-
-    deleteStudentMail(mail) {
-        this.student.mails.splice(this.student.mails.indexOf(mail), 1);
-        this.saveStudent();
     }
 }

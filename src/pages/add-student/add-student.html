@@ -35,26 +35,17 @@ Ionic pages and navigation.
 
                         <ion-grid>
                             <ion-row>
-                                <ion-item col-9>
-                                    <ion-label stacked>Adresse email</ion-label>
-                                    <ion-input type="text" value="{{ mail }}" [(ngModel)]="mail"></ion-input>
+                                <ion-item col-lg-6 col-12>
+                                    <ion-label stacked>Adresse email n°1</ion-label>
+                                    <ion-input type="text" value="{{ student.mails[0] }}" [(ngModel)]="student.mails[0]"></ion-input>
                                 </ion-item>
 
-                                <ion-item col-3 class="add_mail">
-                                    <ion-icon name="add" color="green" (click)="addStudentMail()"></ion-icon>
+                                <ion-item col-lg-6 col-12>
+                                    <ion-label stacked>Adresse email n°2</ion-label>
+                                    <ion-input type="text" value="{{ student.mails[1] }}" [(ngModel)]="student.mails[1]"></ion-input>
                                 </ion-item>
                             </ion-row>
                         </ion-grid>
-
-                        <ion-list>
-                            <ion-item *ngFor="let mail of student.mails">
-                                {{ mail }}
-                                <ion-icon name='mail' item-start color="green"></ion-icon>
-                                <ion-note item-end>
-                                    <ion-icon name="trash" color="green" (click)="deleteStudentMail(mail)"></ion-icon>
-                                </ion-note>
-                            </ion-item>
-                        </ion-list>
 
                         <ion-grid>
                             <ion-row>

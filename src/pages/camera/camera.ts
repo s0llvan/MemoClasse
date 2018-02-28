@@ -25,7 +25,8 @@ export class CameraPage {
     public picturePreview = [];
     public isHide : boolean;
     public position = 0;
-    public date = new Date();
+    public dateObj = new Date();
+    public date = this.dateObj.getUTCDate()+"/"+this.dateObj.getUTCMonth()+"/"+this.dateObj.getUTCFullYear();
 
     public pictureOpts: CameraPreviewPictureOptions;
     public student: any;
@@ -34,12 +35,13 @@ export class CameraPage {
         this.student = navParams.get("student");
         this.isHide = true;
         this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+        this.searchLastPictures();
     }
 
     startCamera(position) {
         const cameraPreviewOpts: CameraPreviewOptions = {
             x: 0,
-            y: (window.screen.height/100)*10,
+            y: window.screen.height/10,
             width: window.screen.width,
             height: (window.screen.height/100)*70,
             camera: 'rear',
@@ -48,6 +50,10 @@ export class CameraPage {
             toBack: false,
             alpha: 1
         };
+
+        if(this.pictures[position] != null){
+            this.pictures[position].pop();
+        }
 
         this.cameraPreview.startCamera(cameraPreviewOpts);
         this.cameraPreview.show();
@@ -65,7 +71,7 @@ export class CameraPage {
         {
 
             this.picturePreview[this.position] = "data:image/png;base64," + imageData;
-            this.pictures[this.position] = [this.picturePreview[this.position],imageData, this.date];
+            this.pictures[this.position] = [this.picturePreview[this.position], imageData, this.date];
         }, (err) => {
             this.pictures[this.position] = 'assets/img/test.jpg';
         });
@@ -82,23 +88,57 @@ export class CameraPage {
     pushPicture() {
 
         for(let p of this.pictures) {
+            var alreadyExist = false;
             if(p != null)
             {
-                this.student.pictures.push(p);
+                for(let s of this.student.pictures){
+                    if(p[0] == s[0]){
+                        alreadyExist = true;
+                    }
+                }
+                if(!alreadyExist){
+                    this.student.pictures.push(p);
+                }
             }
         }
 
+        let toast;
         this.dataProvider.updateStudent(this.student);
-        let toast = this.toastCtrl.create({
-          message: 'Photographies enregistrées',
-          duration: 3000
-        });
+        if(this.pictures[0] != null){
+            toast = this.toastCtrl.create({
+              message: 'Photographies enregistrées',
+              duration: 3000
+            });
+        }
+        else{
+            if(this.pictures[0] != null){
+            toast = this.toastCtrl.create({
+              message: 'Pas de Photographies',
+              duration: 3000
+            });
+        }
+        }
 
         toast.present();
 
         this.pictures = null;
+
         this.picturePreview = null;
-        // this.goBack();
+        this.goBack();
+    }
+
+    searchLastPictures(){
+        var count = 0;
+        for(let pics of this.student.pictures) {
+            if(pics != null)
+            {
+                if (pics[2] == this.dateObj.getUTCDate()+"/"+this.dateObj.getUTCMonth()+"/"+this.dateObj.getUTCFullYear()) {
+                    this.pictures[count] = pics;
+                    count++;
+                }
+            }
+        }
+        return this.pictures;
     }
 
     hideCamera(){

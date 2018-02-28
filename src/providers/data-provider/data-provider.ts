@@ -8,6 +8,8 @@ export class DataProvider {
 
     public students: any = [];
 
+    public images: any = [];
+
     constructor(public events: Events, private storage: Storage, public platform: Platform) {
         if (this.platform.is('mobile')) {
             this.initializeStudents();
@@ -48,6 +50,10 @@ export class DataProvider {
     deleteStudent(student) {
         this.students.splice(this.students.indexOf(student), 1);
         this.saveStudents();
+    }
+
+    addImages(images) {
+        this.images = images;
     }
 
     saveStudents() {

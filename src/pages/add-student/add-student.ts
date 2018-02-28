@@ -19,42 +19,36 @@ import { ToastController } from 'ionic-angular';
 })
 export class AddStudentPage {
 
-    public student = { id: 0, firstname:"",lastname:"",mails: [], pictures: []};
-    public mail: any;
+    public student = { id: 0, firstname:null, lastname:null, mails: [], pictures: [] };
 
     constructor(public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataProvider, private toastController: ToastController) {
 
     }
 
     addStudent() {
-      if( this.student.firstname == null || this.student.lastname == null || Object.keys(this.student.mails).length == 0)
-      {
-        this.toastError();
-      }
-      else {
-        this.dataProvider.addStudent(this.student);
-        this.navCtrl.pop();
-      }
-
-    }
-
-    addStudentMail(mail) {
-        this.student.mails.push(this.mail);
-        this.mail = "";
+        if(this.student.firstname == null) {
+            this.toastError("Vous devez rentrer un prénom !");
+        } else if(this.student.lastname == null) {
+            this.toastError("Vous devez rentrer un nom !");
+        } else if(Object.keys(this.student.mails).length <= 0) {
+            this.toastError("Vous devez rentrer au moins une adresse email !")
+        } else {
+            this.dataProvider.addStudent(this.student);
+            this.navCtrl.pop();
+        }
     }
 
     back() {
         this.navCtrl.pop();
     }
 
-
-    toastError() {
-    let toast = this.toastController.create({
-      message: 'Les champs ne doivent pas être vides !',
-      duration: 3000,
-      position: 'top',
-      cssClass: "toast"
-    });
-    toast.present();
-  }
+    toastError(msg) {
+        let toast = this.toastController.create({
+            message: msg,
+            duration: 3000,
+            position: 'top',
+            cssClass: "toast"
+        });
+        toast.present();
+    }
 }
