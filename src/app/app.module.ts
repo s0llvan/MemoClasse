@@ -25,6 +25,7 @@ import { StudentModalPage } from '../pages/student-modal/student-modal';
 import { SelectImagesPage } from '../pages/select-images/select-images';
 import { PincodeInputModule } from  'ionic2-pincode-input';
 import { Toast } from '@ionic-native/toast';
+import { AddActivityPage } from '../pages/add-activity/add-activity';
 
 @NgModule({
     declarations: [
@@ -36,7 +37,8 @@ import { Toast } from '@ionic-native/toast';
         PopoverPage,
         CameraPage,
         StudentModalPage,
-        SelectImagesPage
+        SelectImagesPage,
+        AddActivityPage
     ],
     imports: [
         IonicStorageModule.forRoot({
@@ -58,7 +60,8 @@ import { Toast } from '@ionic-native/toast';
         PopoverPage,
         CameraPage,
         StudentModalPage,
-        SelectImagesPage
+        SelectImagesPage,
+        AddActivityPage
     ],
     providers: [
         StatusBar,

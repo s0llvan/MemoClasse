@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PdfPage } from '../pdf/pdf'
+import { AddActivityPage } from '../add-activity/add-activity'
 import { DataProvider } from '../../providers/data-provider/data-provider';
 /**
  * Generated class for the SelectImagesPage page.
