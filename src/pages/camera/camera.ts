@@ -51,10 +51,6 @@ export class CameraPage {
             alpha: 1
         };
 
-        if(this.pictures[position] != null){
-            this.pictures[position].pop();
-        }
-
         this.cameraPreview.startCamera(cameraPreviewOpts);
         this.cameraPreview.show();
         this.isHide = false;
@@ -67,6 +63,14 @@ export class CameraPage {
             height: 1280,
             quality: 85
         }
+
+        for(let p of this.student.pictures) {
+            if(p[0] == this.pictures[this.position][0])
+            {
+                this.student.pictures.splice(this.student.pictures.indexOf(p), 1);
+            }
+        }
+
         this.cameraPreview.takePicture(this.pictureOpts).then((imageData) =>
         {
 
