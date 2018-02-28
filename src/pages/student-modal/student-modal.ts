@@ -30,4 +30,8 @@ export class StudentModalPage {
     editStudent() {
         this.navCtrl.push(EditStudentPage, { student: this.student });
     }
+    
+    closeModal() {
+        this.navCtrl.pop();
+    }
 }

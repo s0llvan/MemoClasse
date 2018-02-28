@@ -97,7 +97,7 @@
     <plugin name="cordova-plugin-x-toast" spec="^2.6.0" />
     <plugin name="cordova-plugin-screen-orientation" spec="^3.0.1" />
     <allow-navigation href="http://10.5.18.19:8100" />
-    <engine name="android" spec="7.0.0" />
     <engine name="browser" spec="5.0.3" />
     <plugin name="cordova-plugin-fullscreen" spec="^1.2.0" />
+    <engine name="android" spec="~7.0.0" />
 </widget>
