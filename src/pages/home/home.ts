@@ -44,7 +44,7 @@ export class HomePage {
     }
 
     selectStudent(student) {
-        if(this.authentificationProvider.is_admin) {
+        if(this.authentificationProvider.isAdmin()) {
             let modal = this.modalCtrl.create(StudentModalPage, { student: student });
             modal.present();
         } else {
