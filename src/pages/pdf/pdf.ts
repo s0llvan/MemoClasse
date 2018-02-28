@@ -98,7 +98,7 @@ correctPath = null;
         {
           if(this.selection[j] == i)
           {
-              this.docDefinition.content.push({image: 'data:image/png;base64,' + this.student.pictures[i], width: 500},);
+              this.docDefinition.content.push({image: 'data:image/png;base64,' + this.student.pictures[i][1], width: 500},);
           }
         }
 

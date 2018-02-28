@@ -26,7 +26,7 @@ public isVisible = [];
 
 for(var i = 0; i< this.student.pictures.length;i++)
 {
-    this.picturePreview[i] = "data:image/png;base64," + this.student.pictures[i];
+    this.picturePreview[i] = "data:image/png;base64," + this.student.pictures[i][1];
 }
 
   }
