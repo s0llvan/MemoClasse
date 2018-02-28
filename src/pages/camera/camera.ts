@@ -41,9 +41,9 @@ export class CameraPage {
     startCamera(position) {
         const cameraPreviewOpts: CameraPreviewOptions = {
             x: 0,
-            y: 0,
+            y: (window.screen.height/100)*15,
             width: window.screen.width,
-            height: window.screen.height,
+            height: (window.screen.height/100)*71,
             camera: 'rear',
             tapPhoto: true,
             previewDrag: false,

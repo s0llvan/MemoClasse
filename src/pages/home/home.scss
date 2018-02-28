@@ -1,9 +1,13 @@
 page-home {
-
+    #buisson{
+        position: absolute;
+        bottom: 0px;
+        width:100%;
+        z-index: 2;
+    }
     .student {
         padding-top: 15px;
     }
-
     .student .card-title-md {
         font-size: 14px;
     }
@@ -28,12 +32,17 @@ page-home {
         font-size: 60px;
     }
 
+    ion-grid{
+        margin-bottom: 140px;
+    }
+
     ion-card.student {
         height: 140px;
     }
 
     ion-card.student .name {
         margin-top: 5px;
+        margin-bottom: 5px;
     }
 
     .mode_icon {
@@ -44,6 +53,9 @@ page-home {
         ion-card.student {
             height: 170px;
         }
+        ion-grid{
+            margin-bottom: 170px;
+        }
     }
 
     @media (min-width: 992px) {
@@ -52,6 +64,9 @@ page-home {
         }
         ion-card.student .name {
             margin-top: 10px;
+        }
+        ion-grid{
+            margin-bottom: 180px;
         }
     }
 }
