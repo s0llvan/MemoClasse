@@ -5,16 +5,20 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 
 import { DataProvider } from '../providers/data-provider/data-provider';
-
+import { AndroidFullScreen } from '@ionic-native/android-full-screen';
 
 @Component({
     templateUrl: 'app.html',
     providers: [DataProvider]
 })export class MyApp {
     rootPage:any = HomePage;
-
-    constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, modalCtrl: ModalController) {
+    
+    constructor(private androidFullScreen: AndroidFullScreen, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, modalCtrl: ModalController) {
         platform.ready().then(() => {
+            this.androidFullScreen.isImmersiveModeSupported()
+            .then(() => this.androidFullScreen.immersiveMode())
+            .catch((error: any) => console.log(error));
+
             statusBar.styleDefault();
             splashScreen.hide();
         });
