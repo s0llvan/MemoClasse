@@ -25,6 +25,7 @@ import { StudentModalPage } from '../pages/student-modal/student-modal';
 import { SelectImagesPage } from '../pages/select-images/select-images';
 import { PincodeInputModule } from  'ionic2-pincode-input';
 import { Toast } from '@ionic-native/toast';
+import { AndroidFullScreen } from '@ionic-native/android-full-screen';
 import { AddActivityPage } from '../pages/add-activity/add-activity';
 
 @NgModule({
@@ -75,7 +76,8 @@ import { AddActivityPage } from '../pages/add-activity/add-activity';
         EmailComposer,
         Base64,
         AuthentificationProvider,
-        Toast
+        Toast,
+        AndroidFullScreen
     ]
 })
 export class AppModule {}

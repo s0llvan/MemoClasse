@@ -10,7 +10,7 @@ import { AlertController } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
 import { StudentModalPage } from '../student-modal/student-modal';
 import { Events } from 'ionic-angular';
-import { CameraPage } from '../camera/camera'
+import { CameraPage } from '../camera/camera';
 
 @Component({
     selector: 'page-home',
