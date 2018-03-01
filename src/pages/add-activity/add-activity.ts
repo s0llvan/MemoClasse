@@ -24,6 +24,8 @@ export class AddActivityPage {
       pictures: []
   }
 
+  nbImages = 0;
+
 selection;
 student;
   constructor(public navCtrl: NavController, public navParams: NavParams,private dataProvider: DataProvider) {
@@ -34,6 +36,7 @@ student;
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddActivityPage');
+
   }
 
   addImages(){

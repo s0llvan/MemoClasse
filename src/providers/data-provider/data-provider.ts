@@ -12,6 +12,7 @@ export class DataProvider {
 
     public activities: any = [];
 
+
     constructor(public events: Events, private storage: Storage, public platform: Platform) {
         if (this.platform.is('mobile')) {
             this.initializeStudents();
@@ -59,7 +60,19 @@ export class DataProvider {
     }
 
     addActivity(activity){
+
       this.activities.push(activity);
+    }
+
+    resetActivities(){
+      this.activities = [];
+    }
+
+    removeImages(student){
+      var index = this.students.indexOf(student);
+      this.students[index].pictures = [];
+      this.updateStudent(student);
+      this.saveStudents();
     }
 
     saveStudents() {
