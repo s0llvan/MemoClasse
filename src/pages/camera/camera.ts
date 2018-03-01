@@ -64,8 +64,18 @@ export class CameraPage {
             quality: 85
         }
 
+        let toast;
+        if(this.pictures[0] != null){
+                toast = this.toastCtrl.create({
+                  message: 'testt',
+                  duration: 3000
+                });
+            }
+        toast.present();
+            
+
         for(let p of this.student.pictures) {
-            if(p[0] == this.pictures[this.position][0])
+            if(p == this.pictures[this.position])
             {
                 this.student.pictures.splice(this.student.pictures.indexOf(p), 1);
             }
@@ -73,7 +83,6 @@ export class CameraPage {
 
         this.cameraPreview.takePicture(this.pictureOpts).then((imageData) =>
         {
-
             this.picturePreview[this.position] = "data:image/png;base64," + imageData;
             this.pictures[this.position] = [this.picturePreview[this.position], imageData, this.date];
         }, (err) => {
@@ -116,11 +125,11 @@ export class CameraPage {
         }
         else{
             if(this.pictures[0] != null){
-            toast = this.toastCtrl.create({
-              message: 'Pas de Photographies',
-              duration: 3000
-            });
-        }
+                toast = this.toastCtrl.create({
+                  message: 'Pas de Photographies',
+                  duration: 3000
+                });
+            }
         }
 
         toast.present();
