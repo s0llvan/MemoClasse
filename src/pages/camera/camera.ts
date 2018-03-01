@@ -34,11 +34,11 @@ export class CameraPage {
     constructor(public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, private cameraPreview: CameraPreview, private dataProvider: DataProvider, private screenOrientation: ScreenOrientation) {
         this.student = navParams.get("student");
         this.isHide = true;
-        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
         this.searchLastPictures();
     }
 
     startCamera(position) {
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
         const cameraPreviewOpts: CameraPreviewOptions = {
             x: 0,
             y: (window.screen.height/100)*15,
@@ -89,7 +89,7 @@ export class CameraPage {
             this.pictures[this.position] = 'assets/img/test.jpg';
         });
 
-        this.cameraPreview.hide();
+        this.hideCamera();
         this.isHide = true;
     }
 
@@ -157,6 +157,7 @@ export class CameraPage {
     hideCamera(){
         this.isHide = true;
         this.cameraPreview.hide();
+        this.screenOrientation.unlock();
     }
 
     goBack(){
