@@ -41,7 +41,6 @@ html, body, ion-app, ion-content, ion-page, .nav-decor {
     width: 10%;
     padding: 0;
     margin: 0;
-    transform: rotate(90deg);
 }
 
 .overlay {
@@ -51,4 +50,8 @@ html, body, ion-app, ion-content, ion-page, .nav-decor {
     z-index: 20;
     top: 0;
     left: 0;
+}
+
+.scroll-content{
+    margin-top: 0px !important;
 }

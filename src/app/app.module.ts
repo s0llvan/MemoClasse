@@ -26,6 +26,7 @@ import { SelectImagesPage } from '../pages/select-images/select-images';
 import { PincodeInputModule } from  'ionic2-pincode-input';
 import { Toast } from '@ionic-native/toast';
 import { AndroidFullScreen } from '@ionic-native/android-full-screen';
+import { AddActivityPage } from '../pages/add-activity/add-activity';
 
 @NgModule({
     declarations: [
@@ -37,7 +38,8 @@ import { AndroidFullScreen } from '@ionic-native/android-full-screen';
         PopoverPage,
         CameraPage,
         StudentModalPage,
-        SelectImagesPage
+        SelectImagesPage,
+        AddActivityPage
     ],
     imports: [
         IonicStorageModule.forRoot({
@@ -59,7 +61,8 @@ import { AndroidFullScreen } from '@ionic-native/android-full-screen';
         PopoverPage,
         CameraPage,
         StudentModalPage,
-        SelectImagesPage
+        SelectImagesPage,
+        AddActivityPage
     ],
     providers: [
         StatusBar,

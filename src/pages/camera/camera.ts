@@ -34,11 +34,11 @@ export class CameraPage {
     constructor(public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, private cameraPreview: CameraPreview, private dataProvider: DataProvider, private screenOrientation: ScreenOrientation) {
         this.student = navParams.get("student");
         this.isHide = true;
-        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
         this.searchLastPictures();
     }
 
     startCamera(position) {
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
         const cameraPreviewOpts: CameraPreviewOptions = {
             x: 0,
             y: (window.screen.height/100)*15,
@@ -62,18 +62,25 @@ export class CameraPage {
             width: 1280,
             height: 1280,
             quality: 85
+        }   
+
+        for(let p of this.student.pictures) {
+            if(p == this.pictures[this.position])
+            {
+                this.student.pictures.splice(this.student.pictures.indexOf(p), 1);
+            }
         }
 
         this.cameraPreview.takePicture(this.pictureOpts).then((imageData) =>
         {
-
             this.picturePreview[this.position] = "data:image/png;base64," + imageData;
             this.pictures[this.position] = [this.picturePreview[this.position], imageData, this.date];
+            this.pushPicture();
         }, (err) => {
             this.pictures[this.position] = 'assets/img/test.jpg';
         });
 
-        this.cameraPreview.hide();
+        this.hideCamera();
         this.isHide = true;
     }
 
@@ -84,44 +91,15 @@ export class CameraPage {
 
     pushPicture() {
 
-        for(let p of this.pictures) {
-            var alreadyExist = false;
-            if(p != null)
-            {
-                for(let s of this.student.pictures){
-                    if(p[0] == s[0]){
-                        alreadyExist = true;
-                    }
-                }
-                if(!alreadyExist){
-                    this.student.pictures.push(p);
-                }
-            }
-        }
+        this.student.pictures.push(this.pictures[this.position]);
 
         let toast;
         this.dataProvider.updateStudent(this.student);
-        if(this.pictures[0] != null){
-            toast = this.toastCtrl.create({
-              message: 'Photographies enregistrées',
-              duration: 3000
-            });
-        }
-        else{
-            if(this.pictures[0] != null){
-            toast = this.toastCtrl.create({
-              message: 'Pas de Photographies',
-              duration: 3000
-            });
-        }
-        }
-
-        toast.present();
-
-        this.pictures = null;
-
-        this.picturePreview = null;
-        this.goBack();
+        toast = this.toastCtrl.create({
+            message: 'Photographies enregistrées',
+            duration: 3000
+        });
+        toast.present(); 
     }
 
     searchLastPictures(){
@@ -141,6 +119,7 @@ export class CameraPage {
     hideCamera(){
         this.isHide = true;
         this.cameraPreview.hide();
+        this.screenOrientation.unlock();
     }
 
     goBack(){
