@@ -18,10 +18,15 @@
    <ion-checkbox [(ngModel)]="destroyImages"></ion-checkbox>
  </ion-item> -->
   <br />
-  <button ion-button full (click)="createPdf()"  icon-start>  <ion-icon name="paper"></ion-icon>Creer le rapport</button>
+  <button ion-button full (click)="createPdf()" color="secondary" [disabled]="!gotActivities" icon-start>  <ion-icon name="paper"></ion-icon>Creer le rapport</button>
   <br /><br /><hr>
   <ion-label stacked class="lab">3 ème étape : </ion-label>
   <br /><br />
   <button ion-button full (click)="openPdf()" color="secondary" [disabled]="!pdfObj" icon-start> <ion-icon name="open"></ion-icon>Ouvrir le rapport</button>
-  <button ion-button full (click)="sendMail()" color="secondary" [disabled]="!pdfObj" icon-start><ion-icon name="mail"></ion-icon>Envoyer le rapport</button>
+<br /><br />
+<hr>
+  <ion-label stacked class="lab">4 ème étape : </ion-label>
+  <br /><br />
+  <button ion-button full (click)="sendMail()" color="secondary" [disabled]="!opened" icon-start><ion-icon name="mail"></ion-icon>Envoyer le rapport</button>
+  <br /><br />
 </ion-content>
