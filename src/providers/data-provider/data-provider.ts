@@ -47,6 +47,16 @@ export class DataProvider {
         this.saveData();
     }
 
+    updateClass(_class) {
+        let classFound = _class.students.find((c) => {
+            return (c.id == _class.id);
+        });
+
+        classFound = _class;
+
+        this.saveData();
+    }
+
     addStudent(_class, student) {
         student.id = this.getLastStudentId() + 1;
         student.pictures = [];

@@ -29,6 +29,7 @@ import { AddActivityPage } from '../pages/add-activity/add-activity';
 import { ClassListPage } from '../pages/class-list/class-list';
 import { StudentListPage } from '../pages/student-list/student-list';
 import { ClassAddPage } from '../pages/class-add/class-add';
+import { ClassEditPage } from '../pages/class-edit/class-edit';
 
 @NgModule({
     declarations: [
@@ -43,7 +44,8 @@ import { ClassAddPage } from '../pages/class-add/class-add';
         AddActivityPage,
         ClassListPage,
         StudentListPage,
-        ClassAddPage
+        ClassAddPage,
+        ClassEditPage
     ],
     imports: [
         IonicStorageModule.forRoot({
@@ -68,7 +70,8 @@ import { ClassAddPage } from '../pages/class-add/class-add';
         AddActivityPage,
         ClassListPage,
         StudentListPage,
-        ClassAddPage
+        ClassAddPage,
+        ClassEditPage
     ],
     providers: [
         StatusBar,

@@ -38,5 +38,11 @@
             </ion-col>
         </ion-row>
     </ion-grid>
+
+    <ion-fab right top margin *ngIf="authentificationProvider.isAdmin()" (click)="editClass()">
+        <button ion-fab color="green">
+            <ion-icon name="create"></ion-icon>
+        </button>
+    </ion-fab>
 </ion-content>
 <img src="assets/imgs/buisson.svg" id="buisson" *ngIf="!authentificationProvider.isAdmin()"/>
