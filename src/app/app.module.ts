@@ -7,7 +7,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { Camera } from '@ionic-native/camera';
 import { EditStudentPage } from '../pages/edit-student/edit-student'
 import { AddStudentPage } from '../pages/add-student/add-student'
@@ -33,7 +32,6 @@ import { StudentListPage } from '../pages/student-list/student-list';
 @NgModule({
     declarations: [
         MyApp,
-        HomePage,
         EditStudentPage,
         AddStudentPage,
         PdfPage,
@@ -58,7 +56,6 @@ import { StudentListPage } from '../pages/student-list/student-list';
     bootstrap: [IonicApp],
     entryComponents: [
         MyApp,
-        HomePage,
         EditStudentPage,
         AddStudentPage,
         PdfPage,
