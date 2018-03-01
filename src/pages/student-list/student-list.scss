@@ -1,10 +1,10 @@
-page-home {
-    .home{
+page-student-list {
+    .student-list {
         background-color: #ADEAFF;
         margin-bottom: 10%;
     }
 
-    #buisson{
+    #buisson {
         position: absolute;
         bottom: 0px;
         width:100%;
@@ -19,7 +19,7 @@ page-home {
         margin-top: 10%;
     }
 
-    .studentCloud{
+    .studentCloud {
         background: white;
         border: 1rem solid transparent;
         border-image: url("../assets/imgs/nuage.svg") 5%;
@@ -27,7 +27,7 @@ page-home {
         border-image-outset: 1rem;
     }
 
-    .studentNotCloud{
+    .studentNotCloud {
         border: 1px solid rgba(0,0,0,0.2);
         border-radius: 10px;
         box-shadow:0 7px 12px 0 rgba(0,0,0,0.1),0 4px 15px 0 rgba(0,0,0,0.10);
@@ -40,26 +40,24 @@ page-home {
         bottom: 0;
         white-space: nowrap;
         overflow: hidden;
-
     }
 
-
-    .student_new_icon{
+    .student_new_icon {
         font-size: 115px;
         margin: auto;
     }
 
-    .fullIcon{
+    .fullIcon {
         display: flex;
         height: 75%;
     }
 
-    .student_icon{
+    .student_icon {
         height: 90px;
         margin: auto;
     }
 
-    ion-grid{
+    ion-grid {
         margin-bottom: 140px;
     }
 
@@ -68,7 +66,7 @@ page-home {
     }
 
     @media (min-width: 768px) {
-        ion-grid{
+        ion-grid {
             margin-bottom: 170px;
         }
         .student {
@@ -80,7 +78,7 @@ page-home {
     }
 
     @media (min-width: 992px) {
-        ion-grid{
+        ion-grid {
             margin-bottom: 180px;
         }
         .student {

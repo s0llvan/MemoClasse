@@ -7,7 +7,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { Camera } from '@ionic-native/camera';
 import { EditStudentPage } from '../pages/edit-student/edit-student'
 import { AddStudentPage } from '../pages/add-student/add-student'
@@ -27,11 +26,12 @@ import { PincodeInputModule } from  'ionic2-pincode-input';
 import { Toast } from '@ionic-native/toast';
 import { AndroidFullScreen } from '@ionic-native/android-full-screen';
 import { AddActivityPage } from '../pages/add-activity/add-activity';
+import { ClassListPage } from '../pages/class-list/class-list';
+import { StudentListPage } from '../pages/student-list/student-list';
 
 @NgModule({
     declarations: [
         MyApp,
-        HomePage,
         EditStudentPage,
         AddStudentPage,
         PdfPage,
@@ -39,7 +39,9 @@ import { AddActivityPage } from '../pages/add-activity/add-activity';
         CameraPage,
         StudentModalPage,
         SelectImagesPage,
-        AddActivityPage
+        AddActivityPage,
+        ClassListPage,
+        StudentListPage
     ],
     imports: [
         IonicStorageModule.forRoot({
@@ -54,7 +56,6 @@ import { AddActivityPage } from '../pages/add-activity/add-activity';
     bootstrap: [IonicApp],
     entryComponents: [
         MyApp,
-        HomePage,
         EditStudentPage,
         AddStudentPage,
         PdfPage,
@@ -62,7 +63,9 @@ import { AddActivityPage } from '../pages/add-activity/add-activity';
         CameraPage,
         StudentModalPage,
         SelectImagesPage,
-        AddActivityPage
+        AddActivityPage,
+        ClassListPage,
+        StudentListPage
     ],
     providers: [
         StatusBar,

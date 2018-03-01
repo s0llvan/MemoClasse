@@ -4,8 +4,8 @@
             Informations
         </ion-title>
         <ion-buttons start>
-            <button ion-button (click)="closeModal()">
-                <span ion-text color="primary" showWhen="ios">Cancel</span>
+            <button ion-button (click)="close()">
+                <span ion-text color="primary" showWhen="ios">Annuler</span>
                 <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
             </button>
         </ion-buttons>
@@ -17,7 +17,7 @@
             <ion-avatar item-start>
                 <img src="assets/imgs/default_student_icon.png" alt="Student default logo"/>
             </ion-avatar>
-            <h2>{{ student.firstname + " " + student.lastname }}</h2>
+            <h2>{{ student.id }}</h2>
             <p>{{ student.pictures.length }} photos</p>
         </ion-item>
         <ion-item *ngFor="let mail of student.mails;let i = index">
