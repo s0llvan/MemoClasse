@@ -12,7 +12,7 @@
 <ion-content padding>
     <ion-card>
         <ion-card-content id="container">
-            <button id="back" ion-button (click)="hideCamera()" *ngIf="isHide == false"><img class="icon_photo" src="assets/imgs/back.svg" alt="Back"/></button>
+            <button id="back" ion-button (click)="closeCamera()" *ngIf="isHide == false"><img class="icon_photo" src="assets/imgs/back.svg" alt="Back"/></button>
             <div id="picture" (click)="startCamera(i)" *ngFor="let p of pictures; let i = index">
                 <img [src]="pictures[i][0]" *ngIf="pictures[i]" />
             </div>
