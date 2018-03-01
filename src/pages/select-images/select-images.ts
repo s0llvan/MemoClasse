@@ -25,10 +25,10 @@ public isVisible = [];
   constructor(public navCtrl: NavController, public navParams: NavParams,private dataProvider: DataProvider) {
     this.student = navParams.get("student");
 
-for(var i = 0; i< this.student.pictures.length;i++)
-{
-    this.picturePreview[i] = "data:image/png;base64," + this.student.pictures[i][1];
-}
+    for(var i = 0; i< this.student.pictures.length;i++)
+    {
+        this.picturePreview[i] = "data:image/png;base64," + this.student.pictures[i][1];
+    }
 
   }
 

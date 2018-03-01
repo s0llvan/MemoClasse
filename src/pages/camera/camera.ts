@@ -76,12 +76,12 @@ export class CameraPage {
             this.picturePreview[this.position] = "data:image/png;base64," + imageData;
             this.pictures[this.position] = [this.picturePreview[this.position], imageData, this.date];
             this.pushPicture();
+            this.isHide = true;
+            this.cameraPreview.stopCamera();
+            this.screenOrientation.unlock();
         }, (err) => {
             this.pictures[this.position] = 'assets/img/test.jpg';
         });
-
-        this.hideCamera();
-        this.isHide = true;
     }
 
     showCamera() {
@@ -126,5 +126,10 @@ export class CameraPage {
         this.isHide = true;
         this.cameraPreview.stopCamera();
         this.navCtrl.pop();
+    }
+
+    ionViewWillLeave() {
+        this.isHide = true;
+        this.cameraPreview.stopCamera();
     }
 }

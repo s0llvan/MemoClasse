@@ -69,10 +69,8 @@ export class DataProvider {
     }
 
     removeImages(student){
-      var index = this.students.indexOf(student);
-      this.students[index].pictures = [];
-      this.updateStudent(student);
-      this.saveStudents();
+      // student.pictures.splice(0,5);
+      // this.updateStudent(student);
     }
 
     saveStudents() {
