@@ -6,14 +6,8 @@ import { AuthentificationProvider } from '../../providers/authentification/authe
 import { StudentListPage } from "../student-list/student-list";
 import { PopoverController } from 'ionic-angular';
 import { PopoverPage } from "../popover/popover";
+import { ModalController } from 'ionic-angular';
 import { ClassAddPage } from "../class-add/class-add";
-
-/**
-* Generated class for the ClassesPage page.
-*
-* See https://ionicframework.com/docs/components/#navigation for more info on
-* Ionic pages and navigation.
-*/
 
 @IonicPage()
 @Component({
@@ -24,7 +18,7 @@ export class ClassListPage {
 
     public data = [];
 
-    constructor(public popoverCtrl: PopoverController, public authentificationProvider: AuthentificationProvider, public events: Events, private dataProvider: DataProvider, public navCtrl: NavController, public navParams: NavParams)
+    constructor(public modalCtrl: ModalController, public popoverCtrl: PopoverController, public authentificationProvider: AuthentificationProvider, public events: Events, private dataProvider: DataProvider, public navCtrl: NavController, public navParams: NavParams)
     {
         this.events.subscribe('class:updated', (data) => {
             this.data = data;
@@ -38,7 +32,8 @@ export class ClassListPage {
     }
 
     addClass(_class) {
-        this.navCtrl.push(ClassAddPage, { class: _class} );
+        let modal = this.modalCtrl.create(ClassAddPage, { class: _class});
+        modal.present();
     }
 
     presentPopover(event) {

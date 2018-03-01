@@ -18,18 +18,12 @@
                     <ion-label stacked>Nom</ion-label>
                     <ion-input type="text" value="{{ class.name }}" [(ngModel)]="class.name"></ion-input>
                 </ion-item>
-
-                <ion-grid>
-                    <ion-row>
-                        <ion-col col-4>
-                            <button ion-button color="danger" (click)="back()">Annuler</button>
-                        </ion-col>
-                        <ion-col col-4 offset-3>
-                            <button ion-button color="green" (click)="saveClass()">Sauvegarder</button>
-                        </ion-col>
-                    </ion-row>
-                </ion-grid>
             </ion-list>
         </ion-col>
     </ion-row>
+
+    <button ion-button color="primary" (click)="back()">Annuler</button>
+
+    <button ion-button color="danger" (click)="deleteClass()">Supprimer</button>
+    <button ion-button color="green" (click)="saveClass()">Sauvegarder</button>
 </ion-content>

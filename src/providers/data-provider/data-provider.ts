@@ -57,6 +57,15 @@ export class DataProvider {
         this.saveData();
     }
 
+    deleteClass(_class) {
+        let classIndex = this.data.findIndex((c) => {
+            return (c.id == _class.id);
+        });
+        this.data.splice(classIndex, 1);
+
+        this.saveData();
+    }
+
     addStudent(_class, student) {
         student.id = this.getLastStudentId() + 1;
         student.pictures = [];

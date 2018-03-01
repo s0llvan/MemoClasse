@@ -20,6 +20,11 @@ export class ClassEditPage {
         this.navCtrl.pop();
     }
 
+    deleteClass() {
+        this.dataProvider.deleteClass(this.class);
+        this.navCtrl.pop();
+    }
+
     back() {
         this.navCtrl.pop();
     }
