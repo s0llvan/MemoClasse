@@ -29,7 +29,6 @@ export class StudentListPage {
             if(_class.id == this.class.id) {
                 this.class = _class;
                 this.students = this.class.students;
-                console.log("event");
             }
         });
     }
