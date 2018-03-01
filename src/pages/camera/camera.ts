@@ -116,16 +116,15 @@ export class CameraPage {
         return this.pictures;
     }
 
-    hideCamera(){
-        this.isHide = true;
-        this.cameraPreview.hide();
-        this.screenOrientation.unlock();
-    }
-
     goBack(){
         this.isHide = true;
         this.cameraPreview.stopCamera();
         this.navCtrl.pop();
+    }
+
+    closeCamera(){
+        this.isHide = true;
+        this.cameraPreview.stopCamera();
     }
 
     ionViewWillLeave() {

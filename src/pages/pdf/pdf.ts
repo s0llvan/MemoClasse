@@ -87,8 +87,8 @@
 
           if(this.destroyImages == true)
           {
-            this.dataProvider.removeImages(this.student);
-            this.student.pictures=null;
+            this.student.pictures.splice(0);
+            this.dataProvider.updateStudent(this.student);
           }
 
 
