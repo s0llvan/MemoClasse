@@ -16,9 +16,6 @@
             <div id="picture" (click)="startCamera(i)" *ngFor="let p of pictures; let i = index">
                 <img [src]="pictures[i][0]" *ngIf="pictures[i]" />
             </div>
-
-            <button ion-button (click)="pushPicture()" *ngIf="isHide == true" color="green">Valider</button>
-            <button ion-button (click)="goBack()" *ngIf="isHide == true" color="danger">Retour</button>
             <button id="take_picture" ion-button (click)="takePicture()" *ngIf="isHide == false"><img class="icon_photo" src="assets/imgs/photo.svg" alt="Photo"/></button>
         </ion-card-content>
     </ion-card>

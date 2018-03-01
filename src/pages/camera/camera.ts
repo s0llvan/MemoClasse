@@ -62,17 +62,7 @@ export class CameraPage {
             width: 1280,
             height: 1280,
             quality: 85
-        }
-
-        let toast;
-        if(this.pictures[0] != null){
-                toast = this.toastCtrl.create({
-                  message: 'testt',
-                  duration: 3000
-                });
-            }
-        toast.present();
-            
+        }   
 
         for(let p of this.student.pictures) {
             if(p == this.pictures[this.position])
@@ -85,6 +75,7 @@ export class CameraPage {
         {
             this.picturePreview[this.position] = "data:image/png;base64," + imageData;
             this.pictures[this.position] = [this.picturePreview[this.position], imageData, this.date];
+            this.pushPicture();
         }, (err) => {
             this.pictures[this.position] = 'assets/img/test.jpg';
         });
@@ -100,44 +91,15 @@ export class CameraPage {
 
     pushPicture() {
 
-        for(let p of this.pictures) {
-            var alreadyExist = false;
-            if(p != null)
-            {
-                for(let s of this.student.pictures){
-                    if(p[0] == s[0]){
-                        alreadyExist = true;
-                    }
-                }
-                if(!alreadyExist){
-                    this.student.pictures.push(p);
-                }
-            }
-        }
+        this.student.pictures.push(this.pictures[this.position]);
 
         let toast;
         this.dataProvider.updateStudent(this.student);
-        if(this.pictures[0] != null){
-            toast = this.toastCtrl.create({
-              message: 'Photographies enregistrées',
-              duration: 3000
-            });
-        }
-        else{
-            if(this.pictures[0] != null){
-                toast = this.toastCtrl.create({
-                  message: 'Pas de Photographies',
-                  duration: 3000
-                });
-            }
-        }
-
-        toast.present();
-
-        this.pictures = null;
-
-        this.picturePreview = null;
-        this.goBack();
+        toast = this.toastCtrl.create({
+            message: 'Photographies enregistrées',
+            duration: 3000
+        });
+        toast.present(); 
     }
 
     searchLastPictures(){
