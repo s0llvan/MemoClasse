@@ -26,7 +26,7 @@ export class ClassListPage {
 
     constructor(public popoverCtrl: PopoverController, public authentificationProvider: AuthentificationProvider, public events: Events, private dataProvider: DataProvider, public navCtrl: NavController, public navParams: NavParams)
     {
-        this.events.subscribe('data:updated', (data) => {
+        this.events.subscribe('class:updated', (data) => {
             this.data = data;
         });
 
