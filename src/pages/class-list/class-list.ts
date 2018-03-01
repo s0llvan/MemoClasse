@@ -6,6 +6,7 @@ import { AuthentificationProvider } from '../../providers/authentification/authe
 import { StudentListPage } from "../student-list/student-list";
 import { PopoverController } from 'ionic-angular';
 import { PopoverPage } from "../popover/popover";
+import { ClassAddPage } from "../class-add/class-add";
 
 /**
 * Generated class for the ClassesPage page.
@@ -34,6 +35,10 @@ export class ClassListPage {
 
     selectClass(_class) {
         this.navCtrl.push(StudentListPage, { class: _class} );
+    }
+
+    addClass(_class) {
+        this.navCtrl.push(ClassAddPage, { class: _class} );
     }
 
     presentPopover(event) {

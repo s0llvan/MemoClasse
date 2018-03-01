@@ -34,7 +34,7 @@ export class DataProvider {
             else {
                 this.data = JSON.parse(val);
             }
-            this.events.publish('data:updated', this.data);
+            this.events.publish('class:updated', this.data);
         });
     }
 
@@ -71,7 +71,7 @@ export class DataProvider {
 
     deleteStudent(student) {
         this.data.forEach((_class) => {
-            let studentIndex = _class.students.findIndex((_student) => { return _student.id === student.id; });
+            let studentIndex = _class.students.findIndex((_student) => { return _student.id == student.id; });
             if(studentIndex > -1) {
                 _class.students.splice(studentIndex, 1);
             }
@@ -97,7 +97,7 @@ export class DataProvider {
     }
 
     saveData() {
-        this.events.publish('data:updated', this.data);
+        this.events.publish('class:updated', this.data);
 
         if (this.platform.is('mobile')) {
             this.storage.set('data', JSON.stringify(this.data));
@@ -105,9 +105,10 @@ export class DataProvider {
     }
 
     getStudentsByClass(_class) {
-        return this.data.filter((__class) => {
-            return (__class == _class);
+        let classFound = this.data.find((c) => {
+            return (c.id == _class.id);
         });
+        return classFound.students;
     }
 
     getLastClassId() {

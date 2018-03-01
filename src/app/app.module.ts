@@ -28,6 +28,7 @@ import { AndroidFullScreen } from '@ionic-native/android-full-screen';
 import { AddActivityPage } from '../pages/add-activity/add-activity';
 import { ClassListPage } from '../pages/class-list/class-list';
 import { StudentListPage } from '../pages/student-list/student-list';
+import { ClassAddPage } from '../pages/class-add/class-add';
 
 @NgModule({
     declarations: [
@@ -41,7 +42,8 @@ import { StudentListPage } from '../pages/student-list/student-list';
         SelectImagesPage,
         AddActivityPage,
         ClassListPage,
-        StudentListPage
+        StudentListPage,
+        ClassAddPage
     ],
     imports: [
         IonicStorageModule.forRoot({
@@ -65,7 +67,8 @@ import { StudentListPage } from '../pages/student-list/student-list';
         SelectImagesPage,
         AddActivityPage,
         ClassListPage,
-        StudentListPage
+        StudentListPage,
+        ClassAddPage
     ],
     providers: [
         StatusBar,

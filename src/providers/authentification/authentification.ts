@@ -10,7 +10,7 @@ and Angular DI.
 @Injectable()
 export class AuthentificationProvider {
 
-    is_admin = true;
+    is_admin = false;
     admin_pin = 1234;
 
     constructor(private toastCtrl: ToastController) {
