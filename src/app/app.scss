@@ -15,15 +15,15 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-.student_edit, .student_add {
+.student_edit, .student_add, .class_add {
     font-size: 22px;
 }
 
-.student_edit .title, .student_add .title {
+.student_edit .title, .student_add .title, .class_add .title {
     color: $green
 }
 
-.student_edit .content, .student_add .content {
+.student_edit .content, .student_add .content, .class_add .content {
     padding-top: 35px;
 }
 
@@ -32,7 +32,7 @@
     text-align: center;
 }
 
-.student_edit .item-md .item-button, .student_add .item-md .item-button {
+.student_edit .item-md .item-button, .student_add .item-md .item-button, .class_add .item-md .item-button {
     padding: 20px;
     font-size: 14px;
 }

@@ -19,27 +19,29 @@ import { CameraPage } from '../camera/camera';
 export class StudentListPage {
 
     public class: any;
+    public students: any;
 
     constructor(public navParams: NavParams, public authentificationProvider: AuthentificationProvider, public events: Events, public navCtrl: NavController, private dataProvider: DataProvider, public popoverCtrl: PopoverController, public platform: Platform, public modalCtrl: ModalController) {
         this.class = this.navParams.get('class');
+        this.students = this.class.students;
 
-        this.events.subscribe('data:updated', (data) => {
-            data.forEach((_class) => {
-                if(_class.id == this.class.id) {
-                    this.class = _class;
-                }
-            });
+        this.events.subscribe('class:updated', (_class) => {
+            if(_class.id == this.class.id) {
+                this.class = _class;
+                this.students = this.class.students;
+                console.log("event");
+            }
         });
     }
 
     searchStudent(ev: any) {
-        this.class.students = this.dataProvider.getStudentsByClass(this.class);
+        this.students = this.dataProvider.getStudentsByClass(this.class);
         let val = ev.target.value;
 
         // if the value is an empty string don't filter the items
         if (val && val.trim() != '')
         {
-            this.class.students = this.class.students.filter((student) => {
+            this.students = this.students.filter((student) => {
                 return (student.firstname.toLowerCase().indexOf(val.toLowerCase()) > -1 || student.lastname.toLowerCase().indexOf(val.toLowerCase()) > -1);
             })
         }
