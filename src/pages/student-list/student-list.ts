@@ -52,7 +52,8 @@ export class StudentListPage {
     }
 
     editClass() {
-        this.navCtrl.push(ClassEditPage, { class: this.class });
+        let modal = this.modalCtrl.create(ClassEditPage, { class: this.class });
+        modal.present();
     }
 
     selectStudent(student) {
