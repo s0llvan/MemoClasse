@@ -1,4 +1,4 @@
-page-home {
+page-student-list {
     #buisson{
         position: absolute;
         bottom: 0px;
@@ -24,6 +24,7 @@ page-home {
     .student_new {
         vertical-align: middle;
         font-weight: bold;
+        padding-top: 35px;
     }
 
     .student_new .student_new_icon {
@@ -32,7 +33,7 @@ page-home {
         font-size: 60px;
     }
 
-    ion-grid{
+    ion-grid {
         margin-bottom: 140px;
     }
 
@@ -53,7 +54,7 @@ page-home {
         ion-card.student {
             height: 170px;
         }
-        ion-grid{
+        ion-grid {
             margin-bottom: 170px;
         }
     }
@@ -65,7 +66,7 @@ page-home {
         ion-card.student .name {
             margin-top: 10px;
         }
-        ion-grid{
+        ion-grid {
             margin-bottom: 180px;
         }
     }

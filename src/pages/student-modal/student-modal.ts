@@ -12,15 +12,17 @@ import { DataProvider } from '../../providers/data-provider/data-provider';
 */
 
 @Component({
-    selector: 'student-modal',
+    selector: 'page-student-modal',
     templateUrl: 'student-modal.html',
 })
 export class StudentModalPage {
 
-    student;
+    public student: any;
+    public class: any;
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
         this.student = this.navParams.get('student');
+        this.class = this.navParams.get('class');
     }
 
     activityReports() {
@@ -28,10 +30,10 @@ export class StudentModalPage {
     }
 
     editStudent() {
-        this.navCtrl.push(EditStudentPage, { student: this.student });
+        this.navCtrl.push(EditStudentPage, { student: this.student, class: this.class });
     }
 
-    closeModal() {
+    close() {
         this.navCtrl.pop();
     }
 }

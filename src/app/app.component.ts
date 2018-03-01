@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Platform, ModalController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { HomePage } from '../pages/home/home';
+import { ClassListPage } from '../pages/class-list/class-list';
 
 import { DataProvider } from '../providers/data-provider/data-provider';
 import { AndroidFullScreen } from '@ionic-native/android-full-screen';
@@ -11,7 +11,7 @@ import { AndroidFullScreen } from '@ionic-native/android-full-screen';
     templateUrl: 'app.html',
     providers: [DataProvider]
 })export class MyApp {
-    rootPage:any = HomePage;
+    rootPage:any = ClassListPage;
 
     constructor(private androidFullScreen: AndroidFullScreen, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, modalCtrl: ModalController) {
         this.androidFullScreen.isImmersiveModeSupported()

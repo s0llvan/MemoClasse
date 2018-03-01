@@ -19,10 +19,11 @@ import { ToastController } from 'ionic-angular';
 })
 export class AddStudentPage {
 
+    public class: any;
     public student = { id: 0, firstname:null, lastname:null, mails: [], pictures: [] };
 
     constructor(public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataProvider, private toastController: ToastController) {
-
+        this.class = this.navParams.get('class');
     }
 
     addStudent() {
@@ -33,7 +34,7 @@ export class AddStudentPage {
         } else if(Object.keys(this.student.mails).length <= 0) {
             this.toastError("Vous devez rentrer au moins une adresse email !")
         } else {
-            this.dataProvider.addStudent(this.student);
+            this.dataProvider.addStudent(this.class, this.student);
             this.navCtrl.pop();
         }
     }

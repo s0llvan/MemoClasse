@@ -2,14 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DataProvider } from '../../providers/data-provider/data-provider';
 import { AlertController } from 'ionic-angular';
-import { HomePage } from '../home/home'
-
-/**
-* Generated class for the EditStudentPage page.
-*
-* See https://ionicframework.com/docs/components/#navigation for more info on
-* Ionic pages and navigation.
-*/
+import { StudentListPage } from '../student-list/student-list'
 
 @IonicPage()
 @Component({
@@ -18,10 +11,12 @@ import { HomePage } from '../home/home'
 })
 export class EditStudentPage {
 
-    public student = { mails: [] };
+    public student: any;
+    public class: any;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataProvider, public alertCtrl: AlertController) {
-        this.student = navParams.get("student");
+        this.student = this.navParams.get("student");
+        this.class = this.navParams.get("class");
     }
 
     addStudentMail() {
@@ -50,8 +45,8 @@ export class EditStudentPage {
                     text: 'Oui',
                     handler: () => {
                         this.dataProvider.deleteStudent(this.student);
-                        this.navCtrl.push(HomePage);
-
+                        this.navCtrl.pop();
+                        //this.navCtrl.push(StudentListPage, { class: this.class });
                     }
                 }
             ]
