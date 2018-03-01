@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {Camera, CameraOptions} from '@ionic-native/camera';
 
 @IonicPage()
@@ -11,7 +11,6 @@ export class TakePicturePage {
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private camera: Camera) {
     }
-
     ionViewDidLoad() {
         console.log('ionViewDidLoad TakePicturePage');
     }

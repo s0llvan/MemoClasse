@@ -64,13 +64,6 @@ export class CameraPage {
             quality: 85
         }
 
-        for(let p of this.student.pictures) {
-            if(p[0] == this.pictures[this.position][0])
-            {
-                this.student.pictures.splice(this.student.pictures.indexOf(p), 1);
-            }
-        }
-
         this.cameraPreview.takePicture(this.pictureOpts).then((imageData) =>
         {
 

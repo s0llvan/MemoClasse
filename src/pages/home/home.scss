@@ -1,72 +1,93 @@
 page-home {
+    .home{
+        background-color: #ADEAFF;
+        margin-bottom: 10%;
+    }
+
     #buisson{
         position: absolute;
         bottom: 0px;
         width:100%;
         z-index: 2;
     }
+
     .student {
-        padding-top: 15px;
-    }
-    .student .card-title-md {
-        font-size: 14px;
-    }
-
-    .student .card-content-md {
-        padding: 8px 0px;
-    }
-
-    .student_icon {
-        margin: 0 auto;
-        width: 50%;
-    }
-
-    .student_new {
-        vertical-align: middle;
-        font-weight: bold;
-    }
-
-    .student_new .student_new_icon {
+        position: relative;
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
         text-align: center;
-        width: 100%;
-        font-size: 60px;
+        margin-top: 10%;
+    }
+
+    .studentCloud{
+        background: white;
+        border: 1rem solid transparent;
+        border-image: url("../assets/imgs/nuage.svg") 5%;
+        border-image-repeat: round;
+        border-image-outset: 1rem;
+    }
+
+    .studentNotCloud{
+        border: 1px solid rgba(0,0,0,0.2);
+        border-radius: 10px;
+        box-shadow:0 7px 12px 0 rgba(0,0,0,0.1),0 4px 15px 0 rgba(0,0,0,0.10);
+    }
+    .student .name {
+        margin-left: 5%;
+        width: 90%;
+        height: 15%;
+        position: absolute;
+        bottom: 0;
+        white-space: nowrap;
+        overflow: hidden;
+
+    }
+
+
+    .student_new_icon{
+        font-size: 115px;
+        margin: auto;
+    }
+
+    .fullIcon{
+        display: flex;
+        height: 75%;
+    }
+
+    .student_icon{
+        height: 90px;
+        margin: auto;
     }
 
     ion-grid{
         margin-bottom: 140px;
     }
 
-    ion-card.student {
+    .student {
         height: 140px;
     }
 
-    ion-card.student .name {
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
-
-    .mode_icon {
-        width: 40px;
-    }
-
     @media (min-width: 768px) {
-        ion-card.student {
-            height: 170px;
-        }
         ion-grid{
             margin-bottom: 170px;
+        }
+        .student {
+            height: 170px;
+        }
+        .student_icon{
+            height: 120px;
         }
     }
 
     @media (min-width: 992px) {
-        ion-card.student {
-            height: 180px;
-        }
-        ion-card.student .name {
-            margin-top: 10px;
-        }
         ion-grid{
             margin-bottom: 180px;
+        }
+        .student {
+            height: 180px;
+        }
+        .student_icon{
+            height: 130px;
         }
     }
 }
