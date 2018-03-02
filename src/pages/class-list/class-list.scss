@@ -10,65 +10,81 @@ page-class-list {
         width:100%;
         z-index: 2;
     }
+
     .class {
-        padding-top: 35px;
-    }
-    .class .card-title-md {
-        font-size: 14px;
+        position: relative;
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+        text-align: center;
+        margin-top: 7%;
     }
 
-    .class .card-content-md {
-        padding: 8px 0px;
+    .classCloud {
+        background: white;
+        border: 1rem solid transparent;
+        border-image: url("../assets/imgs/nuage.svg") 5%;
+        border-image-repeat: round;
+        border-image-outset: 1rem;
+    }
+
+    .classNotCloud {
+        border: 1px solid rgba(0,0,0,0.2);
+        border-radius: 10px;
+        box-shadow:0 7px 12px 0 rgba(0,0,0,0.1),0 4px 15px 0 rgba(0,0,0,0.10);
+    }
+
+    .class .name {
+        //margin-left: 5%;
+        //width: 90%;
+        //height: 15%;
+        //position: absolute;
+        //bottom: 0;
+        //white-space: nowrap;
+        //overflow: hidden;
+    }
+
+
+    .class_new_icon {
+        font-size: 115px;
+        margin: auto;
+    }
+
+    .fullIcon {
+        display: flex;
+        height: 75%;
     }
 
     .class_icon {
-        margin: 0 auto;
-        width: 50%;
-    }
-
-    .class_new {
-        vertical-align: middle;
-        font-weight: bold;
-    }
-
-    .class_new .class_new_icon {
-        text-align: center;
-        width: 100%;
-        font-size: 60px;
+        height: 90px;
+        margin: auto;
     }
 
     ion-grid {
         margin-bottom: 140px;
     }
 
-    ion-card.class {
+    .class {
         height: 140px;
     }
 
-    ion-card.class .name {
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
-
-    .mode_icon {
-        width: 40px;
-    }
-
     @media (min-width: 768px) {
-        ion-card.class {
+        .class {
             height: 170px;
         }
         ion-grid {
             margin-bottom: 170px;
         }
+        .class_icon{
+            height: 120px;
+        }
     }
 
     @media (min-width: 992px) {
-        ion-card.class {
+        .class {
             height: 180px;
         }
-        ion-card.class .name {
-            margin-top: 10px;
+        .class_icon{
+            height: 130px;
         }
         ion-grid {
             margin-bottom: 180px;
