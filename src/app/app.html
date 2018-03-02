@@ -16,8 +16,8 @@
         </ion-list>
     </ion-content>
 
-    <ion-footer *ngFor="let p of footerPages" (click)="openPage(p)">
-        <ion-item nav-clear menu-close href="#" style="left:0;right:0;margin:0; width: 100%;position: fixed;bottom:0;">
+    <ion-footer>
+        <ion-item *ngFor="let p of footerPages" nav-clear menuClose href="#" style="left:0;right:0;margin:0; width: 100%;position: fixed;bottom:0;" (click)="openPage(p)">
             <ion-icon name="{{ p.icon }}" color="green" style="width:35px;text-align:center;"></ion-icon>
             {{ p.title }}
         </ion-item>
