@@ -37,6 +37,7 @@ export class AuthentificationProvider {
             });
             toast.present();
         }
+        return this.is_admin;
     }
 
     deauthAdmin() {
