@@ -27,6 +27,7 @@ export class EditStudentPage {
     constructor(private toastController: ToastController, public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataProvider, public alertCtrl: AlertController, private cameraPreview: CameraPreview, private screenOrientation: ScreenOrientation) {
         this.student = this.navParams.get("student");
         this.class = this.navParams.get("class");
+        this.isHide = true;
     }
 
     addStudentMail() {
@@ -96,7 +97,6 @@ export class EditStudentPage {
             this.picturePreview = "data:image/png;base64," + imageData;
             this.profilPicture = [this.picturePreview, imageData];
             this.pushPicture();
-            this.isHide = true;
             this.cameraPreview.stopCamera();
             this.screenOrientation.unlock();
         }, (err) => {

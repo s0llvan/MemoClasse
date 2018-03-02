@@ -32,6 +32,7 @@ export class AddStudentPage {
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataProvider, private toastController: ToastController, private cameraPreview: CameraPreview, private screenOrientation: ScreenOrientation) {
         this.class = this.navParams.get('class');
+        this.isHide = true;
     }
 
     addStudent() {

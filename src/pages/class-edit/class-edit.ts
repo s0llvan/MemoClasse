@@ -25,6 +25,7 @@ export class ClassEditPage {
 
     constructor(private app: App, public alertCtrl: AlertController, private dataProvider: DataProvider, public navCtrl: NavController, public navParams: NavParams, private cameraPreview: CameraPreview, private screenOrientation: ScreenOrientation, private toastController: ToastController) {
         this.class = this.navParams.get("class");
+        this.isHide = true;
     }
 
     saveClass() {
