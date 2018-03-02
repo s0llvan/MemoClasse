@@ -27,7 +27,8 @@
           firstname: "",
           lastname: "",
           pictures: [],
-          mails: []
+          mails: [],
+          class:""
       };
 
       selections = null; //la sélections d'images choisies
@@ -44,15 +45,16 @@
           ],
           styles: {  //styles pour le pdf
               header: {
-                  fontSize: 18,
+                
+                  fontSize: 30,
                   bold: true,
               },
               subheader: {
-                  fontSize: 14,
+                  fontSize: 24,
                   bold: true,
               },
               text: {
-                  fontSize: 11
+                  fontSize: 12
               }
           }
       };
@@ -102,12 +104,19 @@
       }
 
       addInfos(){
-        this.docDefinition.content.push(
-        { text: "Rapport de l'élève " + this.student.firstname + " " + this.student.lastname, style: 'header' },
-        { text: new Date().toTimeString(), alignment: 'right' },
-        { text: 'Classe : Xx', style: 'subheader' },
-        { text: 'Enseignant : Xxxx ', style: 'subheader' },);
+        var date = new Date();
+        var day = date.getDate();
+        var month = date.getMonth()+1;
+        var year = date.getFullYear();
+        var fullDate = day+"/"+month+"/"+year;
 
+        this.docDefinition.content.push(
+
+        { text: 'Enseignant : Xxxx ', style: 'subheader' },
+        { text: fullDate, alignment: 'right',style: 'subheader' },
+        { text: "Classe : " + this.student.class, style: 'subheader' },
+        { text: "Rapport de l'élève " + this.student.firstname + " " + this.student.lastname, style: 'header' },
+);
       }
 
       addContenus(){
@@ -122,7 +131,7 @@
               {
                    if(this.selections[j].pictures[k] == i)
                    {
-                     this.docDefinition.content.push({ image: 'data:image/png;base64,' + this.student.pictures[i][1], width: 500 },);
+                     this.docDefinition.content.push({ image: 'data:image/png;base64,' + this.student.pictures[i][1], width: 400, margin:[50,50,0,0] },);
                    }
               }
             }

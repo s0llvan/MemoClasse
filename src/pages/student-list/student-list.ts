@@ -11,6 +11,7 @@ import { ModalController } from 'ionic-angular';
 import { StudentModalPage } from '../student-modal/student-modal';
 import { Events } from 'ionic-angular';
 import { CameraPage } from '../camera/camera';
+import { ClassEditPage } from '../class-edit/class-edit';
 
 @Component({
     selector: 'page-student-list',
@@ -48,6 +49,11 @@ export class StudentListPage {
 
     addStudent() {
         this.navCtrl.push(AddStudentPage, { class: this.class });
+    }
+
+    editClass() {
+        let modal = this.modalCtrl.create(ClassEditPage, { class: this.class });
+        modal.present();
     }
 
     selectStudent(student) {
