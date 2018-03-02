@@ -21,7 +21,7 @@ import { ToastController } from 'ionic-angular';
     ]
 })
 export class CameraPage {
-    public pictures = new Array(6);
+    public pictures = new Array(5);
     public picturePreview = [];
     public isHide : boolean;
     public position = 0;

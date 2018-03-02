@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DataProvider } from '../../providers/data-provider/data-provider';
 import { ToastController } from 'ionic-angular';
-
-
+import { CameraPreview, CameraPreviewOptions , CameraPreviewPictureOptions } from '@ionic-native/camera-preview';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 /**
 * Generated class for the AddStudentPage page.
@@ -16,13 +16,21 @@ import { ToastController } from 'ionic-angular';
 @Component({
     selector: 'page-add-student',
     templateUrl: 'add-student.html',
+    providers: [
+        ScreenOrientation
+    ]
 })
 export class AddStudentPage {
 
     public class: any;
-    public student = { id: 0, firstname:null, lastname:null, mails: [], pictures: [] };
+    public student = { id: 0, firstname:null, lastname:null, mails: [], pictures: [], profilPicture: String };
+    public profilPicture = null;
+    public picturePreview = "";
+    public isHide : boolean;
+    public pictureOpts: CameraPreviewPictureOptions;
 
-    constructor(public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataProvider, private toastController: ToastController) {
+
+    constructor(public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataProvider, private toastController: ToastController, private cameraPreview: CameraPreview, private screenOrientation: ScreenOrientation) {
         this.class = this.navParams.get('class');
     }
 
@@ -51,5 +59,75 @@ export class AddStudentPage {
             cssClass: "toast"
         });
         toast.present();
+    }
+
+
+    startCamera() {
+        this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+
+        const cameraPreviewOpts: CameraPreviewOptions = {
+            x: 0,
+            y: (window.screen.height/100)*15,
+            width: window.screen.width,
+            height: (window.screen.height/100)*71,
+            camera: 'rear',
+            tapPhoto: true,
+            previewDrag: false,
+            toBack: false,
+            alpha: 1
+        };
+
+        this.cameraPreview.startCamera(cameraPreviewOpts);
+        this.cameraPreview.show();
+        this.isHide = false;
+    };
+
+    takePicture() {
+        this.pictureOpts = {
+            width: 1280,
+            height: 1280,
+            quality: 85
+        }   
+
+        this.cameraPreview.takePicture(this.pictureOpts).then((imageData) =>
+        {
+            this.picturePreview = "data:image/png;base64," + imageData;
+            this.profilPicture = [this.picturePreview, imageData];
+            this.pushPicture();
+            this.isHide = true;
+            this.cameraPreview.stopCamera();
+            this.screenOrientation.unlock();
+        }, (err) => {
+            this.profilPicture = 'assets/img/test.jpg';
+        });
+    }
+
+    pushPicture() {
+
+        this.student.profilPicture = this.profilPicture;
+
+        let toast;
+        this.dataProvider.updateStudent(this.student);
+        toast = this.toastCtrl.create({
+            message: 'Photographies enregistrées',
+            duration: 3000
+        });
+        toast.present(); 
+    }
+
+    goBack(){
+        this.isHide = true;
+        this.cameraPreview.stopCamera();
+        this.navCtrl.pop();
+    }
+
+    closeCamera(){
+        this.isHide = true;
+        this.cameraPreview.stopCamera();
+    }
+
+    ionViewWillLeave() {
+        this.isHide = true;
+        this.cameraPreview.stopCamera();
     }
 }

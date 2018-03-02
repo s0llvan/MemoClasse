@@ -13,10 +13,16 @@
 </ion-header>
 
 <ion-content padding>
+    <button id="back" ion-button (click)="closeCamera()" *ngIf="isHide == false">
+        <img class="icon_photo" src="assets/imgs/back.svg" alt="Back"/>
+    </button>
     <ion-grid>
         <ion-row class="student_edit">
             <ion-col col-12 col-lg-4 col-sm-5 class="content">
-                <img src="assets/imgs/default_student_icon.png" alt="Student default logo"/>
+                <div (click)="startCamera()">
+                    <img *ngIf="searchPicture() == null" src="assets/imgs/eleve.svg" alt="Student default logo"/>
+                    <img *ngIf="searchPicture() != null" [src]="profilPicture[0]" alt="Student default logo"/>
+                </div>
             </ion-col>
             <ion-col col-12 col-lg-6 col-sm-7 offset-lg-1 class="content">
                 <ion-list>
@@ -58,4 +64,7 @@
             </ion-col>
         </ion-row>
     </ion-grid>
+    <button id="take_picture" ion-button (click)="takePicture()" *ngIf="isHide == false">
+        <img class="icon_photo" src="assets/imgs/photo.svg" alt="Photo"/>
+    </button>
 </ion-content>
