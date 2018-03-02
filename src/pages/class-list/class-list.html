@@ -13,7 +13,7 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content class="class-list">
+<ion-content class="class-list" class="sky">
     <ion-grid>
         <ion-row>
             <ion-col col-6 col-lg-2 col-sm-4 *ngIf="authentificationProvider.isAdmin()">
@@ -40,4 +40,4 @@
         </ion-row>
     </ion-grid>
 </ion-content>
-<img src="assets/imgs/buisson.svg" id="buisson" *ngIf="!authentificationProvider.isAdmin()"/>
+<img src="assets/imgs/buisson.svg" id="grass" *ngIf="!authentificationProvider.isAdmin()"/>
