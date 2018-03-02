@@ -7,12 +7,12 @@
         <img src="assets/imgs/professor.png" class="mode_icon" float-end *ngIf="authentificationProvider.isAdmin()"/>
         <img src="assets/imgs/student.png" class="mode_icon" float-end *ngIf="!authentificationProvider.isAdmin()"/>
         <ion-title style="line-height:45px;">
-            {{ class.name }}
+            MémoClasse - {{ class.name }}
         </ion-title>
     </ion-navbar>
 </ion-header>
 
-<ion-content [class]="authentificationProvider.isAdmin() ? '' : 'student-list'">
+<ion-content [class]="authentificationProvider.isAdmin() ? '' : 'sky'">
     <ion-searchbar placeholder="Rechercher un élève" (ionInput)="searchStudent($event)"></ion-searchbar>
     <ion-grid>
         <ion-row>
