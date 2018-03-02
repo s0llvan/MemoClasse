@@ -3,8 +3,6 @@ import { NavController, NavParams } from 'ionic-angular';
 import { AddStudentPage } from '../add-student/add-student'
 import { DataProvider } from '../../providers/data-provider/data-provider';
 import { AuthentificationProvider } from '../../providers/authentification/authentification';
-import { PopoverController } from 'ionic-angular';
-import { PopoverPage } from "../popover/popover";
 import { Platform } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
@@ -22,7 +20,7 @@ export class StudentListPage {
     public class: any;
     public students: any;
 
-    constructor(public navParams: NavParams, public authentificationProvider: AuthentificationProvider, public events: Events, public navCtrl: NavController, private dataProvider: DataProvider, public popoverCtrl: PopoverController, public platform: Platform, public modalCtrl: ModalController) {
+    constructor(public navParams: NavParams, public authentificationProvider: AuthentificationProvider, public events: Events, public navCtrl: NavController, private dataProvider: DataProvider, public platform: Platform, public modalCtrl: ModalController) {
         this.class = this.navParams.get('class');
         this.students = this.class.students;
 
@@ -63,12 +61,5 @@ export class StudentListPage {
         } else {
             this.navCtrl.push(CameraPage, { student: student });
         }
-    }
-
-    presentPopover(event) {
-        let popover = this.popoverCtrl.create(PopoverPage);
-        popover.present({
-            ev: event
-        });
     }
 }
