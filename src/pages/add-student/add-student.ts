@@ -30,7 +30,7 @@ export class AddStudentPage {
     public pictureOpts: CameraPreviewPictureOptions;
 
 
-    constructor(public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataProvider, private toastController: ToastController, private cameraPreview: CameraPreview, private screenOrientation: ScreenOrientation) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataProvider, private toastController: ToastController, private cameraPreview: CameraPreview, private screenOrientation: ScreenOrientation) {
         this.class = this.navParams.get('class');
     }
 
@@ -106,13 +106,7 @@ export class AddStudentPage {
 
         this.student.profilPicture = this.profilPicture;
 
-        let toast;
-        this.dataProvider.updateStudent(this.student);
-        toast = this.toastCtrl.create({
-            message: 'Photographies enregistrées',
-            duration: 3000
-        });
-        toast.present(); 
+        this.toastError("Photographie enregistrée.");
     }
 
     goBack(){

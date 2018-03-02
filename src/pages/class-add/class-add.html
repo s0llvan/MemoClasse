@@ -1,16 +1,22 @@
-<ion-header>
+<ion-header [hidden]="!isHide">
     <ion-navbar>
         <ion-title>MémoClasse</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+    <button id="back" ion-button (click)="closeCamera()" *ngIf="isHide == false">
+        <img class="icon_photo" src="assets/imgs/back.svg" alt="Back"/>
+    </button>
     <ion-row class="class_add">
         <ion-col col-12 text-center class="title">
             Nouvelle classe
         </ion-col>
         <ion-col col-12 col-lg-4 col-sm-5 class="content">
-            <img src="assets/imgs/icon_liste_eleve.svg" alt="Class default logo"/>
+            <div (click)="startCamera()">
+                <img *ngIf="profilPicture == null" src="assets/imgs/icon_liste_eleve.svg" alt="Class default logo"/>
+                <img *ngIf="profilPicture != null" [src]="profilPicture[0]" alt="Class logo"/>
+            </div>
         </ion-col>
         <ion-col col-12 col-lg-6 col-sm-7 offset-lg-1 class="content">
             <ion-list>
@@ -24,4 +30,7 @@
 
     <button ion-button color="danger" (click)="back()">Annuler</button>
     <button ion-button color="green" (click)="addClass()">Sauvegarder</button>
+    <button id="take_picture" ion-button (click)="takePicture()" *ngIf="isHide == false">
+        <img class="icon_photo" src="assets/imgs/photo.svg" alt="Photo"/>
+    </button>
 </ion-content>

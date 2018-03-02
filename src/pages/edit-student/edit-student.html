@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header [hidden]="!isHide">
     <ion-toolbar>
         <ion-title>
             {{ student.firstname + " " + student.lastname }}

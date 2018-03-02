@@ -1,3 +1,31 @@
 page-class-add {
+	#back {
+        z-index: 3;
+        width: 100%;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        height: 15%;
+        padding: 0;
+        margin: 0;
+        background-color: $green;
+    }
 
+    #take_picture {
+        z-index: 3;
+        width: 100%;
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        height: 15%;
+        padding: 0;
+        margin: 0;
+        background-color: $green;
+    }
+
+    .icon_photo {
+        width: 15%;
+        padding: 0;
+        margin: 0;
+    }
 }
