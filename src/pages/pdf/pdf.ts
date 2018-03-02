@@ -19,7 +19,10 @@
       templateUrl: 'pdf.html',
   })
   export class PdfPage {
-      test = null;
+
+      buttonText = "Ajouter une 1ère activité";
+
+      pdfToSend = null;
 
       pdfObj = null; //objet pdf
 
@@ -31,7 +34,7 @@
           class:""
       };
 
-      selections = null; //la sélections d'images choisies
+      selections = []; //la sélections d'images choisies
 
       activities = [];  //toutes les activités crées
 
@@ -45,23 +48,24 @@
           ],
           styles: {  //styles pour le pdf
               header: {
-                
+                  margin:[0,250,0,0],
                   fontSize: 30,
                   bold: true,
+                  alignment:'center',
               },
               subheader: {
                   fontSize: 24,
                   bold: true,
               },
               text: {
-                  fontSize: 12
+                  fontSize: 1
               }
           }
       };
 
 
 
-      destroyImages = true;
+      destroyImages = false;
 
       opened = false;
       gotActivities = false;
@@ -98,7 +102,7 @@
 
               this.file.writeFile(this.file.externalRootDirectory, 'rapportEleve.pdf', blob, { replace: true }).then(fileEntry => {
 
-              this.test = this.file.externalRootDirectory + 'rapportEleve.pdf';
+              this.pdfToSend = this.file.externalRootDirectory + 'rapportEleve.pdf';
           })
           });
       }
@@ -112,10 +116,9 @@
 
         this.docDefinition.content.push(
 
-        { text: 'Enseignant : Xxxx ', style: 'subheader' },
-        { text: fullDate, alignment: 'right',style: 'subheader' },
         { text: "Classe : " + this.student.class, style: 'subheader' },
-        { text: "Rapport de l'élève " + this.student.firstname + " " + this.student.lastname, style: 'header' },
+        { text: fullDate, alignment: 'right',style: 'subheader' },
+        { text: "Rapport de l'élève " + this.student.firstname + " " + this.student.lastname, style: 'header' ,pageBreak: 'after'},
 );
       }
 
@@ -123,7 +126,9 @@
 
           for(var j = 0;j<this.selections.length;j++)
           {
-            this.docDefinition.content.push({ text: "Activité : " + this.selections[j].activite, style: 'header',pageBreak: 'before'});
+            this.docDefinition.content.push({ text: "Activité : " + this.selections[j].activite, style: 'subheader'});
+            this.docDefinition.content.push({ text: this.selections[j].addSub, style: 'subheader'});
+            this.docDefinition.content.push({ text: this.selections[j].addText, style: 'subheader'});
 
             for(var i = 0; i< this.student.pictures.length;i++)
             {
@@ -131,7 +136,7 @@
               {
                    if(this.selections[j].pictures[k] == i)
                    {
-                     this.docDefinition.content.push({ image: 'data:image/png;base64,' + this.student.pictures[i][1], width: 400, margin:[50,50,0,0] },);
+                     this.docDefinition.content.push({ image: 'data:image/png;base64,' + this.student.pictures[i][1], width: 400, margin:[50,100,0,0],pageBreak: 'after' },);
                    }
               }
             }
@@ -145,6 +150,7 @@
         this.navCtrl.push(AddActivityPage, { student: this.student});
         this.selections=[];
         this.gotActivities = true;
+        this.buttonText = "Ajouter une autre activité";
       }
 
 
@@ -156,7 +162,7 @@
             this.file.writeFile(this.file.externalRootDirectory, 'rapportEleve.pdf', blob, { replace: true }).then(fileEntry => {
 
             this.fileOpener.open(this.file.externalRootDirectory + 'rapportEleve.pdf', 'application/pdf');
-            this.test = this.file.externalRootDirectory + 'rapportEleve.pdf';
+            this.pdfToSend = this.file.externalRootDirectory + 'rapportEleve.pdf';
         })
         });
   }
@@ -176,9 +182,9 @@
   sendMail() {
 
       let email = {
-          to: this.student.mails[0],
+          to: this.student.mails,
 
-            attachments: [this.test],
+            attachments: [this.pdfToSend],
 
           subject: "Rapport de l'élève "+this.student.firstname+" "+this.student.lastname,
           body: 'Madame, Monsieur, veuillez trouver ci-joint un rapport contenant les travaux de votre enfant lors de la dernière période scolaire.   Cordialement, le professeur',

@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -11,7 +10,6 @@ import { Camera } from '@ionic-native/camera';
 import { EditStudentPage } from '../pages/edit-student/edit-student'
 import { AddStudentPage } from '../pages/add-student/add-student'
 import { PdfPage } from '../pages/pdf/pdf'
-import { PopoverPage } from '../pages/popover/popover'
 import { CameraPage } from '../pages/camera/camera'
 import { CameraPreview } from '@ionic-native/camera-preview';
 import { DataProvider } from '../providers/data-provider/data-provider';
@@ -30,6 +28,7 @@ import { ClassListPage } from '../pages/class-list/class-list';
 import { StudentListPage } from '../pages/student-list/student-list';
 import { ClassAddPage } from '../pages/class-add/class-add';
 import { ClassEditPage } from '../pages/class-edit/class-edit';
+import { AboutPage } from '../pages/about/about';
 
 @NgModule({
     declarations: [
@@ -37,7 +36,6 @@ import { ClassEditPage } from '../pages/class-edit/class-edit';
         EditStudentPage,
         AddStudentPage,
         PdfPage,
-        PopoverPage,
         CameraPage,
         StudentModalPage,
         SelectImagesPage,
@@ -45,7 +43,8 @@ import { ClassEditPage } from '../pages/class-edit/class-edit';
         ClassListPage,
         StudentListPage,
         ClassAddPage,
-        ClassEditPage
+        ClassEditPage,
+        AboutPage
     ],
     imports: [
         IonicStorageModule.forRoot({
@@ -63,7 +62,6 @@ import { ClassEditPage } from '../pages/class-edit/class-edit';
         EditStudentPage,
         AddStudentPage,
         PdfPage,
-        PopoverPage,
         CameraPage,
         StudentModalPage,
         SelectImagesPage,
@@ -71,7 +69,8 @@ import { ClassEditPage } from '../pages/class-edit/class-edit';
         ClassListPage,
         StudentListPage,
         ClassAddPage,
-        ClassEditPage
+        ClassEditPage,
+        AboutPage
     ],
     providers: [
         StatusBar,
