@@ -76,6 +76,7 @@ import { PincodeController } from  'ionic2-pincode-input/dist/pincode'
         else
         {
             this.authentificationProvider.deauthAdmin();
+            this.pages[1].title = "Administration";
         }
     }
 }

@@ -44,7 +44,7 @@ export class DataProvider {
 
         this.data.push(_class);
 
-        this.events.publish('class:created', _class);
+        this.events.publish('class:updated', this.data);
 
         this.saveData();
     }
@@ -63,7 +63,7 @@ export class DataProvider {
         let classIndex = this.getClassById(_class.id);
         this.data.splice(classIndex, 1);
 
-        this.events.publish('class:deleted', _class);
+        this.events.publish('class:updated', this.data);
 
         this.saveData();
     }

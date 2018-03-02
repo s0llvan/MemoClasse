@@ -47,8 +47,8 @@ export class ClassEditPage {
                         this.dataProvider.deleteClass(this.class);
                         this.navCtrl.pop();
 
-                        let nav = this.app.getRootNav();
-                        nav.setRoot(ClassListPage);
+                        const root = this.app.getRootNav();
+                        root.popToRoot();
                     }
                 }
             ]
