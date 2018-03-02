@@ -14,6 +14,9 @@ export class ClassAddPage {
     constructor(private dataProvider: DataProvider, public navCtrl: NavController, public navParams: NavParams) {
 
     }
+    back(){
+        this.navCtrl.pop();
+    }
 
     addClass() {
         this.dataProvider.addClass(this.class);
