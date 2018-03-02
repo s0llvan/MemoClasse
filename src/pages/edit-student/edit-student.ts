@@ -41,6 +41,9 @@ export class EditStudentPage {
         this.dataProvider.updateStudent(this.student);
         this.navCtrl.pop();
     }
+    close(){
+        this.navCtrl.pop();
+    }
 
     deleteStudent() {
         let confirm = this.alertCtrl.create({
