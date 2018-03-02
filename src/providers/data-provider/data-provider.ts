@@ -50,6 +50,7 @@ export class DataProvider {
     addStudent(_class, student) {
         student.id = this.getLastStudentId() + 1;
         student.pictures = [];
+        student.class = _class.name;
 
         _class.students.push(student);
 
