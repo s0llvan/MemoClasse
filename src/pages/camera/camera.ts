@@ -4,6 +4,7 @@ import { CameraPreview, CameraPreviewOptions , CameraPreviewPictureOptions } fro
 import { DataProvider } from '../../providers/data-provider/data-provider';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { ToastController } from 'ionic-angular';
+import { customCamera } from '@angular/core';
 
 /**
 * Generated class for the CameraPage page.
