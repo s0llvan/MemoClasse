@@ -3,7 +3,7 @@ import { Nav, Platform, ModalController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ClassListPage } from '../pages/class-list/class-list';
-
+import { AboutPage } from '../pages/about/about';
 
 import { DataProvider } from '../providers/data-provider/data-provider';
 import { AndroidFullScreen } from '@ionic-native/android-full-screen';
@@ -39,7 +39,7 @@ import { PincodeController } from  'ionic2-pincode-input/dist/pincode'
         ];
 
         this.footerPages = [
-            { title: 'A propos', component: null, icon: "information-circle" }
+            { title: 'A propos', component: AboutPage, icon: "information-circle" }
         ];
     }
 
