@@ -19,6 +19,9 @@
       templateUrl: 'pdf.html',
   })
   export class PdfPage {
+
+      buttonText = "Ajouter une 1ère activité";
+
       pdfToSend = null;
 
       pdfObj = null; //objet pdf
@@ -147,6 +150,7 @@
         this.navCtrl.push(AddActivityPage, { student: this.student});
         this.selections=[];
         this.gotActivities = true;
+        this.buttonText = "Ajouter une autre activité";
       }
 
 
