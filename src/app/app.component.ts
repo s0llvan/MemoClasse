@@ -3,7 +3,7 @@ import { Nav, Platform, ModalController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ClassListPage } from '../pages/class-list/class-list';
-import { AuthPage } from '../pages/auth/auth';
+
 
 import { DataProvider } from '../providers/data-provider/data-provider';
 import { AndroidFullScreen } from '@ionic-native/android-full-screen';

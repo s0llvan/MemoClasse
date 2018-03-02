@@ -7,26 +7,26 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-label stacked class="lab">1 ère étape : Ajouter une ou plusieurs activités</ion-label>
-    <br /><br />
-    <button ion-button block (click)="goToAddActivity()">Ajouter une activité</button>
-    <br /><br /><hr>
-    <ion-label stacked class="lab">2 ème étape : </ion-label>
-    <br /><br />
-    <ion-item>
-        <ion-label>Supprimer les photos ?</ion-label>
-        <ion-checkbox [(ngModel)]="destroyImages"></ion-checkbox>
-    </ion-item>
-    <br />
-    <button ion-button full (click)="createPdf()" color="secondary" [disabled]="!gotActivities" icon-start>  <ion-icon name="paper"></ion-icon>Creer le rapport</button>
-    <br /><br /><hr>
-    <ion-label stacked class="lab">3 ème étape : </ion-label>
-    <br /><br />
-    <button ion-button full (click)="openPdf()" color="secondary" [disabled]="!pdfObj" icon-start> <ion-icon name="open"></ion-icon>Ouvrir le rapport</button>
-    <br /><br />
-    <hr>
-    <ion-label stacked class="lab">4 ème étape : </ion-label>
-    <br /><br />
-    <button ion-button full (click)="sendMail()" color="secondary" [disabled]="!opened" icon-start><ion-icon name="mail"></ion-icon>Envoyer le rapport</button>
-    <br /><br />
+  <ion-label stacked class="lab">1 ère étape : Ajouter une ou plusieurs activités</ion-label>
+<br /><br />
+<button ion-button block (click)="goToAddActivity()">{{buttonText}}</button>
+  <br /><br /><hr>
+<ion-label stacked class="lab">2 ème étape : </ion-label>
+  <br /><br />
+ <ion-item>
+   <ion-label>Supprimer les photos ?</ion-label>
+   <ion-checkbox [(ngModel)]="destroyImages"></ion-checkbox>
+ </ion-item>
+  <br />
+  <button ion-button full (click)="createPdf()" color="secondary" [disabled]="!gotActivities" icon-start>  <ion-icon name="paper"></ion-icon>Creer le rapport</button>
+  <br /><br /><hr>
+  <ion-label stacked class="lab">3 ème étape : </ion-label>
+  <br /><br />
+  <button ion-button full (click)="openPdf()" color="secondary" [disabled]="!pdfObj" icon-start> <ion-icon name="open"></ion-icon>Ouvrir le rapport</button>
+<br /><br />
+<hr>
+  <ion-label stacked class="lab">4 ème étape : </ion-label>
+  <br /><br />
+  <button ion-button full (click)="sendMail()" color="secondary" [disabled]="!opened" icon-start><ion-icon name="mail"></ion-icon>Envoyer le rapport</button>
+  <br /><br />
 </ion-content>
