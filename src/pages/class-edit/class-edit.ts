@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { DataProvider } from '../../providers/data-provider/data-provider';
 import { ClassListPage } from "../class-list/class-list";
 import { AlertController } from 'ionic-angular';
@@ -13,7 +13,7 @@ export class ClassEditPage {
 
     public class: any;
 
-    constructor(public alertCtrl: AlertController, private dataProvider: DataProvider, public navCtrl: NavController, public navParams: NavParams) {
+    constructor(private app: App, public alertCtrl: AlertController, private dataProvider: DataProvider, public navCtrl: NavController, public navParams: NavParams) {
         this.class = this.navParams.get("class");
     }
 
@@ -35,7 +35,10 @@ export class ClassEditPage {
                     text: 'Oui',
                     handler: () => {
                         this.dataProvider.deleteClass(this.class);
-                        this.navCtrl.setRoot(ClassListPage);
+                        this.navCtrl.pop();
+
+                        let nav = this.app.getRootNav();
+                        nav.setRoot(ClassListPage);
                     }
                 }
             ]
