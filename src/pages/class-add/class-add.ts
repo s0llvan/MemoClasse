@@ -24,6 +24,9 @@ export class ClassAddPage {
     constructor(private dataProvider: DataProvider, public navCtrl: NavController, public navParams: NavParams, private toastController: ToastController, private cameraPreview: CameraPreview, private screenOrientation: ScreenOrientation) {
     	this.isHide = true;
     }
+    back(){
+        this.navCtrl.pop();
+    }
 
     addClass() {
         this.dataProvider.addClass(this.class);

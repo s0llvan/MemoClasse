@@ -29,7 +29,8 @@
             <ion-col col-6 col-lg-2 col-sm-4 *ngFor="let student of students;">
                 <div [class]="authentificationProvider.isAdmin() ? 'student studentNotCloud' : 'student studentCloud'" (click)="selectStudent(student)">
                     <div class="fullIcon">
-                        <img src="assets/imgs/eleve.svg" class="student_icon" alt="Student default"/>
+                        <img *ngIf="student.profilPicture[0] == null" src="assets/imgs/eleve.svg" class="student_icon" alt="Student default logo"/>
+                        <img *ngIf="student.profilPicture[0] != null" [src]="student.profilPicture[0]" class="student_icon" alt="Student default logo"/>
                     </div>
                     <div class="name" text-center>
                         {{ student.firstname + " " + student.lastname }}
