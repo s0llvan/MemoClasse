@@ -45,8 +45,7 @@ export class EditStudentPage {
                     text: 'Oui',
                     handler: () => {
                         this.dataProvider.deleteStudent(this.student);
-                        this.navCtrl.pop();
-                        //this.navCtrl.push(StudentListPage, { class: this.class });
+                        this.navCtrl.setRoot(StudentListPage, { class: this.class });
                     }
                 }
             ]
