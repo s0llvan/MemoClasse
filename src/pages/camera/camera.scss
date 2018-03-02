@@ -1,17 +1,18 @@
 page-camera {
-
     .sky {
         background-color: #ADEAFF;
         margin-bottom: 10%;
     }
-    #buisson {
+
+    #grass {
         position: absolute;
         bottom: 0px;
         width:100%;
         z-index: 2;
     }
+
     .icon_photo {
-        width: 10%;
+        width: 15%;
         padding: 0;
         margin: 0;
     }
@@ -20,18 +21,25 @@ page-camera {
         margin-top:56px;
     }
 
+    .student_icon{
+        border-radius: 15px;
+    }
     .picture{
-        height: 140px;
+        height: 170px;
         position: relative;
         margin-left: 1.5rem;
         margin-right: 1.5rem;
         text-align: center;
-        margin-top: 10%;
+        margin-top: 12.5%;
         background: white;
         border: 1rem solid transparent;
         border-image: url("../assets/imgs/nuage.svg") 5%;
         border-image-repeat: round;
         border-image-outset: 1rem;
+    }
+    .fullIcon {
+        display: flex;
+        height: 100%;
     }
 
     #back {
@@ -43,7 +51,7 @@ page-camera {
         height: 15%;
         padding: 0;
         margin: 0;
-        background-color: #00b253;
+        background-color: $green;
     }
 
     #take_picture {
@@ -55,7 +63,7 @@ page-camera {
         height: 15%;
         padding: 0;
         margin: 0;
-        background-color: #00b253;
+        background-color: $green;
     }
 
     .scroll-content{
@@ -64,7 +72,7 @@ page-camera {
 
     @media (min-width: 768px) {
         ion-grid {
-            margin-bottom: 170px;
+            margin-bottom: 180px;
         }
         .picture {
             height: 170px;
@@ -73,7 +81,7 @@ page-camera {
 
     @media (min-width: 992px) {
         ion-grid {
-            margin-bottom: 180px;
+            margin-bottom: 190px;
         }
         .picture {
             height: 180px;
