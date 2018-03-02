@@ -55,7 +55,8 @@ export class EditStudentPage {
                     text: 'Oui',
                     handler: () => {
                         this.dataProvider.deleteStudent(this.student);
-                        this.navCtrl.setRoot(StudentListPage, { class: this.class });
+                        this.navCtrl.pop();
+                        this.navCtrl.pop();
                     }
                 }
             ]
@@ -88,7 +89,7 @@ export class EditStudentPage {
             width: 1280,
             height: 1280,
             quality: 85
-        }   
+        }
 
         this.cameraPreview.takePicture(this.pictureOpts).then((imageData) =>
         {
