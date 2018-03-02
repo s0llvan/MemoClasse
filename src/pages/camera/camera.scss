@@ -24,11 +24,12 @@ page-camera {
     .student_icon{
         border-radius: 15px;
     }
+
     .picture{
         height: 170px;
         position: relative;
-        margin-left: 1.5rem;
-        margin-right: 1.5rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
         text-align: center;
         margin-top: 12.5%;
         background: white;
@@ -37,6 +38,7 @@ page-camera {
         border-image-repeat: round;
         border-image-outset: 1rem;
     }
+
     .fullIcon {
         display: flex;
         height: 100%;

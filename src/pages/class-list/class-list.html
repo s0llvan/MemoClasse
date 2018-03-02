@@ -3,11 +3,9 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-
-        <img src="assets/imgs/professor.png" class="mode_icon" float-end *ngIf="authentificationProvider.isAdmin()"/>
-        <img src="assets/imgs/student.png" class="mode_icon" float-end *ngIf="!authentificationProvider.isAdmin()"/>
-
-        <ion-title style="line-height:45px;">
+        <img src="assets/imgs/admin.svg" class="mode_icon" float-end *ngIf="authentificationProvider.isAdmin()"/>
+        <img src="assets/imgs/non_admin.svg" class="mode_icon" float-end *ngIf="!authentificationProvider.isAdmin()"/>
+        <ion-title>
             MémoClasse
         </ion-title>
     </ion-navbar>
@@ -29,7 +27,7 @@
             <ion-col col-12 *ngFor="let class of data;">
                 <div [class]="authentificationProvider.isAdmin() ? 'class classNotCloud row' : 'class classCloud row'" (click)="selectClass(class)">
                     <div class="fullIcon" col-3>
-                        <img src="assets/imgs/default_class_icon.png" class="class_icon" alt="Class default"/>
+                        <img src="assets/imgs/icon_liste_eleve.svg" class="class_icon" alt="Class default"/>
                     </div>
                     <div class="name" text-center col-9>
                         <h2>{{ class.name }}</h2>
