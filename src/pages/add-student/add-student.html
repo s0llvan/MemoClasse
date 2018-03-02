@@ -12,6 +12,9 @@ Ionic pages and navigation.
 
 
 <ion-content padding>
+    <button id="back" ion-button (click)="closeCamera()" *ngIf="isHide == false">
+        <img class="icon_photo" src="assets/imgs/back.svg" alt="Back"/>
+    </button>
     <ion-content padding>
         <ion-grid>
             <ion-row class="student_add">
@@ -19,7 +22,10 @@ Ionic pages and navigation.
                     Nouvel.le élève
                 </ion-col>
                 <ion-col col-12 col-lg-4 col-sm-5 class="content">
-                    <img src="assets/imgs/default_student_icon.png" alt="Student default logo"/>
+                    <div (click)="startCamera()">
+                        <img *ngIf="profilPicture == null" src="assets/imgs/default_student_icon.png" alt="Student default logo"/>
+                        <img *ngIf="profilPicture != null" [src]="profilPicture[0]" alt="Student default logo"/>
+                    </div>
                 </ion-col>
                 <ion-col col-12 col-lg-6 col-sm-7 offset-lg-1 class="content">
                     <ion-list>
@@ -62,4 +68,7 @@ Ionic pages and navigation.
             </ion-row>
         </ion-grid>
     </ion-content>
+    <button id="take_picture" ion-button (click)="takePicture()" *ngIf="isHide == false">
+        <img class="icon_photo" src="assets/imgs/photo.svg" alt="Photo"/>
+    </button>
 </ion-content>

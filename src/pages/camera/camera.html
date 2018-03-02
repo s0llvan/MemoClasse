@@ -3,20 +3,28 @@
     	<button ion-button icon-only (click)="presentPopover($event)" color="green" clear float-start>
     		<ion-icon name="menu" color="light"></ion-icon>
     	</button>
+        <img src="assets/imgs/student.png" class="mode_icon" float-end/>
 		<ion-title style="line-height:45px;">
 			MémoClasse
 		</ion-title>
 	</ion-navbar>
-</ion-header> 
-
-<ion-content padding>
-    <ion-card>
-        <ion-card-content id="container">
-            <button id="back" ion-button (click)="closeCamera()" *ngIf="isHide == false"><img class="icon_photo" src="assets/imgs/back.svg" alt="Back"/></button>
-            <div id="picture" (click)="startCamera(i)" *ngFor="let p of pictures; let i = index">
-                <img [src]="pictures[i][0]" *ngIf="pictures[i]" />
-            </div>
-            <button id="take_picture" ion-button (click)="takePicture()" *ngIf="isHide == false"><img class="icon_photo" src="assets/imgs/photo.svg" alt="Photo"/></button>
-        </ion-card-content>
-    </ion-card>
+</ion-header>
+<ion-content padding class="sky">
+    <button id="back" ion-button (click)="closeCamera()" *ngIf="isHide == false">
+        <img class="icon_photo" src="assets/imgs/back.svg" alt="Back"/>
+    </button>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-6 col-lg-4 col-sm-6 *ngFor="let p of pictures; let i = index">
+                <div class="picture" (click)="startCamera(i)">
+                    <div class="fullIcon">
+                        <img [src]="pictures[i][0]" *ngIf="pictures[i]" class="student_icon" alt="Picture take"/>
+                        <img src="assets/imgs/photo-camera.svg" *ngIf="!pictures[i]" class="student_icon" alt="Icon picture"/>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <button id="take_picture" ion-button (click)="takePicture()" *ngIf="isHide == false"><img class="icon_photo" src="assets/imgs/photo.svg" alt="Photo"/></button>
 </ion-content>
+<img src="assets/imgs/buisson.svg" id="grass" [hidden]="!isHide"/>

@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CameraComponent } from './camera/camera';
-import { CustomCameraComponent } from './custom-camera/custom-camera';
 @NgModule({
-	declarations: [CameraComponent,
-    CustomCameraComponent],
+	declarations: [],
 	imports: [],
-	exports: [CameraComponent,
-    CustomCameraComponent]
+	exports: []
 })
 export class ComponentsModule {}

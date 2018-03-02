@@ -1,38 +1,14 @@
 page-camera {
-
-    #back {
-        width: 100%;
-        position: absolute;
-        left: 0px;
-        top: 0px;
-        height: 15%;
-        padding: 0;
-        margin: 0;
-        background-color: #00b253;
+    .sky {
+        background-color: #ADEAFF;
+        margin-bottom: 10%;
     }
 
-    #take_picture {
-        width: 100%;
+    #grass {
         position: absolute;
-        left: 0px;
         bottom: 0px;
-        height: 15%;
-        padding: 0;
-        margin: 0;
-        background-color: #00b253;
-    }
-
-    #container {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    #picture {
-        width: 20%;
-        min-height: 100px;
-        border: double;
+        width:100%;
+        z-index: 2;
     }
 
     .icon_photo {
@@ -41,16 +17,74 @@ page-camera {
         margin: 0;
     }
 
-    .overlay {
-        position: fixed;
-        width: 100%;
+    ion-grid{
+        margin-top:56px;
+    }
+
+    .student_icon{
+        border-radius: 15px;
+    }
+    .picture{
+        height: 170px;
+        position: relative;
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+        text-align: center;
+        margin-top: 12.5%;
+        background: white;
+        border: 1rem solid transparent;
+        border-image: url("../assets/imgs/nuage.svg") 5%;
+        border-image-repeat: round;
+        border-image-outset: 1rem;
+    }
+    .fullIcon {
+        display: flex;
         height: 100%;
-        z-index: 20;
-        top: 0;
-        left: 0;
+    }
+
+    #back {
+        z-index: 3;
+        width: 100%;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        height: 15%;
+        padding: 0;
+        margin: 0;
+        background-color: $green;
+    }
+
+    #take_picture {
+        z-index: 3;
+        width: 100%;
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        height: 15%;
+        padding: 0;
+        margin: 0;
+        background-color: $green;
     }
 
     .scroll-content{
         margin-top: 0px !important;
+    }
+
+    @media (min-width: 768px) {
+        ion-grid {
+            margin-bottom: 180px;
+        }
+        .picture {
+            height: 170px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        ion-grid {
+            margin-bottom: 190px;
+        }
+        .picture {
+            height: 180px;
+        }
     }
 }
