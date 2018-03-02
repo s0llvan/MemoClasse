@@ -1,1 +1,27 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content">
+    <ion-header>
+        <ion-toolbar>
+            <img src="assets/imgs/icon.png" class="class_icon" alt="Class default logo" style="width:40px;" float-left/>
+            <ion-title style="line-height:40px;">MémoClasse</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+        <ion-list>
+            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+                <ion-icon name="{{ p.icon }}" color="green" style="width:35px;text-align:center;">
+                </ion-icon>
+                {{ p.title }}
+            </button>
+        </ion-list>
+    </ion-content>
+
+    <ion-footer *ngFor="let p of footerPages" (click)="openPage(p)">
+        <ion-item nav-clear menu-close href="#" style="left:0;right:0;margin:0; width: 100%;position: fixed;bottom:0;">
+            <ion-icon name="{{ p.icon }}" color="green" style="width:35px;text-align:center;"></ion-icon>
+            {{ p.title }}
+        </ion-item>
+    </ion-footer>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

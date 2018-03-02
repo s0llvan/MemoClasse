@@ -3,13 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EditStudentPage } from '../edit-student/edit-student'
 import { PdfPage } from '../pdf/pdf'
 import { DataProvider } from '../../providers/data-provider/data-provider';
-
-/**
-* Generated class for the StudentModalPage page.
-*
-* See https://ionicframework.com/docs/components/#navigation for more info on
-* Ionic pages and navigation.
-*/
+import { ModalController } from 'ionic-angular';
 
 @Component({
     selector: 'page-student-modal',
@@ -20,7 +14,7 @@ export class StudentModalPage {
     public student: any;
     public class: any;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
         this.student = this.navParams.get('student');
         this.class = this.navParams.get('class');
     }
@@ -30,7 +24,8 @@ export class StudentModalPage {
     }
 
     editStudent() {
-        this.navCtrl.push(EditStudentPage, { student: this.student, class: this.class });
+        let modal = this.modalCtrl.create(EditStudentPage, { student: this.student, class: this.class });
+        modal.present();
     }
 
     close() {

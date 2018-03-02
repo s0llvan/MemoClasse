@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -11,7 +10,7 @@ import { Camera } from '@ionic-native/camera';
 import { EditStudentPage } from '../pages/edit-student/edit-student'
 import { AddStudentPage } from '../pages/add-student/add-student'
 import { PdfPage } from '../pages/pdf/pdf'
-import { PopoverPage } from '../pages/popover/popover'
+import { AuthPage } from '../pages/auth/auth'
 import { CameraPage } from '../pages/camera/camera'
 import { CameraPreview } from '@ionic-native/camera-preview';
 import { DataProvider } from '../providers/data-provider/data-provider';
@@ -37,7 +36,7 @@ import { ClassEditPage } from '../pages/class-edit/class-edit';
         EditStudentPage,
         AddStudentPage,
         PdfPage,
-        PopoverPage,
+        AuthPage,
         CameraPage,
         StudentModalPage,
         SelectImagesPage,
@@ -63,7 +62,7 @@ import { ClassEditPage } from '../pages/class-edit/class-edit';
         EditStudentPage,
         AddStudentPage,
         PdfPage,
-        PopoverPage,
+        AuthPage,
         CameraPage,
         StudentModalPage,
         SelectImagesPage,

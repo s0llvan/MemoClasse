@@ -1,7 +1,7 @@
 <ion-header>
     <ion-navbar>
-        <button ion-button icon-only (click)="presentPopover($event)" color="green" clear float-start>
-            <ion-icon name="menu" color="light"></ion-icon>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
         </button>
 
         <img src="assets/imgs/professor.png" class="mode_icon" float-end *ngIf="authentificationProvider.isAdmin()"/>
