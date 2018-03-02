@@ -24,10 +24,13 @@ export class StudentListPage {
         this.class = this.navParams.get('class');
         this.students = this.class.students;
 
-        this.events.subscribe('class:updated', (_class) => {
-            if(_class.id == this.class.id) {
-                this.class = _class;
-                this.students = this.class.students;
+        this.events.subscribe('student:deleted', (_class, studentId) => {
+            let studentIndex = this.students.findIndex((s) => {
+                return (s.id == studentId);
+            });
+
+            if(studentIndex > -1) {
+                this.students.splice(studentIndex, 1);
             }
         });
     }

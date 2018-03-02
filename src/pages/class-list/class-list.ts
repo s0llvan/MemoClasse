@@ -14,15 +14,25 @@ import { AuthentificationProvider } from '../../providers/authentification/authe
 })
 export class ClassListPage {
 
-    public data = [];
+    public classList = [];
 
     constructor(private authentificationProvider: AuthentificationProvider, public modalCtrl: ModalController, public events: Events, private dataProvider: DataProvider, public navCtrl: NavController, public navParams: NavParams)
     {
-        this.events.subscribe('class:updated', (data) => {
-            this.data = data;
+        this.events.subscribe('class:created', (_class) => {
+            this.classList.push(_class);
         });
 
-        this.data = this.dataProvider.data;
+        this.events.subscribe('class:deleted', (_class) => {
+            let classIndex = this.classList.findIndex((c) => {
+                return (c.id == _class.id);
+            });
+
+            if(classIndex > -1) {
+                this.classList.splice(classIndex, 1);
+            }
+        });
+
+        this.classList = this.dataProvider.data;
     }
 
     selectClass(_class) {

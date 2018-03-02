@@ -26,7 +26,7 @@
                     </div>
                 </div>
             </ion-col>
-            <ion-col col-12 *ngFor="let class of data;">
+            <ion-col col-12 *ngFor="let class of classList;">
                 <div [class]="authentificationProvider.isAdmin() ? 'class classNotCloud row' : 'class classCloud row'" (click)="selectClass(class)">
                     <div class="fullIcon" col-3>
                         <img src="assets/imgs/default_class_icon.png" class="class_icon" alt="Class default"/>

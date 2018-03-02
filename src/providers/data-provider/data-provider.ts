@@ -44,6 +44,8 @@ export class DataProvider {
 
         this.data.push(_class);
 
+        this.events.publish('class:created', _class);
+
         this.saveData();
     }
 
@@ -58,10 +60,10 @@ export class DataProvider {
     }
 
     deleteClass(_class) {
-        let classIndex = this.data.findIndex((c) => {
-            return (c.id == _class.id);
-        });
+        let classIndex = this.getClassById(_class.id);
         this.data.splice(classIndex, 1);
+
+        this.events.publish('class:deleted', _class);
 
         this.saveData();
     }
@@ -78,10 +80,7 @@ export class DataProvider {
 
     updateStudent(student) {
         this.data.forEach((_class) => {
-            let studentIndex = _class.students.findIndex((_student) => {
-                return (_student.id == student.id);
-            });
-
+            let studentIndex = this.getStudentByStudentId(_class, student.id);
             if(studentIndex > -1) {
                 _class.students[studentIndex] = student;
             }
@@ -91,8 +90,9 @@ export class DataProvider {
 
     deleteStudent(student) {
         this.data.forEach((_class) => {
-            let studentIndex = _class.students.findIndex((_student) => { return _student.id == student.id; });
+            let studentIndex = this.getStudentByStudentId(_class, student.id);
             if(studentIndex > -1) {
+                this.events.publish('student:deleted', _class, student.id);
                 _class.students.splice(studentIndex, 1);
             }
         });
@@ -117,8 +117,6 @@ export class DataProvider {
     }
 
     saveData() {
-        this.events.publish('class:updated', this.data);
-
         if (this.platform.is('mobile')) {
             this.storage.set('data', JSON.stringify(this.data));
         }
@@ -129,6 +127,18 @@ export class DataProvider {
             return (c.id == _class.id);
         });
         return classFound.students;
+    }
+
+    getStudentByStudentId(_class, studentId) {
+        return _class.students.findIndex((s) => {
+            return s.id == studentId;
+        });
+    }
+
+    getClassById(classId) {
+        return this.data.findIndex((c) => {
+            return (c.id == classId);
+        });
     }
 
     getLastClassId() {
