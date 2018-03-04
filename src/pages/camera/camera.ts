@@ -84,11 +84,6 @@ export class CameraPage {
         });
     }
 
-    showCamera() {
-        this.cameraPreview.show();
-        this.isHide = false;
-    }
-
     pushPicture() {
 
         this.student.pictures.push(this.pictures[this.position]);
@@ -120,11 +115,6 @@ export class CameraPage {
         this.isHide = true;
         this.cameraPreview.stopCamera();
         this.navCtrl.pop();
-    }
-
-    closeCamera(){
-        this.isHide = true;
-        this.cameraPreview.stopCamera();
     }
 
     ionViewWillLeave() {

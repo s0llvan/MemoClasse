@@ -100,6 +100,7 @@ export class EditStudentPage {
             this.picturePreview = "data:image/png;base64," + imageData;
             this.profilPicture = [this.picturePreview, imageData];
             this.pushPicture();
+            this.isHide = true;
             this.cameraPreview.stopCamera();
             this.screenOrientation.unlock();
         }, (err) => {

@@ -125,11 +125,6 @@ export class ClassEditPage {
         this.navCtrl.pop();
     }
 
-    closeCamera(){
-        this.isHide = true;
-        this.cameraPreview.stopCamera();
-    }
-
     ionViewWillLeave() {
         this.isHide = true;
         this.cameraPreview.stopCamera();
