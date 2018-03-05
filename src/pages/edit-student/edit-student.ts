@@ -19,7 +19,7 @@ export class EditStudentPage {
 
     public student: any;
     public class: any;
-    public profilPicture = null;
+    public profilPicture: string;
     public picturePreview = "";
     public isHide : boolean;
     public pictureOpts: CameraPreviewPictureOptions;
@@ -28,6 +28,7 @@ export class EditStudentPage {
         this.student = this.navParams.get("student");
         this.class = this.navParams.get("class");
         this.isHide = true;
+        this.profilPicture = null;
     }
 
     addStudentMail() {
@@ -98,7 +99,7 @@ export class EditStudentPage {
         this.cameraPreview.takePicture(this.pictureOpts).then((imageData) =>
         {
             this.picturePreview = "data:image/png;base64," + imageData;
-            this.profilPicture = [this.picturePreview, imageData];
+            this.profilPicture = this.picturePreview;
             this.pushPicture();
             this.isHide = true;
             this.cameraPreview.stopCamera();

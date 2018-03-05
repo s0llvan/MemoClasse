@@ -27,7 +27,7 @@ export class SelectImagesPage {
 
         for(var i = 0; i< this.student.pictures.length;i++)
         {
-            this.picturePreview[i] = "data:image/png;base64," + this.student.pictures[i][1];
+            this.picturePreview[i] = this.student.pictures[i];
         }
     }
 

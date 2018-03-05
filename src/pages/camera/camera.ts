@@ -102,7 +102,7 @@ export class CameraPage {
         for(let pics of this.student.pictures) {
             if(pics != null)
             {
-                if (pics[2] == this.dateObj.getUTCDate()+"/"+this.dateObj.getUTCMonth()+"/"+this.dateObj.getUTCFullYear()) {
+                if (pics[1] == this.dateObj.getUTCDate()+"/"+this.dateObj.getUTCMonth()+"/"+this.dateObj.getUTCFullYear()) {
                     this.pictures[count] = pics;
                     count++;
                 }
