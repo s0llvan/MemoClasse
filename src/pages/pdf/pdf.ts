@@ -136,7 +136,7 @@
               {
                    if(this.selections[j].pictures[k] == i)
                    {
-                     this.docDefinition.content.push({ image: 'data:image/png;base64,' + this.student.pictures[i][1], width: 400, margin:[50,100,0,0],pageBreak: 'after' },);
+                     this.docDefinition.content.push({ image: this.student.pictures[i], width: 400, margin:[50,100,0,0],pageBreak: 'after' },);
                    }
               }
             }

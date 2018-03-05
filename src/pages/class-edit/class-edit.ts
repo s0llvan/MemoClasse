@@ -18,7 +18,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 export class ClassEditPage {
 
     public class: any;
-    public profilPicture = null;
+    public profilPicture = "null";
     public picturePreview = "";
     public isHide : boolean;
     public pictureOpts: CameraPreviewPictureOptions;
@@ -102,7 +102,7 @@ export class ClassEditPage {
         this.cameraPreview.takePicture(this.pictureOpts).then((imageData) =>
         {
             this.picturePreview = "data:image/png;base64," + imageData;
-            this.profilPicture = [this.picturePreview, imageData];
+            this.profilPicture = this.picturePreview;
             this.pushPicture();
             this.isHide = true;
             this.cameraPreview.stopCamera();
@@ -131,7 +131,7 @@ export class ClassEditPage {
     }
 
     searchPicture(){
-        if(this.class.profilPicture[0] != null){
+        if(this.class.profilPicture != null){
             this.profilPicture = this.class.profilPicture;
         }
         return this.profilPicture;

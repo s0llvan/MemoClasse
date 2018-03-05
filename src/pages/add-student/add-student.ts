@@ -23,8 +23,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 export class AddStudentPage {
 
     public class: any;
-    public student = { id: 0, firstname:null, lastname:null, mails: [], pictures: [], profilPicture: String };
-    public profilPicture = null;
+    public student = { id: 0, firstname:null, lastname:null, mails: [], pictures: [], profilPicture: null };
+    public profilPicture : string;
     public picturePreview = "";
     public isHide : boolean;
     public pictureOpts: CameraPreviewPictureOptions;
@@ -93,7 +93,7 @@ export class AddStudentPage {
         this.cameraPreview.takePicture(this.pictureOpts).then((imageData) =>
         {
             this.picturePreview = "data:image/png;base64," + imageData;
-            this.profilPicture = [this.picturePreview, imageData];
+            this.profilPicture = this.picturePreview;
             this.pushPicture();
             this.isHide = true;
             this.cameraPreview.stopCamera();

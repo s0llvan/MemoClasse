@@ -74,7 +74,7 @@ export class CameraPage {
         this.cameraPreview.takePicture(this.pictureOpts).then((imageData) =>
         {
             this.picturePreview[this.position] = "data:image/png;base64," + imageData;
-            this.pictures[this.position] = [this.picturePreview[this.position], imageData, this.date];
+            this.pictures[this.position] = [this.picturePreview[this.position], this.date];
             this.pushPicture();
             this.isHide = true;
             this.cameraPreview.stopCamera();
