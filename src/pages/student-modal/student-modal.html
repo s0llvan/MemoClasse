@@ -16,8 +16,8 @@
     <ion-list>
         <ion-item>
             <ion-avatar item-start>
-                <img *ngIf="student.profilPicture[0] == null" src="assets/imgs/eleve.svg" alt="Student default logo"/>
-                <img *ngIf="student.profilPicture[0] != null" [src]="student.profilPicture[0]" alt="Student default logo"/>
+                <img *ngIf="student.profilPicture == null" src="assets/imgs/eleve.svg" alt="Student default logo"/>
+                <img *ngIf="student.profilPicture != null" [src]="student.profilPicture[0]" alt="Student default logo"/>
             </ion-avatar>
             <h2>{{ student.firstname + " " + student.lastname }}</h2>
             <p>{{ student.pictures.length }} photos</p>
