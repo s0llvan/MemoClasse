@@ -4,8 +4,8 @@
             <ion-icon name="menu"></ion-icon>
         </button>
 
-        <img src="assets/imgs/admin.svg" class="mode_icon" float-end *ngIf="authentificationProvider.isAdmin()"/>
-        <img src="assets/imgs/non_admin.svg" class="mode_icon" float-end *ngIf="!authentificationProvider.isAdmin()"/>
+        <img src="assets/imgs/admin.svg" class="mode_icon" float-end alt="Teacher icon" *ngIf="authentificationProvider.isAdmin()"/>
+        <img src="assets/imgs/non_admin.svg" class="mode_icon" float-end alt="Student icon" *ngIf="!authentificationProvider.isAdmin()"/>
         <ion-title style="line-height:45px;">
             MémoClasse - {{ class.name }}
         </ion-title>
@@ -46,4 +46,4 @@
         </button>
     </ion-fab>
 </ion-content>
-<img src="assets/imgs/buisson.svg" id="grass" *ngIf="!authentificationProvider.isAdmin()"/>
+<img src="assets/imgs/buisson.svg" id="grass" *ngIf="!authentificationProvider.isAdmin()" alt="Grass"/>

@@ -3,8 +3,8 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <img src="assets/imgs/admin.svg" class="mode_icon" float-end *ngIf="authentificationProvider.isAdmin()"/>
-        <img src="assets/imgs/non_admin.svg" class="mode_icon" float-end *ngIf="!authentificationProvider.isAdmin()"/>
+        <img src="assets/imgs/admin.svg" class="mode_icon" alt="Teacher icon" float-end *ngIf="authentificationProvider.isAdmin()"/>
+        <img src="assets/imgs/non_admin.svg" class="mode_icon" alt="Student icon" float-end *ngIf="!authentificationProvider.isAdmin()"/>
         <ion-title>
             MémoClasse
         </ion-title>
@@ -39,4 +39,4 @@
         </ion-row>
     </ion-grid>
 </ion-content>
-<img src="assets/imgs/buisson.svg" id="grass" *ngIf="!authentificationProvider.isAdmin()"/>
+<img src="assets/imgs/buisson.svg" id="grass" *ngIf="!authentificationProvider.isAdmin()" alt="Grass"/>
