@@ -87,9 +87,9 @@ export class CameraPage {
     pushPicture() {
 
         this.student.pictures.push(this.pictures[this.position]);
+        this.dataProvider.updateStudent(this.student);
 
         let toast;
-        this.dataProvider.updateStudent(this.student);
         toast = this.toastCtrl.create({
             message: 'Photographies enregistrées',
             duration: 3000
