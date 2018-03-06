@@ -35,6 +35,13 @@ export class CameraPage {
         this.student = navParams.get("student");
         this.isHide = true;
         this.searchLastPictures();
+
+        let toast;
+        toast = this.toastCtrl.create({
+            message: "azertyuio  "+this.student.id,
+            duration: 3000
+        });
+        toast.present(); 
     }
 
     startCamera(position) {
@@ -87,9 +94,9 @@ export class CameraPage {
     pushPicture() {
 
         this.student.pictures.push(this.pictures[this.position]);
+        this.dataProvider.updateStudent(this.student);
 
         let toast;
-        this.dataProvider.updateStudent(this.student);
         toast = this.toastCtrl.create({
             message: 'Photographies enregistrées',
             duration: 3000
