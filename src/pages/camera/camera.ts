@@ -121,4 +121,9 @@ export class CameraPage {
         this.isHide = true;
         this.cameraPreview.stopCamera();
     }
+
+    closeCamera(){
+        this.isHide = true;
+        this.cameraPreview.stopCamera();
+    }
 }

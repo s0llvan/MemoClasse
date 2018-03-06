@@ -137,4 +137,9 @@ export class ClassEditPage {
         }
         return this.profilPicture;
     }
+
+    closeCamera(){
+        this.isHide = true;
+        this.cameraPreview.stopCamera();
+    }
 }
