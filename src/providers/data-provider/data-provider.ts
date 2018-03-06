@@ -47,6 +47,7 @@ export class DataProvider {
         this.events.publish('class:updated', this.data);
 
         this.saveData();
+
     }
 
     updateClass(_class) {
@@ -62,9 +63,7 @@ export class DataProvider {
     deleteClass(_class) {
         let classIndex = this.getClassById(_class.id);
         this.data.splice(classIndex, 1);
-
         this.events.publish('class:updated', this.data);
-
         this.saveData();
     }
 
@@ -72,10 +71,21 @@ export class DataProvider {
         student.id = this.getLastStudentId() + 1;
         student.pictures = [];
         student.class = _class.name;
-
-        _class.students.push(student);
-
-        this.saveData();
+        this.storage.get('data').then((val) => {
+            if(val == null){
+                this.data = [];
+            }
+            else {
+                this.data = JSON.parse(val);
+                this.data.forEach((oneClass) => {
+                    if(oneClass.id == _class.id) {
+                        oneClass.students.push(student);
+                        _class.students.push(student);
+                        this.saveData();
+                    }
+                });
+            }
+        });
     }
 
     updateStudent(student) {
