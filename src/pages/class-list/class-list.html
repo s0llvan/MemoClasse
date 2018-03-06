@@ -27,8 +27,8 @@
             <ion-col col-12 *ngFor="let class of classList;">
                 <div [class]="authentificationProvider.isAdmin() ? 'class classNotCloud row' : 'class classCloud row'" (click)="selectClass(class)">
                     <div class="fullIcon" col-3>
-                        <img *ngIf="class.profilPicture == null" src="assets/imgs/icon_liste_eleve.svg" alt="Class default logo"/>
-                        <img *ngIf="class.profilPicture != null" [src]="class.profilPicture" alt="Class logo"/>
+                        <img *ngIf="class.profilPicture != null" class="class_icon" [src]="class.profilPicture" alt="Class logo"/>
+                        <img *ngIf="class.profilPicture == null" class="class_icon" src="assets/imgs/icon_liste_eleve.svg" alt="Class default logo"/>
                     </div>
                     <div class="name" text-center col-9>
                         <h2>{{ class.name }}</h2>
