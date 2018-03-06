@@ -35,13 +35,6 @@ export class CameraPage {
         this.student = navParams.get("student");
         this.isHide = true;
         this.searchLastPictures();
-
-        let toast;
-        toast = this.toastCtrl.create({
-            message: "azertyuio  "+this.student.id,
-            duration: 3000
-        });
-        toast.present(); 
     }
 
     startCamera(position) {

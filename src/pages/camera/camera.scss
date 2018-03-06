@@ -47,7 +47,7 @@ page-camera {
     #back {
         z-index: 3;
         width: 100%;
-        position: absolute;
+        position: fixed;
         left: 0px;
         top: 0px;
         height: 15%;
@@ -59,7 +59,7 @@ page-camera {
     #take_picture {
         z-index: 3;
         width: 100%;
-        position: absolute;
+        position: fixed;
         left: 0px;
         bottom: 0px;
         height: 15%;
