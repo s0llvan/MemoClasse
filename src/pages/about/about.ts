@@ -22,4 +22,8 @@ export class AboutPage {
     console.log('ionViewDidLoad AboutPage');
   }
 
+  close() {
+        this.navCtrl.pop();
+    }
+
 }
