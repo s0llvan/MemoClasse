@@ -15,18 +15,18 @@ export class HelpPage {
     slides = [
         {
             title: "Bienvenu sur MémoClasse !",
-            description: "The <b>Ionic Component Documentation</b> showcases a number of useful components that are included out of the box with Ionic.",
+            description: "Faites sortir les créations des enfants des murs de l'école",
             image: "assets/imgs/icon.png",
         },
         {
-            title: "What is Ionic?",
-            description: "<b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.",
-            image: "assets/img/ica-slidebox-img-2.png",
+            title: "Comment fonctionne MémoClasse?",
+            description: "<b>Dans la partie élève,</b><p>ils pourront prendre des photos de leurs créations.</p>",
+            image: "assets/imgs/non_admin.svg",
         },
         {
-            title: "What is Ionic Cloud?",
-            description: "The <b>Ionic Cloud</b> is a cloud platform for managing and scaling Ionic apps with integrated services like push notifications, native builds, user auth, and live updating.",
-            image: "assets/img/ica-slidebox-img-3.png",
+            title: "Comment fonctionne MémoClasse?",
+            description: "<b>Dans la partie administration,</b><p>vous pourrez, gérer la création et modification des classes et élèves, générer des mails à envoyer au parents contenant les créations des enfants.</p><p>Pour vous connecter le mot de passe est l'année courante, donc :"+(new Date()).getUTCFullYear()+".</p>",
+            image: "assets/imgs/admin.svg",
         }
     ];
 
