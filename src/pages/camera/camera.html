@@ -3,7 +3,7 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <img src="assets/imgs/non_admin.svg" class="mode_icon" float-end/>
+        <img src="assets/imgs/non_admin.svg" class="mode_icon" alt="Student icon" float-end/>
 		<ion-title>
 			MémoClasse - {{ student.firstname + " " + student.lastname }}
 		</ion-title>
@@ -27,4 +27,4 @@
     </ion-grid>
     <button id="take_picture" ion-button (click)="takePicture()" *ngIf="isHide == false"><img class="icon_photo" src="assets/imgs/photo.svg" alt="Photo"/></button>
 </ion-content>
-<img src="assets/imgs/buisson.svg" id="grass" [hidden]="!isHide"/>
+<img src="assets/imgs/buisson.svg" id="grass" [hidden]="!isHide" alt="grass picture"/>
