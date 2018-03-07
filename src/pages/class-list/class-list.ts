@@ -6,6 +6,7 @@ import { StudentListPage } from "../student-list/student-list";
 import { ModalController } from 'ionic-angular';
 import { ClassAddPage } from "../class-add/class-add";
 import { AuthentificationProvider } from '../../providers/authentification/authentification';
+import { HelpPage } from "../help/help";
 
 @IonicPage()
 @Component({
@@ -22,7 +23,11 @@ export class ClassListPage {
 
         this.events.subscribe('class:updated', (classList) => {
             this.classList = classList;
-        });        
+        });
+
+        if(this.classList.length <= 0) {
+            this.navCtrl.push(HelpPage);
+        }
     }
 
     selectClass(_class) {

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, NavController } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
@@ -29,6 +29,7 @@ import { StudentListPage } from '../pages/student-list/student-list';
 import { ClassAddPage } from '../pages/class-add/class-add';
 import { ClassEditPage } from '../pages/class-edit/class-edit';
 import { AboutPage } from '../pages/about/about';
+import { HelpPage } from '../pages/help/help';
 
 @NgModule({
     declarations: [
@@ -44,7 +45,8 @@ import { AboutPage } from '../pages/about/about';
         StudentListPage,
         ClassAddPage,
         ClassEditPage,
-        AboutPage
+        AboutPage,
+        HelpPage
     ],
     imports: [
         IonicStorageModule.forRoot({
@@ -70,7 +72,8 @@ import { AboutPage } from '../pages/about/about';
         StudentListPage,
         ClassAddPage,
         ClassEditPage,
-        AboutPage
+        AboutPage,
+        HelpPage
     ],
     providers: [
         StatusBar,
