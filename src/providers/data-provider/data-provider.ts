@@ -15,14 +15,6 @@ export class DataProvider {
     constructor(public events: Events, private storage: Storage, public platform: Platform) {
         if (this.platform.is('mobile')) {
             this.initializeData();
-        } else {
-            for(let u = 1;u < 9;u++) {
-                this.data.push({ id: u, name: "Classe " + u, students: [] });
-
-                for(let i = 1;i < 17;i++) {
-                    this.data[u-1].students.push({ id: u + "" + i, firstname: "Prenom " + u + "" + i, lastname: "Nom " + u + "" + i, mails: ["mail@domain.com","mail2@domain.com"], pictures: [] });
-                }
-            }
         }
     }
 

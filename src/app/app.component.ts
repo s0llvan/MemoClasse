@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ClassListPage } from '../pages/class-list/class-list';
 import { AboutPage } from '../pages/about/about';
+import { HelpPage } from '../pages/help/help';
 
 import { DataProvider } from '../providers/data-provider/data-provider';
 import { AndroidFullScreen } from '@ionic-native/android-full-screen';
@@ -35,7 +36,7 @@ import { PincodeController } from  'ionic2-pincode-input/dist/pincode'
         this.pages = [
             { title: 'Accueil', component: ClassListPage, icon: "home" },
             { title: 'Administration', component: null, icon: "lock" },
-            { title: 'Options', component: null, icon: "settings" },
+            { title: 'Aide', component: HelpPage, icon: "help" },
         ];
 
         this.footerPages = [
@@ -45,7 +46,11 @@ import { PincodeController } from  'ionic2-pincode-input/dist/pincode'
 
     openPage(page) {
         if(page.component != null) {
-            this.nav.setRoot(page.component);
+            if(page.title == "Aide") {
+                this.nav.push(page.component);
+            } else {
+                this.nav.setRoot(page.component);
+            }
         } else  {
             if(page.title == "Administration" || page.title == "Administration (Quitter)") {
                 this.authAdmin();

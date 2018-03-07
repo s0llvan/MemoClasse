@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="dawin.app.memoclasse" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>MémoClasse</name>
     <description>MémoClasse is an application which makes life easier for teachers. Children taking pictures of their work and MemoClasse send them to their parents !</description>
-    <author email="" href="#">Pierre WROBLEWSKI / Evan SEVIN / Sullivan ROIRAND / Rémy TORRES / Antoine DETHIER</author>
+    <author email="" href="#">Pierre WROBLEWSKI / Evan SEVIN / Rémy TORRES / Antoine DETHIER</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
