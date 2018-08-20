@@ -1,25 +1,19 @@
 # MémoClasse
 
-[logo]:http://oi64.tinypic.com/eqthrq.jpg "Logo MemoClasse"
-
-[![pipeline status](https://gitlab-ce.iut.u-bordeaux.fr/photoEcole/MemoClasse/badges/master/pipeline.svg)](https://gitlab-ce.iut.u-bordeaux.fr/photoEcole/MemoClasse/commits/master)
+![Image of Logo](https://s33.postimg.cc/65ik0qs5r/eqthrq.jpg)
 
 MémoClasse is an application which makes life easier for teachers. Children taking pictures of their work and MemoClasse send them to their parents !
 
 ## Application
 
 ### Distributions
-- Google Play Store
+- [Google Play Store](https://play.google.com/store/apps/details?id=dawin.app.memoclasse)
 
 ### Features
 - [x] Student management
-- [ ] Class management
-- [ ] Group management
-- [ ] Activity management
-- [ ] Preview, edit & send PDF reports
-- [ ] Create your own avatar
-- [ ] Take & edit photo
-- [ ] Administration locking
+- [x] Class management
+- [x] Preview, edit & send PDF reports
+- [x] Take & edit photo
 
 ## Development
 
@@ -31,11 +25,11 @@ MémoClasse is an application which makes life easier for teachers. Children tak
 ### Getting Started
 1.Clone the repository
 
-`git clone https://gitlab-ce.iut.u-bordeaux.fr/photoEcole/MemoClasse.git`
+`git clone https://github.com/s0llvan/MemoClasse`
 
 2.Install dependencies
 
-`npm install`
+`cd MemoClasse && npm install`
 
 3.Launch local web development sever
 
